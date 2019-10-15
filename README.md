@@ -1,2 +1,2 @@
 # mobile-app
-Best mobile Game ever created
+Best mobile game ever created
