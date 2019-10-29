@@ -2,6 +2,8 @@ package Server;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
@@ -9,11 +11,12 @@ import java.util.Scanner;
 public class Server {
 
 	public static void main(String[] args) {
-		Server server = new Server(8001);
+		Server server = new Server(8000);
 		server.startListening();
 	}
 
 	private int port;
+	private String chat = "";
 
 	public Server(int port) {
 		this.port = port;
@@ -31,13 +34,17 @@ public class Server {
 						ServerSocket serverSocket = new ServerSocket(port);
 						Socket remoteClientSocket = serverSocket.accept();
 						
-						Scanner s = new Scanner(
-								new BufferedReader(new InputStreamReader(remoteClientSocket.getInputStream())));
-						if (s.hasNextLine()) {
-							System.out.println(s.nextLine());
+						Scanner s = new Scanner(new BufferedReader(new InputStreamReader(remoteClientSocket.getInputStream())));
+						if (s.hasNextLine()) {							
+							System.out.println(s.nextLine());							
 						}
-	
+						
+						PrintWriter pw = new PrintWriter(new OutputStreamWriter(remoteClientSocket.getOutputStream()));
+						pw.print("hi");
+						pw.flush();
+						
 						s.close();
+						pw.close();						
 						remoteClientSocket.close();
 						serverSocket.close();
 	
