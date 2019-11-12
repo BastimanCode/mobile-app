@@ -1,0 +1,21 @@
+Server
+-POST-/GET-Anfragen
+	POST
+		Gebäudebau
+		Forschung
+		Angriffe
+		Schiffebau
+		Verteidigung
+	GET
+		Gebäudebau
+		Schiffebau
+		Verteidigung
+		Ressourcen
+		
+Client
+-keine Logik
+-Android Studio
+-Retrofit
+
+Datenbank
+-MySQL
