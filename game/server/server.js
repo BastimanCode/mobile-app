@@ -12,13 +12,15 @@ var con = mysql.createConnection({
 const hostname = '127.0.0.1';
 const port = 8000;
 
-var body = con.connect(function(err) {
+var body;
+
+con.connect(function(err) {
   if (err) throw err;
-  
+
 	var sql = "SELECT * FROM account JOIN planet WHERE account.id = planet.Account_id";
   con.query(sql, function (err, result) {
   if (err) throw err;
-  return result;
+  body = result;
   });
 });
 

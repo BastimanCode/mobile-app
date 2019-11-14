@@ -23,6 +23,7 @@ const request = http.request(options, function(res) {
         console.log(body[0].username);
         console.log(body[0].password);
         console.log(body[0].name);
+        console.log(body[0].size);
         console.log(body[0].Account_id);
     });
 });
