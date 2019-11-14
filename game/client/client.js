@@ -18,7 +18,12 @@ const request = http.request(options, function(res) {
 
     res.on('end', function(){
         body = JSON.parse(body);
-        console.log(body);
+        console.log(body[0].id);
+        console.log(body[0].email);
+        console.log(body[0].username);
+        console.log(body[0].password);
+        console.log(body[0].name);
+        console.log(body[0].Account_id);
     });
 });
 
