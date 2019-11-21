@@ -39,6 +39,10 @@ public class PopupMenuFragment extends Fragment implements PopupMenu.OnMenuItemC
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.overview:
+                Intent overviewIntent = new Intent(getActivity(), MainActivity.class);
+                startActivity(overviewIntent);
+                return true;
             case R.id.resources:
                 Intent resourcesIntent = new Intent(getActivity(), ResourcesActivity.class);
                 startActivity(resourcesIntent);

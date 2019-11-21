@@ -1,13 +1,22 @@
 const http = require('http');
 
+var url = 'http://127.0.0.1:8000/'
+
+var querytype = '?type=refresh'
+var querytype2 = '?type=attack'
+//'?type=buildings'
+
+var queryplayer = '&playerid=1'
+var queryplanet = '&planetid=1'
+
 const options = {
     hostname: '127.0.0.1',
     port: 8000,
-    path: '/test',
-    method: 'GET'  
+    path: '/',
+    method: 'GET'
 };
-
-const request = http.request(options, function(res) {
+    
+const request = http.request(url + querytype + queryplayer + queryplanet, function(res) {
     console.log('statusCode: ' + res.statusCode);
 
     var body ='';
@@ -18,13 +27,7 @@ const request = http.request(options, function(res) {
 
     res.on('end', function(){
         body = JSON.parse(body);
-        console.log(body[0].id);
-        console.log(body[0].email);
-        console.log(body[0].username);
-        console.log(body[0].password);
-        console.log(body[0].name);
-        console.log(body[0].size);
-        console.log(body[0].Account_id);
+        console.log(body);        
     });
 });
 

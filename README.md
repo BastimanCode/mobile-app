@@ -19,7 +19,7 @@ werden, wenn der Spiel nicht online ist, die Applikation muss also Server basier
 ### Should have:
 - NPCs
 - Forschung
-- Verebsserungen (Truppen/Gebäude)
+- Verbesserungen (Truppen/Gebäude)
 - Verteidigungsanlagen
 - Ansprechenderes Design
 - Einfaches Kampfsystem (ausbalanciert)
