@@ -6,6 +6,8 @@ var querytype = '?type=refresh'
 var querytype2 = '?type=attack'
 //'?type=buildings'
 
+//http://127.0.0.1:8000/?type=refresh&playerid=1&planetid=1
+
 var queryplayer = '&playerid=1'
 var queryplanet = '&planetid=1'
 
