@@ -1,5 +1,5 @@
 module.exports = {
-    refresh(connection, params) {
-        return connection.query("select * from account");
+    refresh(connection, planet) {
+        return connection.query("select * from account where planet.id = " + planet);
     }
 };
