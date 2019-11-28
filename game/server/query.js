@@ -1,20 +1,16 @@
-function refresh(connection, queries) {
-    const queryobject = queries;
-    return connection.query("SELECT * FROM account");
-}
-// "SELECT * FROM account JOIN planet WHERE account.id = planet.Account_id AND planet.id = " + queryobject.planetid
-
 function database(connection, queries){
     const queryobject = queries;
     var string
     switch(queryobject.type){
             case "refresh":
-                string = "SELECT * FROM account";
+                string = "SELECT * FROM account JOIN planet ON account.id = planet.Account_id WHERE account.id = " + queryobject.playerid + " AND planet.id = " + queryobject.planetid;
                 break;
+            case "research":
+                string = "SELECT * FROM forschung WHERE Account_id = " + queryobject.playerid;
+                break; 
     }
     return connection.query(string);
 }
 
-module.exports.refresh = refresh;
 module.exports.database = database;
 

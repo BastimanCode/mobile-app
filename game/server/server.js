@@ -29,7 +29,7 @@ function SetupServer(connection) {
     server = http.createServer(function(request, response) {
     const queryObject = url.parse(request.url,true).query;
             
-    queries.refresh(connection, queryObject)
+    queries.database(connection, queryObject)
     .then(e => {
       console.log(e);
       response.writeHead(200, {'Content-Type': 'application/json'})
