@@ -71,45 +71,4 @@ public class PopupMenuFragment extends Fragment implements PopupMenu.OnMenuItemC
                 return false;
         }
     }
-
-/*    public void showPopupShort() {
-        View menuItemView = getView().findViewById(R.id.menu_button);
-        PopupMenu popupMenu = new PopupMenu(getActivity(), menuItemView);
-        popupMenu.getMenuInflater().inflate(R.menu.navigation_menu, popupMenu.getMenu());
-
-        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.resources:
-                        Intent resourcesIntent = new Intent(getActivity(), ResourcesActivity.class);
-                        startActivity(resourcesIntent);
-                        return true;
-                    case R.id.buildings:
-                        Intent buildingsIntent = new Intent(getActivity(), BuildingsActivity.class);
-                        startActivity(buildingsIntent);
-                        return true;
-                    case R.id.research:
-                        Intent researchIntent = new Intent(getActivity(), ResearchActivity.class);
-                        startActivity(researchIntent);
-                        return true;
-                    case R.id.units:
-                        Intent unitsIntent = new Intent(getActivity(), UnitsActivity.class);
-                        startActivity(unitsIntent);
-                        return true;
-                    case R.id.fleets:
-                        Intent fleetsIntent = new Intent(getActivity(), FleetsActivity.class);
-                        startActivity(fleetsIntent);
-                        return true;
-                    case R.id.galaxy:
-                        Intent galaxyIntent = new Intent(getActivity(), GalaxyActivity.class);
-                        startActivity(galaxyIntent);
-                        return true;
-                    default:
-                        return false;
-                }
-            }
-        });
-        popupMenu.show();
-    }*/
 }

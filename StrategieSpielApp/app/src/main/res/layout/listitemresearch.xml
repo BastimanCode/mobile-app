@@ -5,8 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_marginRight="40dp"
     android:layout_marginLeft="20dp"
-    android:layout_marginTop="20dp"
-
+    android:layout_marginBottom="20dp"
     android:id="@+id/listitemresearch">
 
     <ImageView
@@ -19,9 +18,13 @@
         android:id="@+id/headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:textSize="20sp"
-        android:text="Überschrift" />
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_toEndOf="@+id/researchimage"
+        android:layout_toRightOf="@+id/researchimage"
+        android:text="Überschrift"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/level"
@@ -29,7 +32,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
         android:textSize="20sp"
         android:text="Stufe" />
 
@@ -45,9 +49,10 @@
         android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/headline"
+        android:layout_marginLeft="5dp"
+        android:layout_toEndOf="@+id/researchimage"
         android:layout_toRightOf="@+id/researchimage"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="20dp"
-        android:textSize="15sp"
-        android:text="Kurzbeschreibung" />
+        android:text="Kurzbeschreibung"
+        android:textSize="15sp" />
 </RelativeLayout>

@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import java.util.ArrayList;
@@ -13,7 +15,7 @@ public class ResearchActivity extends AppCompatActivity {
     private ArrayList<String> mHeadlines = new ArrayList<>();
     private ArrayList<String> mLevels = new ArrayList<>();
     private ArrayList<String> mDescriptions = new ArrayList<>();
-    private ArrayList<String> mImageURLs = new ArrayList<>();
+    private ArrayList<Integer> mImageURLs = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,15 +34,39 @@ public class ResearchActivity extends AppCompatActivity {
         mHeadlines.add("Forschung 1");
         mLevels.add("Stufe: 0");
         mDescriptions.add("Labor bauen");
+        mHeadlines.add("Forschung 1");
+        mLevels.add("Stufe: 0");
+        mDescriptions.add("Labor bauen");
+        mHeadlines.add("Forschung 1");
+        mLevels.add("Stufe: 0");
+        mDescriptions.add("Labor bauen");
+        mHeadlines.add("Forschung 1");
+        mLevels.add("Stufe: 0");
+        mDescriptions.add("Labor bauen");
+        mHeadlines.add("Forschung 1");
+        mLevels.add("Stufe: 0");
+        mDescriptions.add("Labor bauen");
+        mHeadlines.add("Forschung 1");
+        mLevels.add("Stufe: 0");
+        mDescriptions.add("Labor bauen");
+        mHeadlines.add("Forschung 1");
+        mLevels.add("Stufe: 0");
+        mDescriptions.add("Labor bauen");
 
         initImageBitmaps();
     }
 
     private void initImageBitmaps(){
-        mImageURLs.add("https://cdn.pixabay.com/photo/2019/11/07/17/07/universe-4609408_960_720.jpg");
-        mImageURLs.add("https://cdn.pixabay.com/photo/2019/11/07/17/07/universe-4609408_960_720.jpg");
-        mImageURLs.add("https://cdn.pixabay.com/photo/2019/11/07/17/07/universe-4609408_960_720.jpg");
-        mImageURLs.add("https://cdn.pixabay.com/photo/2019/11/07/17/07/universe-4609408_960_720.jpg");
+        mImageURLs.add(R.drawable.abstract1963838_1920);
+        mImageURLs.add(R.drawable.abstract1963838_1920);
+        mImageURLs.add(R.drawable.abstract1963838_1920);
+        mImageURLs.add(R.drawable.abstract1963838_1920);
+        mImageURLs.add(R.drawable.abstract1963838_1920);
+        mImageURLs.add(R.drawable.abstract1963838_1920);
+        mImageURLs.add(R.drawable.abstract1963838_1920);
+        mImageURLs.add(R.drawable.abstract1963838_1920);
+        mImageURLs.add(R.drawable.abstract1963838_1920);
+        mImageURLs.add(R.drawable.abstract1963838_1920);
 
         initRecyclerView();
     }
