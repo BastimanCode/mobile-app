@@ -1,14 +1,17 @@
 <resources>
     <string name="app_name">StrategieSpielApp</string>
-    <string name="resource1">Resource 1</string>
-    <string name="resource2">Resource 2</string>
-    <string name="resource3">Resource 3</string>
+    <string name="resource1">Baustoffe</string>
+    <string name="resource2">Elektronik</string>
+    <string name="resource3">Treibstoff</string>
     <string name="resources">Ressourcen</string>
     <string name="buildings">Gebäude</string>
     <string name="research">Forschung</string>
     <string name="units">Einheiten</string>
     <string name="fleets">Flotten</string>
     <string name="galaxy">Galaxie</string>
+    <string name="overview">Übersicht</string>
+    <string name="level">Stufe</string>
+    <string name="description">Beschreibung</string>
     <string-array name="menu">
         <item>Ressourcen</item>
         <item>Gebäude</item>
@@ -21,9 +24,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="overview">Übersicht</string>
-    <string name="textview">TextView</string>
-    <string name="todo">TODO</string>
-    <string name="todo">TODO</string>
-    <string name="todo">TODO</string>
+    <string name="textview">Text</string>
+    <string name="researchImage">Forschungsbild</string>
+
 </resources>

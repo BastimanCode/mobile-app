@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class ResearchActivity extends AppCompatActivity {
 
     private ArrayList<String> mHeadlines = new ArrayList<>();
-    private ArrayList<String> mLevels = new ArrayList<>();
+    private ArrayList<Integer> mLevels = new ArrayList<>();
     private ArrayList<String> mDescriptions = new ArrayList<>();
     private ArrayList<Integer> mImageURLs = new ArrayList<>();
 
@@ -21,34 +21,34 @@ public class ResearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_research);
 
         mHeadlines.add("Forschung 1");
-        mLevels.add("Stufe: 0");
+        mLevels.add(0);
         mDescriptions.add("Labor bauen");
         mHeadlines.add("Forschung 1");
-        mLevels.add("Stufe: 0");
+        mLevels.add(0);
         mDescriptions.add("Labor bauen");
         mHeadlines.add("Forschung 1");
-        mLevels.add("Stufe: 0");
+        mLevels.add(0);
         mDescriptions.add("Labor bauen");
         mHeadlines.add("Forschung 1");
-        mLevels.add("Stufe: 0");
+        mLevels.add(0);
         mDescriptions.add("Labor bauen");
         mHeadlines.add("Forschung 1");
-        mLevels.add("Stufe: 0");
+        mLevels.add(0);
         mDescriptions.add("Labor bauen");
         mHeadlines.add("Forschung 1");
-        mLevels.add("Stufe: 0");
+        mLevels.add(0);
         mDescriptions.add("Labor bauen");
         mHeadlines.add("Forschung 1");
-        mLevels.add("Stufe: 0");
+        mLevels.add(0);
         mDescriptions.add("Labor bauen");
         mHeadlines.add("Forschung 1");
-        mLevels.add("Stufe: 0");
+        mLevels.add(0);
         mDescriptions.add("Labor bauen");
         mHeadlines.add("Forschung 1");
-        mLevels.add("Stufe: 0");
+        mLevels.add(0);
         mDescriptions.add("Labor bauen");
         mHeadlines.add("Forschung 1");
-        mLevels.add("Stufe: 0");
+        mLevels.add(0);
         mDescriptions.add("Labor bauen");
 
         initImageBitmaps();

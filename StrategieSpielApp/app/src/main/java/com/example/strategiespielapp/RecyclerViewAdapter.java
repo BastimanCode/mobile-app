@@ -23,9 +23,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<Integer> mImages = new ArrayList<>();
     private ArrayList<String> mHeadlines = new ArrayList<>();
     private ArrayList<String> mDescriptions = new ArrayList<>();
-    private ArrayList<String> mLevels = new ArrayList<>();
+    private ArrayList<Integer> mLevels = new ArrayList<>();
 
-    public RecyclerViewAdapter(Context mContext, ArrayList<Integer> mImages, ArrayList<String> mHeadlines, ArrayList<String> mDescriptions, ArrayList<String> mLevels) {
+    public RecyclerViewAdapter(Context mContext, ArrayList<Integer> mImages, ArrayList<String> mHeadlines, ArrayList<String> mDescriptions, ArrayList<Integer> mLevels) {
         this.mContext = mContext;
         this.mImages = mImages;
         this.mHeadlines = mHeadlines;
@@ -47,7 +47,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         holder.headline.setText(mHeadlines.get(position));
         holder.description.setText(mDescriptions.get(position));
-        holder.level.setText(mLevels.get(position));
+        holder.level.setText("Stufe: " + mLevels.get(position));
+
+        //holder.resource1cost.setText((100 + (mLevels.get(position) * mLevels.get(position) * 100)));
+        //holder.resource2cost.setText((200 + (mLevels.get(position) * mLevels.get(position) * 200)));
+        //holder.resource3cost.setText((100 + (mLevels.get(position) * mLevels.get(position) * 100)));
+
+        holder.resource1cost.setText("10000");
+        holder.resource2cost.setText("20000");
+        holder.resource3cost.setText("10000");
+
+        holder.resourceImage1.setImageResource(R.drawable.brick1980_1920);
+        holder.resourceImage2.setImageResource(R.drawable.processor2217771_1920);
+        holder.resourceImage3.setImageResource(R.drawable.oil696579_1920);
 
         holder.research.setText("Erforschen");
         holder.research.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +84,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         ImageView researchImage;
         RelativeLayout parentlayout;
 
+        TextView resource1cost;
+        TextView resource2cost;
+        TextView resource3cost;
+
+        ImageView resourceImage1;
+        ImageView resourceImage2;
+        ImageView resourceImage3;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             headline = itemView.findViewById(R.id.headline);
@@ -80,6 +100,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             research = itemView.findViewById(R.id.research);
             researchImage = itemView.findViewById(R.id.researchimage);
             parentlayout = itemView.findViewById(R.id.listitemresearch);
+            resource1cost = itemView.findViewById(R.id.resource1cost);
+            resource2cost = itemView.findViewById(R.id.resource2cost);
+            resource3cost = itemView.findViewById(R.id.resource3cost);
+            resourceImage1 = itemView.findViewById(R.id.resource1image);
+            resourceImage2 = itemView.findViewById(R.id.resource2image);
+            resourceImage3 = itemView.findViewById(R.id.resource3image);
         }
     }
 }

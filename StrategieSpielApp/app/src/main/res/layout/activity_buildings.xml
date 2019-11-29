@@ -9,6 +9,7 @@
     <fragment android:name="com.example.strategiespielapp.PopupMenuFragment"
         android:id="@+id/popup_menu_fragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_popup_menufragment"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

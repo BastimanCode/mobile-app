@@ -4,27 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
     <fragment
         android:id="@+id/popup_menu_fragment"
         android:name="com.example.strategiespielapp.PopupMenuFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="-68dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_popup_menufragment" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
         android:text="@string/overview"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/popup_menu_fragment" />
+        app:layout_constraintTop_toBottomOf="@+id/popup_menu_fragment" />
 
     <TextView
         android:id="@+id/textView3"
