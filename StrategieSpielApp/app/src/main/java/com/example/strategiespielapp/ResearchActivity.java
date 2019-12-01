@@ -70,7 +70,7 @@ public class ResearchActivity extends AppCompatActivity {
     }
     private void initRecyclerView(){
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this,mImageURLs, mHeadlines, mDescriptions, mLevels);
+        RecyclerViewAdapterResearch adapter = new RecyclerViewAdapterResearch(this,mImageURLs, mHeadlines, mDescriptions, mLevels);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

@@ -1,23 +1,23 @@
 package com.example.strategiespielapp;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+        import android.view.LayoutInflater;
+        import android.view.View;
+        import android.view.ViewGroup;
+        import android.widget.Button;
+        import android.widget.ImageView;
+        import android.widget.RelativeLayout;
+        import android.widget.TextView;
 
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
+        import androidx.annotation.NonNull;
+        import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+        import java.util.ArrayList;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
+public class RecyclerViewAdapterBuildings extends RecyclerView.Adapter<RecyclerViewAdapterBuildings.ViewHolder>{
 
-    private static final String TAG = "RecyclerViewAdapter";
+    private static final String TAG = "RecyclerViewAdapterBuildings";
 
     private Context mContext;
     private ArrayList<Integer> mImages = new ArrayList<>();
@@ -25,7 +25,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<String> mDescriptions = new ArrayList<>();
     private ArrayList<Integer> mLevels = new ArrayList<>();
 
-    public RecyclerViewAdapter(Context mContext, ArrayList<Integer> mImages, ArrayList<String> mHeadlines, ArrayList<String> mDescriptions, ArrayList<Integer> mLevels) {
+    public RecyclerViewAdapterBuildings(Context mContext, ArrayList<Integer> mImages, ArrayList<String> mHeadlines, ArrayList<String> mDescriptions, ArrayList<Integer> mLevels) {
         this.mContext = mContext;
         this.mImages = mImages;
         this.mHeadlines = mHeadlines;
@@ -36,16 +36,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.listitemresearch,parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.buildings_listitem,parent, false);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.researchImage.setImageResource(mImages.get(position));
+        holder.buildingImage.setImageResource(mImages.get(position));
 
-        holder.headline.setText(mHeadlines.get(position));
+        holder.headline.setText(mHeadlines.get(position) + position);
         holder.description.setText(mDescriptions.get(position));
         holder.level.setText("Stufe: " + mLevels.get(position));
 
@@ -61,8 +61,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.resourceImage2.setImageResource(R.drawable.processor2217771_1920);
         holder.resourceImage3.setImageResource(R.drawable.oil696579_1920);
 
-        holder.research.setText("Erforschen");
-        holder.research.setOnClickListener(new View.OnClickListener() {
+        holder.build.setText("Erforschen");
+        holder.build.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //HTTP-Request an Server zum Erforschen
@@ -80,8 +80,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView headline;
         TextView description;
         TextView level;
-        Button research;
-        ImageView researchImage;
+        Button build;
+        ImageView buildingImage;
         RelativeLayout parentlayout;
 
         TextView resource1cost;
@@ -97,9 +97,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             headline = itemView.findViewById(R.id.headline);
             description = itemView.findViewById(R.id.description);
             level = itemView.findViewById(R.id.level);
-            research = itemView.findViewById(R.id.research);
-            researchImage = itemView.findViewById(R.id.researchimage);
-            parentlayout = itemView.findViewById(R.id.listitemresearch);
+            build = itemView.findViewById(R.id.build);
+            buildingImage = itemView.findViewById(R.id.buildingImage);
+            parentlayout = itemView.findViewById(R.id.listitembuildings);
             resource1cost = itemView.findViewById(R.id.resource1cost);
             resource2cost = itemView.findViewById(R.id.resource2cost);
             resource3cost = itemView.findViewById(R.id.resource3cost);
@@ -109,3 +109,4 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
     }
 }
+

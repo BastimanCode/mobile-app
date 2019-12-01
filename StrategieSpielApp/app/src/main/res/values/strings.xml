@@ -12,6 +12,10 @@
     <string name="overview">Übersicht</string>
     <string name="level">Stufe</string>
     <string name="description">Beschreibung</string>
+    <string name="textview">Text</string>
+    <string name="researchImage">Forschungsbild</string>
+    <string name="buildingsImage">Gebäudebild</string>
+    <string name="build">bauen</string>
     <string-array name="menu">
         <item>Ressourcen</item>
         <item>Gebäude</item>
@@ -24,7 +28,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="textview">Text</string>
-    <string name="researchImage">Forschungsbild</string>
+    <string name="headline">Überschrift</string>
 
 </resources>
