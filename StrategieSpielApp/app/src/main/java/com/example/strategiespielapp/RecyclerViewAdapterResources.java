@@ -1,23 +1,23 @@
 package com.example.strategiespielapp;
 
 import android.content.Context;
-        import android.view.LayoutInflater;
-        import android.view.View;
-        import android.view.ViewGroup;
-        import android.widget.Button;
-        import android.widget.ImageView;
-        import android.widget.RelativeLayout;
-        import android.widget.TextView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 
-        import androidx.annotation.NonNull;
-        import androidx.recyclerview.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
-        import java.util.ArrayList;
+import java.util.ArrayList;
 
-public class RecyclerViewAdapterBuildings extends RecyclerView.Adapter<RecyclerViewAdapterBuildings.ViewHolder>{
+public class RecyclerViewAdapterResources extends RecyclerView.Adapter<RecyclerViewAdapterResources.ViewHolder>{
 
-    private static final String TAG = "RecyclerViewAdapterBuildings";
+    private static final String TAG = "RecyclerViewAdapterResources";
 
     private Context mContext;
     private ArrayList<Integer> mImages = new ArrayList<>();
@@ -25,7 +25,7 @@ public class RecyclerViewAdapterBuildings extends RecyclerView.Adapter<RecyclerV
     private ArrayList<String> mDescriptions = new ArrayList<>();
     private ArrayList<Integer> mLevels = new ArrayList<>();
 
-    public RecyclerViewAdapterBuildings(Context mContext, ArrayList<Integer> mImages, ArrayList<String> mHeadlines, ArrayList<String> mDescriptions, ArrayList<Integer> mLevels) {
+    public RecyclerViewAdapterResources(Context mContext, ArrayList<Integer> mImages, ArrayList<String> mHeadlines, ArrayList<String> mDescriptions, ArrayList<Integer> mLevels) {
         this.mContext = mContext;
         this.mImages = mImages;
         this.mHeadlines = mHeadlines;
@@ -36,14 +36,14 @@ public class RecyclerViewAdapterBuildings extends RecyclerView.Adapter<RecyclerV
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.buildings_listitem,parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.resources_listitem,parent, false);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.buildingImage.setImageResource(mImages.get(position));
+        holder.resourceImage.setImageResource(mImages.get(position));
 
         holder.headline.setText(mHeadlines.get(position) + position);
         holder.description.setText(mDescriptions.get(position));
@@ -81,7 +81,7 @@ public class RecyclerViewAdapterBuildings extends RecyclerView.Adapter<RecyclerV
         TextView description;
         TextView level;
         Button build;
-        ImageView buildingImage;
+        ImageView resourceImage;
         RelativeLayout parentlayout;
 
         TextView resource1cost;
@@ -98,8 +98,8 @@ public class RecyclerViewAdapterBuildings extends RecyclerView.Adapter<RecyclerV
             description = itemView.findViewById(R.id.description);
             level = itemView.findViewById(R.id.level);
             build = itemView.findViewById(R.id.build);
-            buildingImage = itemView.findViewById(R.id.buildingImage);
-            parentlayout = itemView.findViewById(R.id.listitembuildings);
+            resourceImage = itemView.findViewById(R.id.resourceImage);
+            parentlayout = itemView.findViewById(R.id.listitemresources);
             resource1cost = itemView.findViewById(R.id.resource1cost);
             resource2cost = itemView.findViewById(R.id.resource2cost);
             resource3cost = itemView.findViewById(R.id.resource3cost);
@@ -109,4 +109,5 @@ public class RecyclerViewAdapterBuildings extends RecyclerView.Adapter<RecyclerV
         }
     }
 }
+
 

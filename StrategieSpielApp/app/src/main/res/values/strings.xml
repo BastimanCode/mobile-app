@@ -16,6 +16,7 @@
     <string name="researchImage">Forschungsbild</string>
     <string name="buildingsImage">Gebäudebild</string>
     <string name="build">bauen</string>
+    <string name="headline">Überschrift</string>
     <string-array name="menu">
         <item>Ressourcen</item>
         <item>Gebäude</item>
@@ -28,6 +29,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="headline">Überschrift</string>
+    <string name="resourcesImage">Minenbild</string>
+
 
 </resources>
