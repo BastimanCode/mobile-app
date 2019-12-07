@@ -28,10 +28,11 @@
         app:layout_constraintTop_toBottomOf="@+id/popup_menu_fragment" />
 
     <TableLayout
-        android:id="@+id/tableLayout"
+        android:id="@+id/planet_overview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/listitemborder"
         android:stretchColumns="*"
@@ -46,7 +47,9 @@
                 android:id="@+id/size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/ov_size" />
+                android:layout_marginLeft="5dp"
+                android:text="@string/ov_size"
+                android:layout_marginStart="5dp" />
 
             <TextView
                 android:id="@+id/a_size"
@@ -63,7 +66,9 @@
                 android:id="@+id/temperature"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/ov_temperature" />
+                android:layout_marginLeft="5dp"
+                android:text="@string/ov_temperature"
+                android:layout_marginStart="5dp" />
 
             <TextView
                 android:id="@+id/a_temperature"
@@ -80,7 +85,9 @@
                 android:id="@+id/position"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/ov_position" />
+                android:layout_marginLeft="5dp"
+                android:text="@string/ov_position"
+                android:layout_marginStart="5dp" />
 
             <TextView
                 android:id="@+id/a_position"
@@ -97,7 +104,9 @@
                 android:id="@+id/points"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/ov_points" />
+                android:layout_marginLeft="5dp"
+                android:text="@string/ov_points"
+                android:layout_marginStart="5dp" />
 
             <TextView
                 android:id="@+id/a_points"
@@ -114,7 +123,10 @@
                 android:id="@+id/user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/ov_user" />
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/ov_user"
+                android:layout_marginStart="5dp" />
 
             <TextView
                 android:id="@+id/a_user"
@@ -125,14 +137,213 @@
     </TableLayout>
 
     <TextView
-        android:id="@+id/textView22"
+        android:id="@+id/under_construction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:layout_marginTop="10dp"
+        android:text="@string/incoming_fleets"
         android:layout_marginLeft="20dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/planet_overview" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/listitemborder"
+        android:paddingBottom="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/under_construction">
+
+        <TextView
+            android:id="@+id/builds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="@string/under_construction"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/shipyard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
+            android:text="@string/shipyard"
+            app:layout_constraintStart_toEndOf="@+id/buildsImage"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/research"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
+            android:text="@string/research"
+            app:layout_constraintStart_toEndOf="@+id/shipyardImage"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/buildsImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:contentDescription="@string/under_construction"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="@+id/builds"
+            app:layout_constraintTop_toBottomOf="@+id/builds"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/shipyardImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:contentDescription="@string/shipyard"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="@+id/shipyard"
+            app:layout_constraintTop_toBottomOf="@+id/shipyard"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/researchImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:contentDescription="@string/research"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="@+id/research"
+            app:layout_constraintTop_toBottomOf="@+id/research"
+            app:srcCompat="@mipmap/ic_launcher" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/incoming_fleets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/incoming_fleets"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <TableLayout
+        android:id="@+id/attacks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/listitemborder"
+        android:stretchColumns="*"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/incoming_fleets">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/a1_player"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_incoming_attacks"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:id="@+id/a1_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/a2_player"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:id="@+id/a2_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/a3_player"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:id="@+id/a3_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/a4_player"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:id="@+id/a4_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/a5_player"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp" />
+
+            <TextView
+                android:id="@+id/a5_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end" />
+        </TableRow>
+    </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

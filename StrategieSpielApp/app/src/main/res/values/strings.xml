@@ -36,6 +36,10 @@
     <string name="ov_points">Punkte:</string>
     <string name="ov_user">Herrscher:</string>
     <string name="planetenname">Planetenname</string>
+    <string name="under_construction">Gebäude</string>
+    <string name="shipyard">Werft</string>
+    <string name="incoming_fleets">Eingehende Flotten:</string>
+    <string name="no_incoming_attacks">Keine eingehenden Angriffe</string>
 
 
 </resources>
