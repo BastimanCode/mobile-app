@@ -6,6 +6,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.util.ArrayList;
 
 public class ResearchActivity extends AppCompatActivity {
@@ -20,7 +23,7 @@ public class ResearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_research);
 
-			HttpGetRequest get = new HttpGetRequest();
+        HttpGetRequest get = new HttpGetRequest();
         get.setUpdateListener(new HttpGetRequest.OnUpdateListener() {
             @Override
             public void onUpdate(String result) {
@@ -29,71 +32,36 @@ public class ResearchActivity extends AppCompatActivity {
                 Forschung forschung = forschungen[0];
 
                 mHeadlines.add("Forschung 1");
-                mLevels.add("Stufe: " + forschung.forschung1);
+                mLevels.add(forschung.forschung1);
                 mDescriptions.add("Labor bauen");
                 mHeadlines.add("Forschung 2");
-                mLevels.add("Stufe: " + forschung.forschung2);
+                mLevels.add(forschung.forschung2);
                 mDescriptions.add("Labor bauen");
                 mHeadlines.add("Forschung 3");
-                mLevels.add("Stufe: " + forschung.forschung3);
+                mLevels.add(forschung.forschung3);
                 mDescriptions.add("Labor bauen");
-							  mHeadlines.add("Forschung 4");
-                mLevels.add("Stufe: " + forschung.forschung1);
+                mHeadlines.add("Forschung 4");
+                mLevels.add(forschung.forschung1);
                 mDescriptions.add("Labor bauen");
                 mHeadlines.add("Forschung 5");
-                mLevels.add("Stufe: " + forschung.forschung2);
+                mLevels.add(forschung.forschung2);
                 mDescriptions.add("Labor bauen");
                 mHeadlines.add("Forschung 6");
-                mLevels.add("Stufe: " + forschung.forschung3);
+                mLevels.add(forschung.forschung3);
                 mDescriptions.add("Labor bauen");
-							  mHeadlines.add("Forschung 7");
-                mLevels.add("Stufe: " + forschung.forschung1);
+                mHeadlines.add("Forschung 7");
+                mLevels.add(forschung.forschung1);
                 mDescriptions.add("Labor bauen");
                 mHeadlines.add("Forschung 8");
-                mLevels.add("Stufe: " + forschung.forschung2);
+                mLevels.add(forschung.forschung2);
                 mDescriptions.add("Labor bauen");
                 mHeadlines.add("Forschung 9");
-                mLevels.add("Stufe: " + forschung.forschung3);
+                mLevels.add(forschung.forschung3);
                 mDescriptions.add("Labor bauen");
                 initImageBitmaps();
-
             }
         });
-
         get.execute("http://192.168.178.25:8000/?type=research");
-			
-        mHeadlines.add("Forschung 1");
-        mLevels.add(0);
-        mDescriptions.add("Labor bauen");
-        mHeadlines.add("Forschung 1");
-        mLevels.add(0);
-        mDescriptions.add("Labor bauen");
-        mHeadlines.add("Forschung 1");
-        mLevels.add(0);
-        mDescriptions.add("Labor bauen");
-        mHeadlines.add("Forschung 1");
-        mLevels.add(0);
-        mDescriptions.add("Labor bauen");
-        mHeadlines.add("Forschung 1");
-        mLevels.add(0);
-        mDescriptions.add("Labor bauen");
-        mHeadlines.add("Forschung 1");
-        mLevels.add(0);
-        mDescriptions.add("Labor bauen");
-        mHeadlines.add("Forschung 1");
-        mLevels.add(0);
-        mDescriptions.add("Labor bauen");
-        mHeadlines.add("Forschung 1");
-        mLevels.add(0);
-        mDescriptions.add("Labor bauen");
-        mHeadlines.add("Forschung 1");
-        mLevels.add(0);
-        mDescriptions.add("Labor bauen");
-        mHeadlines.add("Forschung 1");
-        mLevels.add(0);
-        mDescriptions.add("Labor bauen");
-
-        initImageBitmaps();
     }
 
     private void initImageBitmaps(){
