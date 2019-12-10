@@ -6,6 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+<<<<<<< HEAD
+=======
+import com.google.gson.Gson;
+>>>>>>> b769b72f1b245fb142f0195369f71b0dd99127f1
 import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
@@ -31,38 +35,45 @@ public class ResearchActivity extends AppCompatActivity {
                 Forschung forschung = forschungen[0];
 
                 mHeadlines.add("Forschung 1");
-                mLevels.add("Stufe: " + forschung.forschung1);
+                mLevels.add(forschung.forschung1);
                 mDescriptions.add("Labor bauen");
                 mHeadlines.add("Forschung 2");
-                mLevels.add("Stufe: " + forschung.forschung2);
+                mLevels.add(forschung.forschung2);
                 mDescriptions.add("Labor bauen");
                 mHeadlines.add("Forschung 3");
-                mLevels.add("Stufe: " + forschung.forschung3);
+                mLevels.add(forschung.forschung3);
                 mDescriptions.add("Labor bauen");
                 mHeadlines.add("Forschung 4");
+<<<<<<< HEAD
                 mLevels.add("Stufe: " + forschung.forschung1);
+=======
+                mLevels.add(forschung.forschung1);
+>>>>>>> b769b72f1b245fb142f0195369f71b0dd99127f1
                 mDescriptions.add("Labor bauen");
                 mHeadlines.add("Forschung 5");
-                mLevels.add("Stufe: " + forschung.forschung2);
+                mLevels.add(forschung.forschung2);
                 mDescriptions.add("Labor bauen");
                 mHeadlines.add("Forschung 6");
-                mLevels.add("Stufe: " + forschung.forschung3);
+                mLevels.add(forschung.forschung3);
                 mDescriptions.add("Labor bauen");
                 mHeadlines.add("Forschung 7");
+<<<<<<< HEAD
                 mLevels.add("Stufe: " + forschung.forschung1);
+=======
+                mLevels.add(forschung.forschung1);
+>>>>>>> b769b72f1b245fb142f0195369f71b0dd99127f1
                 mDescriptions.add("Labor bauen");
                 mHeadlines.add("Forschung 8");
-                mLevels.add("Stufe: " + forschung.forschung2);
+                mLevels.add(forschung.forschung2);
                 mDescriptions.add("Labor bauen");
                 mHeadlines.add("Forschung 9");
-                mLevels.add("Stufe: " + forschung.forschung3);
+                mLevels.add(forschung.forschung3);
                 mDescriptions.add("Labor bauen");
                 initImageBitmaps();
-
             }
         });
-
         get.execute("http://192.168.178.25:8000/?type=research");
+<<<<<<< HEAD
 
         mHeadlines.add("Forschung 1");
         mLevels.add(0);
@@ -96,6 +107,8 @@ public class ResearchActivity extends AppCompatActivity {
         mDescriptions.add("Labor bauen");
 
         initImageBitmaps();
+=======
+>>>>>>> b769b72f1b245fb142f0195369f71b0dd99127f1
     }
 
     private void initImageBitmaps() {
