@@ -4,8 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    >
+    tools:context=".MainActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
 
     <fragment
         android:id="@+id/popup_menu_fragment"
@@ -13,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
         tools:layout="@layout/fragment_popup_menufragment" />
 
     <TextView
@@ -175,8 +178,8 @@
             android:id="@+id/shipyard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
             android:text="@string/shipyard"
             app:layout_constraintStart_toEndOf="@+id/buildsImage"
             app:layout_constraintTop_toTopOf="parent" />
@@ -185,8 +188,8 @@
             android:id="@+id/research"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
             android:text="@string/research"
             app:layout_constraintStart_toEndOf="@+id/shipyardImage"
             app:layout_constraintTop_toTopOf="parent" />
