@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.google.gson.GsonBuilder;
+
 import java.util.ArrayList;
 
 public class ResearchActivity extends AppCompatActivity {
@@ -20,7 +22,7 @@ public class ResearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_research);
 
-			HttpGetRequest get = new HttpGetRequest();
+        HttpGetRequest get = new HttpGetRequest();
         get.setUpdateListener(new HttpGetRequest.OnUpdateListener() {
             @Override
             public void onUpdate(String result) {
@@ -37,7 +39,7 @@ public class ResearchActivity extends AppCompatActivity {
                 mHeadlines.add("Forschung 3");
                 mLevels.add("Stufe: " + forschung.forschung3);
                 mDescriptions.add("Labor bauen");
-							  mHeadlines.add("Forschung 4");
+                mHeadlines.add("Forschung 4");
                 mLevels.add("Stufe: " + forschung.forschung1);
                 mDescriptions.add("Labor bauen");
                 mHeadlines.add("Forschung 5");
@@ -46,7 +48,7 @@ public class ResearchActivity extends AppCompatActivity {
                 mHeadlines.add("Forschung 6");
                 mLevels.add("Stufe: " + forschung.forschung3);
                 mDescriptions.add("Labor bauen");
-							  mHeadlines.add("Forschung 7");
+                mHeadlines.add("Forschung 7");
                 mLevels.add("Stufe: " + forschung.forschung1);
                 mDescriptions.add("Labor bauen");
                 mHeadlines.add("Forschung 8");
@@ -61,7 +63,7 @@ public class ResearchActivity extends AppCompatActivity {
         });
 
         get.execute("http://192.168.178.25:8000/?type=research");
-			
+
         mHeadlines.add("Forschung 1");
         mLevels.add(0);
         mDescriptions.add("Labor bauen");
@@ -96,7 +98,7 @@ public class ResearchActivity extends AppCompatActivity {
         initImageBitmaps();
     }
 
-    private void initImageBitmaps(){
+    private void initImageBitmaps() {
         mImageURLs.add(R.drawable.abstract1963838_1920);
         mImageURLs.add(R.drawable.abstract1963838_1920);
         mImageURLs.add(R.drawable.abstract1963838_1920);
@@ -110,9 +112,10 @@ public class ResearchActivity extends AppCompatActivity {
 
         initRecyclerView();
     }
-    private void initRecyclerView(){
+
+    private void initRecyclerView() {
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        RecyclerViewAdapterResearch adapter = new RecyclerViewAdapterResearch(this,mImageURLs, mHeadlines, mDescriptions, mLevels);
+        RecyclerViewAdapterResearch adapter = new RecyclerViewAdapterResearch(this, mImageURLs, mHeadlines, mDescriptions, mLevels);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
