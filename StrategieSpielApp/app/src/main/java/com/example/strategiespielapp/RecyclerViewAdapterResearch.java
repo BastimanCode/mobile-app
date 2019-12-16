@@ -98,7 +98,7 @@ public class RecyclerViewAdapterResearch extends RecyclerView.Adapter<RecyclerVi
             description = itemView.findViewById(R.id.description);
             level = itemView.findViewById(R.id.level);
             research = itemView.findViewById(R.id.research);
-            researchImage = itemView.findViewById(R.id.researchimage);
+            researchImage = itemView.findViewById(R.id.researchImage);
             parentlayout = itemView.findViewById(R.id.listitemresearch);
             resource1cost = itemView.findViewById(R.id.resource1cost);
             resource2cost = itemView.findViewById(R.id.resource2cost);

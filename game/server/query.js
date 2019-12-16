@@ -7,9 +7,12 @@ function database(connection, queries){
                 break;
             case "research":
                 string = "SELECT * FROM forschung WHERE Account_id = " + queryobject.playerid;
-                break; 
+                break;
+            case "login":
+                string = "SELECT id FROM account WHERE username = " + queryobject.name + " AND password = " + queryobject.password;
+             
     }
-    return connection.query(string);
+    return connection.query(string);    
 }
 
 module.exports.database = database;

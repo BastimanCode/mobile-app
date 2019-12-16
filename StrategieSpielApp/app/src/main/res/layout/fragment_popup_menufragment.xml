@@ -19,19 +19,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/fuelImage"
         android:layout_width="64dp"
         android:layout_height="36dp"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/resource3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/computerchipsImage"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/oil696579_1920"
         android:scaleType="fitXY"/>
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/computerchipsImage"
         android:layout_width="64dp"
         android:layout_height="36dp"
         android:layout_marginTop="16dp"
@@ -43,45 +43,45 @@
         android:scaleType="fitXY"/>
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/materialImage"
         android:layout_width="64dp"
         android:layout_height="36dp"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/resource1"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintEnd_toStartOf="@+id/computerchipsImage"
         app:layout_constraintStart_toEndOf="@+id/menu_button"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/brick1980_1920"
         android:scaleType="fitXY"/>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/material"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
         android:text="@string/textview"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintEnd_toEndOf="@+id/materialImage"
+        app:layout_constraintStart_toStartOf="@+id/materialImage"
+        app:layout_constraintTop_toBottomOf="@+id/materialImage" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/computerchips"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
         android:text="@string/textview"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintEnd_toEndOf="@+id/computerchipsImage"
+        app:layout_constraintStart_toStartOf="@+id/computerchipsImage"
+        app:layout_constraintTop_toBottomOf="@+id/computerchipsImage" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/fuel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
         android:text="@string/textview"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintEnd_toEndOf="@+id/fuelImage"
+        app:layout_constraintStart_toStartOf="@+id/fuelImage"
+        app:layout_constraintTop_toBottomOf="@+id/fuelImage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

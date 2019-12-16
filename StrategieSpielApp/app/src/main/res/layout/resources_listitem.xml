@@ -30,11 +30,9 @@
         android:layout_height="wrap_content"
         android:text="@string/headline"
         android:textSize="20sp"
-        android:layout_marginLeft="4dp"
         android:layout_toEndOf="@+id/resourceImage"
         android:layout_toRightOf="@+id/resourceImage"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="4dp" />
+        android:layout_alignParentTop="true" />
 
     <TextView
         android:id="@+id/level"

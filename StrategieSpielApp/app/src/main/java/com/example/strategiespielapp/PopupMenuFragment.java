@@ -11,6 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.PopupMenu;
+import android.widget.TextView;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class PopupMenuFragment extends Fragment implements PopupMenu.OnMenuItemClickListener, View.OnClickListener {
 
@@ -70,5 +74,27 @@ public class PopupMenuFragment extends Fragment implements PopupMenu.OnMenuItemC
             default:
                 return false;
         }
+    }
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        HttpGetRequest get = new HttpGetRequest();
+        get.setUpdateListener(new HttpGetRequest.OnUpdateListener() {
+            @Override
+            public void onUpdate(String result) {
+                Gson gson = new GsonBuilder().create();
+                AccountPlanet[] accountPlanet = gson.fromJson(result,AccountPlanet[].class);
+                AccountPlanet player = accountPlanet[0];
+
+                TextView material = getView().findViewById(R.id.material);
+                TextView computerchips = getView().findViewById(R.id.computerchips);
+                TextView fuel = getView().findViewById(R.id.fuel);
+
+                material.setText(String.valueOf(player.metall));
+                computerchips.setText(String.valueOf(player.platinen));
+                fuel.setText(String.valueOf(player.treibstoff));
+            }
+        });
+        get.execute("http://192.168.0.80:8000/?type=refresh&playerid=1&planetid=1");
+
     }
 }

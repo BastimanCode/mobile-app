@@ -39,15 +39,16 @@
     <string name="passwordHint">Passwort</string>
     <string name="emailHint">Email Adresse</string>
     <string name="ov_temperature">Temperatur:</string>
-    <string name="ov_position">Position</string>
+    <string name="ov_position">Position:</string>
     <string name="ov_size">Größe:</string>
     <string name="ov_points">Punkte:</string>
     <string name="ov_user">Herrscher:</string>
     <string name="planetenname">Planetenname</string>
-    <string name="under_construction">Gebäude</string>
+    <string name="under_construction">Im Bau:</string>
     <string name="shipyard">Werft</string>
     <string name="incoming_fleets">Eingehende Flotten:</string>
     <string name="no_incoming_attacks">Keine eingehenden Angriffe</string>
+    <string name="doresearch">erforschen</string>
 
 
 </resources>

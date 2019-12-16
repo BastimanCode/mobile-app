@@ -3,22 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginRight="40dp"
+    android:layout_marginRight="20dp"
     android:layout_marginLeft="20dp"
     android:layout_marginBottom="20dp"
     android:id="@+id/listitemresearch"
-    android:layout_marginEnd="40dp"
-    android:layout_marginStart="20dp">
+    android:layout_marginEnd="20dp"
+    android:layout_marginStart="20dp"
+    android:background="@drawable/listitemborder">
 
     <ImageView
-        android:id="@+id/researchimage"
+        android:id="@+id/researchImage"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="4dp"
         android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ic_launcher"
-        android:contentDescription="@string/researchImage" />
+        android:contentDescription="@string/researchImage"
+        android:layout_marginStart="4dp"/>
 
     <TextView
         android:id="@+id/headline"
@@ -26,8 +30,8 @@
         android:layout_height="wrap_content"
         android:text="@string/overview"
         android:textSize="20sp"
-        android:layout_toEndOf="@+id/researchimage"
-        android:layout_toRightOf="@+id/researchimage"
+        android:layout_toEndOf="@+id/researchImage"
+        android:layout_toRightOf="@+id/researchImage"
         android:layout_alignParentTop="true"/>
 
     <TextView
@@ -36,18 +40,22 @@
         android:layout_height="wrap_content"
         android:text="@string/level"
         android:textSize="20sp"
+        android:layout_marginRight="4dp"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"/>
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="4dp" />
 
     <Button
         android:id="@+id/research"
         android:layout_width="wrap_content"
         android:layout_height="32dp"
         android:layout_marginTop="80dp"
+        android:layout_marginRight="2dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:text="@string/research"
-        android:textSize="10sp" />
+        android:text="@string/doresearch"
+        android:textSize="10sp"
+        android:layout_marginEnd="2dp" />
 
     <TextView
         android:id="@+id/description"
@@ -55,21 +63,25 @@
         android:layout_height="wrap_content"
         android:text="@string/description"
         android:textSize="12sp"
-        android:layout_toRightOf="@+id/researchimage"
-        android:layout_toEndOf="@+id/researchimage"
-        android:layout_below="@+id/headline"/>
+        android:layout_marginLeft="4dp"
+        android:layout_toRightOf="@+id/researchImage"
+        android:layout_toEndOf="@+id/researchImage"
+        android:layout_below="@+id/headline"
+        android:layout_marginStart="4dp" />
 
     <ImageView
         android:id="@+id/resource1image"
         android:layout_width="32dp"
         android:layout_height="18dp"
         android:layout_marginTop="5dp"
+        android:layout_marginLeft="4dp"
         android:scaleType="fitXY"
-        android:layout_below="@+id/researchimage"
+        android:layout_below="@+id/researchImage"
         android:layout_alignParentLeft="true"
         app:srcCompat="@mipmap/ic_launcher"
         android:contentDescription="@string/resource1"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="4dp" />
 
     <ImageView
         android:id="@+id/resource2image"
@@ -77,7 +89,7 @@
         android:layout_height="18dp"
         android:layout_marginTop="5dp"
         android:scaleType="fitXY"
-        android:layout_below="@+id/researchimage"
+        android:layout_below="@+id/researchImage"
         android:layout_toRightOf="@+id/resource1cost"
         app:srcCompat="@mipmap/ic_launcher"
         android:contentDescription="@string/resource2"
@@ -89,7 +101,7 @@
         android:layout_height="18dp"
         android:layout_marginTop="5dp"
         android:scaleType="fitXY"
-        android:layout_below="@+id/researchimage"
+        android:layout_below="@+id/researchImage"
         android:layout_toRightOf="@+id/resource2cost"
         app:srcCompat="@mipmap/ic_launcher"
         android:contentDescription="@string/resource3"
@@ -103,7 +115,7 @@
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
         android:textSize="10sp"
-        android:layout_below="@+id/researchimage"
+        android:layout_below="@+id/researchImage"
         android:layout_toRightOf="@+id/resource1image"
         android:layout_toEndOf="@+id/resource1image" />
 
@@ -115,7 +127,7 @@
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
         android:textSize="10sp"
-        android:layout_below="@+id/researchimage"
+        android:layout_below="@+id/researchImage"
         android:layout_toRightOf="@+id/resource2image"
         android:layout_toEndOf="@+id/resource2image" />
 
@@ -127,7 +139,7 @@
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
         android:textSize="10sp"
-        android:layout_below="@+id/researchimage"
+        android:layout_below="@+id/researchImage"
         android:layout_toRightOf="@+id/resource3image"
         android:layout_toEndOf="@+id/resource3image" />
 </RelativeLayout>
