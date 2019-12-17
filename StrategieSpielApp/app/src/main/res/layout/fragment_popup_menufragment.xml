@@ -51,7 +51,7 @@
         app:layout_constraintEnd_toStartOf="@+id/computerchipsImage"
         app:layout_constraintStart_toEndOf="@+id/menu_button"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/brick1980_1920"
+        app:srcCompat="@drawable/wall2507525_1920"
         android:scaleType="fitXY"/>
 
     <TextView
