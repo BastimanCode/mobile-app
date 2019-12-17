@@ -8,8 +8,8 @@ var querytype2 = '?type=attack'
 
 //http://127.0.0.1:8000/?type=refresh&playerid=1&planetid=1
 
-var queryplayer = '&playerid=1'
-var queryplanet = '&planetid=1'
+var queryplayer = '&playerid=0'
+var queryplanet = '&planetid=0'
 
 const options = {
     hostname: '127.0.0.1',

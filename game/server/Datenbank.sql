@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Planet` (
   `abbau2` INT NULL,
   `abbau3` INT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_Planet_Account_idx` (`Account_id` ASC) VISIBLE,
+  INDEX `fk_Planet_Account_idx` (`Account_id` ASC),
   CONSTRAINT `fk_Planet_Account`
     FOREIGN KEY (`Account_id`)
     REFERENCES `mydb`.`Account` (`id`)
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Flotte` (
   `zielplanet` INT NULL,
   `Planet_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_Flotte_Planet1_idx` (`Planet_id` ASC) VISIBLE,
+  INDEX `fk_Flotte_Planet1_idx` (`Planet_id` ASC),
   CONSTRAINT `fk_Flotte_Planet1`
     FOREIGN KEY (`Planet_id`)
     REFERENCES `mydb`.`Planet` (`id`)

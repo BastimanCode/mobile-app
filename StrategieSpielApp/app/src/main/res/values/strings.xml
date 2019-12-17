@@ -48,6 +48,7 @@
     <string name="shipyard">Werft</string>
     <string name="incoming_fleets">Eingehende Flotten:</string>
     <string name="no_incoming_attacks">Keine eingehenden Angriffe</string>
+    <string name="back">BACK</string>
 
 
 </resources>
