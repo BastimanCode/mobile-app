@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="55ed3d8e-57e4-4071-af47-87830c44ce2b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/client/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/game/client/client.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/game/server/server.js" afterDir="false" />
     </list>
+=======
+    <list default="true" id="4d8f8526-49af-478d-9ee0-cd19cdffacab" name="Default Changelist" comment="" />
+>>>>>>> 480c3f506121f4870345f914f2379046350c5aab
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
@@ -57,6 +62,14 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="165" />
     <option name="y" value="28" />
+=======
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="260" />
+    <option name="y" value="80" />
+>>>>>>> 480c3f506121f4870345f914f2379046350c5aab
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -65,6 +78,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -104,11 +118,20 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+=======
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+>>>>>>> 480c3f506121f4870345f914f2379046350c5aab
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$USER_HOME$/AndroidStudioProjects/MyApplication" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+>>>>>>> 480c3f506121f4870345f914f2379046350c5aab
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -127,18 +150,32 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="55ed3d8e-57e4-4071-af47-87830c44ce2b" name="Default Changelist" comment="" />
       <created>1574245951255</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574245951255</updated>
+=======
+      <changelist id="4d8f8526-49af-478d-9ee0-cd19cdffacab" name="Default Changelist" comment="" />
+      <created>1571905596605</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1571905596605</updated>
+>>>>>>> 480c3f506121f4870345f914f2379046350c5aab
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" visible="true" weight="0.19989339" />
+=======
+    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" visible="true" weight="0.32982087" />
+>>>>>>> 480c3f506121f4870345f914f2379046350c5aab
       <window_info id="Structure" side_tool="true" />
       <window_info id="Image Layers" />
       <window_info id="Designer" />
@@ -152,6 +189,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" />
       <window_info anchor="right" id="Theme Preview" />
+<<<<<<< HEAD
       <window_info anchor="right" id="Preview" visible="true" weight="0.37153518" />
       <window_info anchor="right" id="Palette&#9;" />
     </layout>
@@ -176,4 +214,9 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
+=======
+      <window_info anchor="right" id="Palette&#9;" />
+    </layout>
+  </component>
+>>>>>>> 480c3f506121f4870345f914f2379046350c5aab
 </project>

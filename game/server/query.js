@@ -8,12 +8,24 @@ function database(connection, queries){
             case "research":
                 string = "SELECT * FROM forschung WHERE Account_id = " + queryobject.playerid;
                 break;
-            case "login":
-                string = "SELECT id FROM account WHERE username = " + queryobject.name + " AND password = " + queryobject.password;
-             
     }
     return connection.query(string);    
 }
 
-module.exports.database = database;
+function databasePost(connection, queries, data){
+    const queryobject = queries;
+    var string;
+    switch(queryobject.type){
+        case "login":
+                string = "SELECT * FROM account where email = '" + data.email + "' and password = '" + data.password + "'";
+                break;
+            case "register":
+                string = "INSERT INTO account (email, username, password) VALUES ('" + data.email + "', '" + data.username + "', '" + data.password + "');" +
+                " SELECT * FROM account where email = '" + data.email + "' and password = '" + data.password + "';";
+                break;
+    }
+    return connection.query(string);
+}
 
+module.exports.database = database;
+module.exports.databasePost = databasePost;

@@ -1,0 +1,85 @@
+package com.example.strategiespielapp;
+
+import android.os.AsyncTask;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+public class HttpPostRequest extends AsyncTask<String, Void, String> {
+    public static final String REQUEST_METHOD = "POST";
+    public static final int READ_TIMEOUT = 15000;
+    public static final int CONNECTION_TIMEOUT = 15000;
+
+    @Override
+    protected String doInBackground(String... params){
+        String stringUrl = params[0];
+        String body = params[1];
+        String result;
+        String inputLine;
+        try {
+            //Create a URL object holding our url
+            URL myUrl = new URL(stringUrl);
+            //Create a connection
+            HttpURLConnection connection = (HttpURLConnection) myUrl.openConnection();
+            //Set methods and timeouts
+            connection.setRequestMethod(REQUEST_METHOD);
+            connection.setReadTimeout(READ_TIMEOUT);
+            connection.setConnectTimeout(CONNECTION_TIMEOUT);
+
+            connection.setDoOutput(true);
+            OutputStream out = connection.getOutputStream();
+
+            byte[] bytes = body.getBytes();
+            out.write(bytes);
+
+            //Connect to our url
+            connection.connect();
+            if (connection.getResponseCode() == 200) {
+                //Create a new InputStreamReader
+                InputStreamReader streamReader = new InputStreamReader(connection.getInputStream());
+                //Create a new buffered reader and String Builder
+                BufferedReader reader = new BufferedReader(streamReader);
+                StringBuilder stringBuilder = new StringBuilder();
+                //Check if the line we are reading is not null
+                while((inputLine = reader.readLine()) != null){
+                    stringBuilder.append(inputLine);
+                }
+                //Close our InputStream and Buffered reader
+                reader.close();
+                streamReader.close();
+                //Set our result equal to our stringBuilder
+                result = stringBuilder.toString();
+                connection.disconnect();
+            } else {
+                result = "ERROR";
+                connection.disconnect();
+            }
+        } catch(IOException e){
+            e.printStackTrace();
+            result = "ERROR";
+        }
+        return result;
+    }
+
+    protected void onPostExecute(String result){
+        if (listener != null) {
+            listener.onUpdate(result);
+        }
+    }
+
+    public interface OnUpdateListener {
+        void onUpdate(String result);
+    }
+    OnUpdateListener listener;
+
+    public void setUpdateListener(OnUpdateListener listener) {
+        this.listener = listener;
+    }
+}
