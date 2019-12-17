@@ -9,7 +9,7 @@ function database(connection, queries){
                 string = "SELECT * FROM forschung WHERE Account_id = " + queryobject.playerid;
                 break;
     }
-    return connection.query(string);
+    return connection.query(string);    
 }
 
 function databasePost(connection, queries, data){
