@@ -5,7 +5,8 @@ const queries = require('./query');
 
 let server = null;
 
-const hostname = '192.168.0.80';
+//const hostname = '192.168.0.80';
+const hostname = '192.168.178.25';
 const port = 8000;
 
 var researchlist;
@@ -15,12 +16,13 @@ mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "password",
-  database: "game2",
+  //database: "game2",
+  database: "mydb",
   multipleStatements: true
 })
 .then( con => {
   SetupServer(con);
-  con.query("SELECT forschungen.name, forschungsdaten.stufe, forschungsdaten.bonus FROM forschungen JOIN forschungsdaten ON forschungen.id = forschungsdaten.forschungen_id")
+/*  con.query("SELECT forschungen.name, forschungsdaten.stufe, forschungsdaten.bonus FROM forschungen JOIN forschungsdaten ON forschungen.id = forschungsdaten.forschungen_id")
   .then(array => {
     researchlist = array;
   })
@@ -35,7 +37,7 @@ mysql.createConnection({
   .error(e =>{
     console.log(e);
   });
-
+*/
   server.listen(port, hostname, function() {
     console.log(`Server running at http://${hostname}:${port}/`);
   });
@@ -52,7 +54,7 @@ function SetupServer(connection) {
         .then(e => {
           if(queryObject.type == "refresh"){
             let time = new Date();
-            e[0].metall = Math.round (e[0].metall + ((time.getTime() - e[0].last_online)/3600000*resourcelist[e[0].abbau1].fördermenge));
+            //e[0].metall = Math.round (e[0].metall + ((time.getTime() - e[0].last_online)/3600000*resourcelist[e[0].abbau1].fördermenge));
           }
           response.writeHead(200, {'Content-Type': 'application/json'})
           response.end(JSON.stringify(e));
@@ -79,12 +81,11 @@ function SetupServer(connection) {
             }
           })
           .catch((err) => {
-            console.error("Faulty database query!");
+            console.error("Faulty database query!", err);
             response.writeHead(400);
             response.end();
           });
-        });
-        
+        }); 
       }
   });
 }

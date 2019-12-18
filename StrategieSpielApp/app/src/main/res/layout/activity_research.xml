@@ -8,7 +8,7 @@
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar"/>
+        layout="@layout/toolbar" />
 
     <fragment
         android:id="@+id/popup_menu_fragment"
@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        tools:layout="@layout/fragment_popup_menufragment" />
+        tools:layout="@layout/fragment_popup_menu" />
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
