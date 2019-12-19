@@ -5,7 +5,8 @@ const queries = require('./query');
 
 let server = null;
 
-const hostname = '192.168.0.80';
+//const hostname = '192.168.0.80';
+const hostname = '192.168.178.25';
 const port = 8000;
 
 var researchlist;
@@ -15,7 +16,8 @@ mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "password",
-  database: "game2",
+  //database: "game2",
+  database: "mydb",
   multipleStatements: true
 })
 .then( con => {
@@ -79,12 +81,11 @@ function SetupServer(connection) {
             }
           })
           .catch((err) => {
-            console.error("Faulty database query!");
+            console.error("Faulty database query!", err);
             response.writeHead(400);
             response.end();
           });
-        });
-        
+        }); 
       }
   });
 }

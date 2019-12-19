@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        HttpGetRequest get = new HttpGetRequest();
+/*        HttpGetRequest get = new HttpGetRequest();
         get.setUpdateListener(new HttpGetRequest.OnUpdateListener() {
             @Override
             public void onUpdate(String result) {
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 user.setText(player.username);
             }
         });
-        get.execute("http://192.168.0.80:8000/?type=refresh&playerid=1&planetid=1");
+        get.execute("http://192.168.0.80:8000/?type=refresh&playerid=1&planetid=1");*/
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

@@ -1,8 +1,10 @@
 package com.example.strategiespielapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +23,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     TextView username;
     TextView password;
     String json;
+    Context c = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     @Override
-    public void onClick (View view) {
+    public void onClick(View view) {
         switch (view.getId()) {
             case R.id.buttonRegister:
                 String emailInput = email.getText().toString();
@@ -48,22 +51,47 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 post.setUpdateListener(new HttpPostRequest.OnUpdateListener() {
                     @Override
                     public void onUpdate(String result) {
+                        AlertDialog alertDialog = new AlertDialog.Builder(RegisterActivity.this).create();
 
-                        //NUR STELLE 1 DES ARRAY BEARBEITEN (0 IST DATENBANK STATUSMELDUNG)
-                        Gson gson = new GsonBuilder().create();
-                        Account[] accounts = gson.fromJson(result, Account[].class);
-                        Account account = accounts[1];
+                        if (result.equals("ERROR")) {
+                            alertDialog.setTitle("Registrieren");
+                            alertDialog.setMessage("Registrieren fehlgeschlagen!");
+                            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialog.dismiss();
+                                        }
+                                    });
+                            alertDialog.show();
+                        } else {
+                            int start = result.lastIndexOf('[');
+                            int end = result.indexOf(']') + 1;
+                            result = result.substring(start, end);
 
-                        String fileName = "accountData.json";
-                        String fileContent = gson.toJson(account);
-                        try {
-                            FileOutputStream fos = openFileOutput(fileName, Context.MODE_PRIVATE);
-                            fos.write(fileContent.getBytes());
-                            fos.close();
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                            Gson gson = new GsonBuilder().create();
+                            Account[] accounts = gson.fromJson(result, Account[].class);
+                            Account account = accounts[0];
+
+                            String fileName = "accountData.json";
+                            String fileContent = gson.toJson(account);
+                            try {
+                                FileOutputStream fos = openFileOutput(fileName, Context.MODE_PRIVATE);
+                                fos.write(fileContent.getBytes());
+                                fos.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            alertDialog.setTitle("Regisrieren");
+                            alertDialog.setMessage("Registrieren Erfolgreich!");
+                            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            Intent mainIntent = new Intent(c, MainActivity.class);
+                                            startActivity(mainIntent);
+                                            dialog.dismiss();
+                                        }
+                                    });
+                            alertDialog.show();
                         }
                     }
                 });
