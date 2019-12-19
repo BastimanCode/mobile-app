@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             Account[] accounts = gson.fromJson(result, Account[].class);
                             Account account = accounts[0];
 
-                            //bessere Altenative: createTempfile("accountData", "json", context.getCacheDir()) ?
+                            //bessere Alternative: createTempfile("accountData", "json", context.getCacheDir()) ?
                             String fileName = "accountData.json";
                             String fileContent = gson.toJson(account);
                             try {
@@ -91,7 +91,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         }
                     }
                 });
-                post.execute("http://192.168.178.25:8000/?type=login", json);
+                post.execute("http://192.168.0.80:8000/?type=login", json);
 
 
                 break;

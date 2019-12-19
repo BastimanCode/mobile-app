@@ -20,7 +20,7 @@ mysql.createConnection({
 })
 .then( con => {
   SetupServer(con);
-  con.query("SELECT forschungen.name, forschungsdaten.stufe, forschungsdaten.bonus FROM forschungen JOIN forschungsdaten ON forschungen.id = forschungsdaten.forschungen_id")
+  con.query("SELECT researches.name, researchdata.level, researchdata.bonus FROM researches JOIN researchdata ON researches.id = researchdata.researches_id")
   .then(array => {
     researchlist = array;
   })
@@ -28,7 +28,7 @@ mysql.createConnection({
     console.log(e);
   });
 
-  con.query("SELECT abbau.name, abbaudaten.stufe, abbaudaten.fördermenge FROM abbau JOIN abbaudaten ON abbau.id = abbaudaten.abbau_id")
+  con.query("SELECT Production.name, Productiondata.level, Productiondata.output FROM Production JOIN Productiondata ON Production.id = Productiondata.Production_id")
   .then(array => {
     resourcelist = array;
   })
@@ -52,7 +52,7 @@ function SetupServer(connection) {
         .then(e => {
           if(queryObject.type == "refresh"){
             let time = new Date();
-            e[0].metall = Math.round (e[0].metall + ((time.getTime() - e[0].last_online)/3600000*resourcelist[e[0].abbau1].fördermenge));
+            //e[0].metall = Math.round (e[0].metall + ((time.getTime() - e[0].last_online)/3600000*resourcelist[e[0].abbau1].fördermenge));
           }
           response.writeHead(200, {'Content-Type': 'application/json'})
           response.end(JSON.stringify(e));

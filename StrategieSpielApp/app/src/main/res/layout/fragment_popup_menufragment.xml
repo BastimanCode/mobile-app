@@ -52,6 +52,7 @@
         app:layout_constraintStart_toEndOf="@+id/menu_button"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/wall2507525_1920"
+        android:background="@drawable/roundedcornerbackground"
         android:scaleType="fitXY"/>
 
     <TextView
