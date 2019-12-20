@@ -5,8 +5,7 @@ const queries = require('./query');
 
 let server = null;
 
-//const hostname = '192.168.0.80';
-const hostname = '192.168.178.25';
+const hostname = '192.168.0.80';
 const port = 8000;
 
 var researchlist;
@@ -16,19 +15,18 @@ mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "password",
-  //database: "game2",
-  database: "mydb",
+  database: "game2",
   multipleStatements: true
 })
 .then( con => {
   SetupServer(con);
-  con.query("SELECT researches.name, researchdata.level, researchdata.bonus FROM researches JOIN researchdata ON researches.id = researchdata.researches_id")
+  /*con.query("SELECT researches.name, researchdata.level, researchdata.bonus FROM researches JOIN researchdata ON researches.id = researchdata.researches_id")
   .then(array => {
     researchlist = array;
   })
   .error(e =>{
     console.log(e);
-  });
+  });*/
 
   con.query("SELECT Production.name, Productiondata.level, Productiondata.output FROM Production JOIN Productiondata ON Production.id = Productiondata.Production_id")
   .then(array => {

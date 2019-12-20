@@ -9,31 +9,41 @@ public class AccountPlanet {
     int planetId;
     String name;
     int size;
+    int temperatur;
     int x;
     int y;
-    int metall;
-    int platinen;
-    int treibstoff;
+    int material;
+    int electronics;
+    int fuel;
+    int rocketlauncher;
+    int lasergun;
+    int iongun;
+    int shockwavecannon;
+    int plasmacannon;
+    int antimatterradiator;
+    int spacemines;
+    int planetshield;
+    int scout;
+    int hunter;
+    int cruiser;
+    int battleship;
+    int destroyer;
+    int bomber;
+    int mothership;
+    int colonisationship;
+    int mine;
+    int factory;
+    int oilrig;
+    int fueltank;
+    int materialstorage;
+    int electronicstorage;
+    int spaceshipyard;
+    int cyborgfactory;
+    int researchfacility;
+    int powerplant;
     int account_Id;
-    int verteidigung1;
-    int verteidigung2;
-    int verteidigung3;
-    int gebäude1;
-    int gebäude2;
-    int gebäude3;
-    int abbau1;
-    int abbau2;
-    int abbau3;
-    int jäger;
-    int kreuzer;
-    int zerstörer;
-    int temperatur;
 
-    public AccountPlanet(int accountId, String email, String username, String password, long last_online,
-                         int planetId, String name, int size, int x, int y, int metall, int platinen,
-                         int treibstoff, int account_Id, int verteidigung1, int verteidigung2,
-                         int verteidigung3, int gebäude1, int gebäude2, int gebäude3,
-                         int abbau1, int abbau2, int abbau3, int jäger, int kreuzer, int zerstörer, int temperatur) {
+    public AccountPlanet(int accountId, String email, String username, String password, long last_online, int planetId, String name, int size, int temperatur, int x, int y, int material, int electronics, int fuel, int rocketlauncher, int lasergun, int iongun, int shockwavecannon, int plasmacannon, int antimatterradiator, int spacemines, int planetshield, int scout, int hunter, int cruiser, int battleship, int destroyer, int bomber, int mothership, int colonisationship, int mine, int factory, int oilrig, int fueltank, int materialstorage, int electronicstorage, int spaceshipyard, int cyborgfactory, int researchfacility, int powerplant, int account_Id) {
         this.accountId = accountId;
         this.email = email;
         this.username = username;
@@ -42,24 +52,38 @@ public class AccountPlanet {
         this.planetId = planetId;
         this.name = name;
         this.size = size;
+        this.temperatur = temperatur;
         this.x = x;
         this.y = y;
-        this.metall = metall;
-        this.platinen = platinen;
-        this.treibstoff = treibstoff;
+        this.material = material;
+        this.electronics = electronics;
+        this.fuel = fuel;
+        this.rocketlauncher = rocketlauncher;
+        this.lasergun = lasergun;
+        this.iongun = iongun;
+        this.shockwavecannon = shockwavecannon;
+        this.plasmacannon = plasmacannon;
+        this.antimatterradiator = antimatterradiator;
+        this.spacemines = spacemines;
+        this.planetshield = planetshield;
+        this.scout = scout;
+        this.hunter = hunter;
+        this.cruiser = cruiser;
+        this.battleship = battleship;
+        this.destroyer = destroyer;
+        this.bomber = bomber;
+        this.mothership = mothership;
+        this.colonisationship = colonisationship;
+        this.mine = mine;
+        this.factory = factory;
+        this.oilrig = oilrig;
+        this.fueltank = fueltank;
+        this.materialstorage = materialstorage;
+        this.electronicstorage = electronicstorage;
+        this.spaceshipyard = spaceshipyard;
+        this.cyborgfactory = cyborgfactory;
+        this.researchfacility = researchfacility;
+        this.powerplant = powerplant;
         this.account_Id = account_Id;
-        this.verteidigung1 = verteidigung1;
-        this.verteidigung2 = verteidigung2;
-        this.verteidigung3 = verteidigung3;
-        this.gebäude1 = gebäude1;
-        this.gebäude2 = gebäude2;
-        this.gebäude3 = gebäude3;
-        this.abbau1 = abbau1;
-        this.abbau2 = abbau2;
-        this.abbau3 = abbau3;
-        this.jäger = jäger;
-        this.kreuzer = kreuzer;
-        this.zerstörer = zerstörer;
-        this.temperatur = temperatur;
     }
 }

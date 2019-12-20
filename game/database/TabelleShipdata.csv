@@ -1,0 +1,9 @@
+name,hitpoints,attack,firerate,shield,material,electronics,fuel,description
+Scout,1000,50,2,5,150,100,50,Ein leichtes Erkundungsraumschiff.
+Hunter,3000,60,6,10,450,300,100,Zeichnet sich durch seine Stärke in Massen aus.
+Cruiser,5000,160,4,20,700,700,250,Günstiges aber starker Raumschiff.
+Battleship,15000,350,6,20,3000,1500,750,Der Hauptbestandteil einer starken Raumarmada.
+Destroyer,35000,3000,2,30,7500,5000,1500,Flaggschiff mit einer langsamen aber zerstörerischen Waffe ausgestattet.
+Bomber,20000,200,10,20,3500,2000,500,Der Bomber ist entwickelt worden um feindliche Abwehranlagen zu bombardieren.
+Mothership,150000,50,600,50,25000,25000,15000,Das Mutterschiff transportiert viele kleine Jäger die in Kämpfen ausschwärmen.
+Colonisationship,5000,30,8,5,2000,1500,300,Dient dazu neue Planeten zu erschließen.

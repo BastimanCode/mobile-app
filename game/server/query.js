@@ -8,6 +8,9 @@ function database(connection, queries){
             case "research":
                 string = "SELECT * FROM research WHERE Account_id = " + queryobject.playerid;
                 break;
+            case "researches":
+                string = "SELECT name, level, bonus, material, electronics, fuel FROM researches JOIN researchdata ON researches.id = researchdata.Researches_id"
+                break;
     }
     return connection.query(string);    
 }
