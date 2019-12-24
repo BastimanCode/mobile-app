@@ -1,4 +1,7 @@
 id,name
-1,material
-2,electronics
-3,fuel
+1,Mine
+2,Fabrik
+3,Bohrinsel
+4,Baustofflager
+5,Elektroniklager
+6,Treibstofftank

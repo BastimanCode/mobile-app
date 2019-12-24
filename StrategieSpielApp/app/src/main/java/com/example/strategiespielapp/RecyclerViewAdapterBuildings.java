@@ -8,11 +8,8 @@ import android.content.Context;
         import android.widget.ImageView;
         import android.widget.RelativeLayout;
         import android.widget.TextView;
-
-
         import androidx.annotation.NonNull;
         import androidx.recyclerview.widget.RecyclerView;
-
         import java.util.ArrayList;
 
 public class RecyclerViewAdapterBuildings extends RecyclerView.Adapter<RecyclerViewAdapterBuildings.ViewHolder>{
@@ -24,13 +21,19 @@ public class RecyclerViewAdapterBuildings extends RecyclerView.Adapter<RecyclerV
     private ArrayList<String> mHeadlines = new ArrayList<>();
     private ArrayList<String> mDescriptions = new ArrayList<>();
     private ArrayList<Integer> mLevels = new ArrayList<>();
+    private ArrayList<Integer> mmaterial = new ArrayList<>();
+    private ArrayList<Integer> melectronics = new ArrayList<>();
+    private ArrayList<Integer> mfuel = new ArrayList<>();
 
-    public RecyclerViewAdapterBuildings(Context mContext, ArrayList<Integer> mImages, ArrayList<String> mHeadlines, ArrayList<String> mDescriptions, ArrayList<Integer> mLevels) {
+    public RecyclerViewAdapterBuildings(Context mContext, ArrayList<Integer> mImages, ArrayList<String> mHeadlines, ArrayList<String> mDescriptions, ArrayList<Integer> mLevels, ArrayList<Integer> mmaterial, ArrayList<Integer> melectronics, ArrayList<Integer> mfuel) {
         this.mContext = mContext;
         this.mImages = mImages;
         this.mHeadlines = mHeadlines;
         this.mDescriptions = mDescriptions;
         this.mLevels = mLevels;
+        this.mmaterial = mmaterial;
+        this.melectronics = melectronics;
+        this.mfuel = mfuel;
     }
 
     @NonNull
@@ -45,17 +48,13 @@ public class RecyclerViewAdapterBuildings extends RecyclerView.Adapter<RecyclerV
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.buildingImage.setImageResource(mImages.get(position));
 
-        holder.headline.setText(mHeadlines.get(position) + position);
+        holder.headline.setText(mHeadlines.get(position));
         holder.description.setText(mDescriptions.get(position));
         holder.level.setText("Stufe: " + mLevels.get(position));
 
-        //holder.resource1cost.setText((100 + (mLevels.get(position) * mLevels.get(position) * 100)));
-        //holder.resource2cost.setText((200 + (mLevels.get(position) * mLevels.get(position) * 200)));
-        //holder.resource3cost.setText((100 + (mLevels.get(position) * mLevels.get(position) * 100)));
-
-        holder.resource1cost.setText("10000");
-        holder.resource2cost.setText("20000");
-        holder.resource3cost.setText("10000");
+        holder.resource1cost.setText(String.valueOf(mmaterial.get(position)));
+        holder.resource2cost.setText(String.valueOf(melectronics.get(position)));
+        holder.resource3cost.setText(String.valueOf(mfuel.get(position)));
 
         holder.resourceImage1.setImageResource(R.drawable.brick1980_1920);
         holder.resourceImage2.setImageResource(R.drawable.processor2217771_1920);
