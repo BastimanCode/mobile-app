@@ -123,6 +123,22 @@ Die Wahl der Farbe
 
 # Architekturbeschreibung
 
+## Aufbau
+
+Wir haben nach dem Entwicklungsmodell Modell View Controller gearbeitet, um die Logik des Programms von der Benutzeroberfläche zu trennen. Wobei wir für die Datenspeicherung also der View eine Datenbank verwenden. Der Controller wurde durch einen Server umgesetzt und die View durch den Client. Der Client ist nur dazu da die Daten anzufordern und sie anzuzeigen, die Logik ist im Controller also bei uns im Server realisiert.Nachfolgend werden diese Komponenten beschrieben und unsere Entscheidungen erklärt.
+
+### Client
+
+Da wir eine mobile Applikation schreiben wollten haben wir uns für die Entwicklungsumgebung Android Studio entschieden, um den Client darzustellen. Android Studio hat eine umfangreiche Auswahl von Bibliotheken und Möglichkeiten zur Gestaltung der Benutzer-Oberfläche. Der Client ist dazu gedacht die Daten darzustellen und sendet Http-Requests an den Server um Ressourcen anzufordern.
+
+### Server
+
+Der Server verwaltet die Daten aus der Datenbank und beantwortet die Anfragen vom Client. Er berechnet die Kämpfe und die manipuliert die Daten nach Aktion des Spielers. Er hat die Aufgabe die gesamte Spiellogik zu halten und ist deshalb auch das komplexeste der drei Teilprogramme. Wir haben uns hier für die Umsetzung in Node.js entschieden. Als Programmiersprache wird Javascript verwendet. So fiel es uns besonders leicht mit JSON-Objekten umzugehen. Javascript unterstützt Methoden um aus den Datenbank Queries erhaltene Datensets, direkt in JSON umzuwandeln und diese an die Http-Responses anzuhängen.
+
+### Datenbank
+
+Wir haben uns für die Nutzung einer Datenbank entschieden, um die Daten von Spielern zu speichern und um den Spielfortschritt festzuhalten. Als Datenbankmanagementsystem haben wir uns für MySQL entschieden. Der Grund dafür ist die einfache Handhabung und die nativen SQL-Queries. Wir haben im Umgang mit diesem DBMS schon positive Erfahrungen gemacht und konnten unser Vorwissen nutzen um relativ schnell eine funktionsfähige Datenbank aufzubauen. Mit der MySql Workbench konnten wir ein Entity-Relationship-Modell erstellen. Aus diesem Modell wurde dann ein Schema erstellt das auf einem Datenbank-Server läuft.
+
 # Implementierung
 
 ## Projektplanung
@@ -157,11 +173,11 @@ Nachfolgend ist der Meilensteinplan. Es wurden alle Meilensteine eingehalten.
 
 ### Personalplanung
 
-An dem Projekt haben zwei Entwickler gearbeitet. Die wichtigsten Entscheidungen wurden zusammnegetroffen. Arbeiten wurden aufgeteilt und es standen für Nachfragen oder Hilfestellungen zwei Dozenten zur Verfügung.
+An dem Projekt haben zwei Entwickler gearbeitet. Die wichtigsten Entscheidungen wurden zusammengetroffen. Die Arbeiten wurden aufgeteilt und es standen für Nachfragen oder Hilfestellungen zwei Dozenten zur Verfügung.
 
 ### Sachmittelplanung
 
-Sämtliche benutzte Software ist Open-Source-Software, also kostenfrei verfügbar. Da es kein gewerbliches Projekt ist und auch nie als eines geplant war, wurde keine Investitionen vorgenommen. Von Mockplus wurde eine einwöchige Testversion genutzt. Diese Programme wurden benutzt: 
+Sämtliche benutzte Software ist Open-Source-Software, also kostenfrei verfügbar. Da es kein gewerbliches Projekt ist und auch nie als eines geplant war, wurden keine Investitionen vorgenommen. Von Mockplus wurde eine einwöchige Testversion genutzt. Diese Programme wurden benutzt: 
 
 * MySQL Workbench
 * Node.js
@@ -174,7 +190,7 @@ Es wurden zwei Computer für die Programmierung genutzt und ein Laptop für die 
 
 ### Entwicklungsprozess
 
-Wir haben uns für das Spiralmodell als Entwocklungsmodell geeinigt, weil das Projekt zu komplex ist, um es in einem Zug zu implementieren. Es muss immer wieder getestet werden bevor neue Funktionalitäten implementiert werden können. Ansonsten hätten lange Fehlersuchen den Entwicklungsprozess zu stark verlangsamt. Nachdem das Grundgerüst des Programms stand wurden im gesamten Entwicklungsprozess, iterativ, neue Features implementiert. Damit getestet werden konnte um sie mit dem schon vorhanden Code synergieren.
+Wir haben uns für das Spiralmodell als Entwicklungsmodell geeinigt, weil das Projekt zu komplex ist, um es in einem Zug zu implementieren. Es muss immer wieder getestet werden bevor neue Funktionalitäten implementiert werden können. Ansonsten hätten lange Fehlersuchen den Entwicklungsprozess zu stark verlangsamt. Nachdem das Grundgerüst des Programms stand, wurden im gesamten Entwicklungsprozess, iterativ, neue Features implementiert.damit getestet werden konnte ob sie mit dem schon vorhanden Code synergieren.
 
 ## Spielkonzepte
 
