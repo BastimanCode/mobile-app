@@ -6,21 +6,29 @@
 
 # Einleitung
 
-## Die Idee
+Die Folgende Projektbeschreibung schildert den Aufbau und Ablauf des Projekts im Modul Mobile Applikationen der Fachhochschule Bielefeld, welches die Autoren im laufe des Semesters durchgeführt haben.
+
+## Projektbeschreibung
 
 Die Entwicklung eines Spiels, das auf Browserspielen basiert, die früher populär waren. Das Thema des Spiels ist, aufgrund der Tatsache das der Fantasie kaum Grenzen gesetzt sind, Science-Fiction. Das Spiel findet in einem fiktivem Universum statt und der Spieler übernimmt die Rolle des Herrschers eines Planeten. 
 
-## Das Ziel
+## Projektziel
 
 Die entwickelte Applikation soll anschaulich und intuitiv sein. Es wird bewusst auf Animationen und ähnliches verzichtet, um den Stil und Charme der vorher genannten Browserspiele beizubehalten. Die Benutzeroberfläche soll simpel gehalten werden und dennoch alle nötigen Funktionen klar erkennbar darstellen um eine einfache Bedienung zu gewährleisten. Das Design soll einheitlich sein um der Applikation ein natürliches Aussehen zu verleihen.
 
 Das Spielkonzept soll einfach gehalten werden und trotzdem dafür sorgen dem Spieler Spaß und die Lust zum weiterzuspielen bringen. Berechnungen und ähnliches sollen daher auch im Hintergrund geschehen um den Fluss des Spiels so wenig wie möglich zu unterbrechen.
 
-## Die Begründung
+## Projektbegründung
 
-## Die Schnittstellen
+Aufgrund der Tatsache, das kaum Browserspiele, so wie sie sind, als Mobile Applikationen veröffentlicht wurden haben sich die Autoren dazu entschieden dieses Projekt zu bearbeiten.
 
-Die Applikation, die vom Benutzer bedient wird, ist nur ein Teil eines Systems. Die Eingaben des Benutzers werden an einen Server gesendet und dort verarbeitet. Des weiteren gibt es eine Datenbank zur Speicherung von verschiedensten Werten. Der Benutzer interagiert also nur mit dem Client, während alles andere an anderer Stelle passiert. Mehr dazu im Kapitel, in dem die [Architektur](#Architekturbeschreibung) beschrieben wird.
+## Projektschnittstellen
+
+Die Applikation, die vom Benutzer bedient wird, ist nur ein Teil eines Systems. Die Eingaben des Benutzers werden an einen Server gesendet und dort verarbeitet. Der Server wurde mithilfe von [Node.js](https://nodejs.org/en/) programmiert. Des weiteren gibt es eine [MySQL](https://www.mysql.com/de/) Datenbank zur Speicherung von verschiedensten Werten. Es wurde außerdem [MySQL Workbench](https://www.mysql.com/de/products/workbench/) zur Überwachung und zum einpflegen der Daten verwendet. Die Kommunikation zwischen Server und Datenbank ist auch mit [Node.js](https://nodejs.org/en/) geregelt und im Server implementiert. Genauere Informationen befinden sich im Kapitel [Implementierung](#Implementierung). Der Benutzer interagiert also nur mit dem Client, während alles andere an anderer Stelle passiert. Mehr dazu im Kapitel, in dem die [Architektur](#Architekturbeschreibung) beschrieben wird.
+
+## Projektabgrenzung
+
+Da die Arbeitszeit am Projekt beschränkt ist, soll die Applikation mit wenigen Spielern im Sinn implementiert werden.
 
 # Stand der Technik
 
@@ -42,7 +50,7 @@ Die Applikation, die vom Benutzer bedient wird, ist nur ein Teil eines Systems. 
 
 **Should have:**
 
-- [ ] Nicht-Spieler-Caraktere
+- [ ] Nicht-Spieler-Charaktere
 - [x] Forschung
 - [x] Verbesserungen (Truppen/Gebäude)
 - [x] Verteidigungsanlagen
@@ -69,7 +77,7 @@ Zu Beginn des Projekts waren wir sehr motiviert und haben geglaubt, das wir auch
 
 ## Erste Konzepte
 
-### Landscape Layout
+### Landscape Layout 
 
 ![Startseite](D:\FH\git\mobile-app\doku\mockups\Basti\startpage.png)
 
@@ -89,27 +97,27 @@ Zu Beginn des Projekts waren wir sehr motiviert und haben geglaubt, das wir auch
 
 ### Portrait Layout
 
-<img src="D:\FH\git\mobile-app\doku\mockups\Felix\home.png" alt="Übersicht" style="zoom:80%;" />
+<img src="D:\FH\git\mobile-app\doku\mockups\Felix\home.png" alt="Übersicht" style="zoom:75%;" />
 
 <center>Bild : Mockup der Übersichtsseite</center>
 
-<img src="D:\FH\git\mobile-app\doku\mockups\Felix\menu.png" alt="Menü" style="zoom:80%;" />
+<img src="D:\FH\git\mobile-app\doku\mockups\Felix\menu.png" alt="Menü" style="zoom:75%;" />
 
 <center>Bild 6: Mockup des Dropdown Menüs</center>
 
-<img src="D:\FH\git\mobile-app\doku\mockups\Felix\resources.png" alt="Ressourcen" style="zoom:80%;" />
+<img src="D:\FH\git\mobile-app\doku\mockups\Felix\resources.png" alt="Ressourcen" style="zoom:75%;" />
 
 <center>Bild 7: Mockup der Ressourcenseite</center>
 
-<img src="D:\FH\git\mobile-app\doku\mockups\Felix\ressourcedetails.png" alt="Ressourcen - Detailansicht" style="zoom:80%;" />
+<img src="D:\FH\git\mobile-app\doku\mockups\Felix\ressourcedetails.png" alt="Ressourcen - Detailansicht" style="zoom:75%;" />
 
 <center>Bild 8: Mockup der Detailansicht</center>
 
-<img src="D:\FH\git\mobile-app\doku\mockups\Felix\buildings.png" alt="Gebäude" style="zoom:80%;" />
+<img src="D:\FH\git\mobile-app\doku\mockups\Felix\buildings.png" alt="Gebäude" style="zoom:75%;" />
 
 <center>Bild 9: Mockup der Gebäudeseite</center>
 
-<img src="D:\FH\git\mobile-app\doku\mockups\Felix\research.png" alt="Forschung" style="zoom:80%;" />
+<img src="D:\FH\git\mobile-app\doku\mockups\Felix\research.png" alt="Forschung" style="zoom:75%;" />
 
 <center>Bild 10: Mockup der Forschungsseite</center>
 
@@ -130,6 +138,12 @@ Angriffe sind ein weiterer Weg um Ressourcen zu erhalten. Der Spieler kann seine
 Raumschiffe haben vier verschiedene Werte. Trefferpunkte, Schilde, Angriff und Feuerrate. Anhand dieser Werte wird ein Kampf simuliert. Die Verschiedenen Schiffe haben Stärken und Schwächen wie zum Beispiel eine besonders hoher Schaden aber dafür eine geringere Feuerrate oder ähnliches.
 
 # Tests und Usability
+
+## Usability
+
+### Benutzeroberfläche
+
+Die Benutzeroberfläche wurde so entworfen, dass sich alle Funktionen entweder als Einträge im immer sichtbaren Dropdown Menü wiederfinden oder als Buttons an dem von der ausgeführten Aktion betroffenem Element sind. Des weiteren wurde für alle Seiten mit ähnlichem, Listenartigen Aufbau das gleiche Muster verwendet. Einzelne, zusammengehörende Elemente sind von einem Rahmen umgeben um sie voneinander abzugrenzen. Das Dropdown Menü beinhaltet fast ausschließlich Punkte zum Wechseln der Seite. Das sind Aktionen, die man nicht permanent benötigt und daher werden sie durch die Platzierung im Dropdown Menü versteckt. Dadurch kann Platz für die wichtigeren Aktionen geschaffen werden, die dadurch mehr ins Auge fallen.
 
 # Zusammenfassung
 
