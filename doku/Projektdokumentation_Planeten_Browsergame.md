@@ -1,5 +1,5 @@
 <p style="font-weight:600; font-size:36px; text-align:center;">Planeten Browsergame</p>
-<p style="font-weight:600; font-size:18px; text-align:center">Tim Felix Tanner (Matrikelnr)</p>
+<p style="font-weight:600; font-size:18px; text-align:center">Tim Felix Tanner (1151110)</p>
 <p style="font-weight:600; font-size:18px; text-align:center">Bastian Schneider (1151420)</p>
 <div style="page-break-after: always;"></div>
 [TOC]
@@ -125,7 +125,56 @@ Die Wahl der Farbe
 
 # Implementierung
 
+## Projektplanung
 
+### Zeitplanung
+
+Es war ein Zeitraum von 13 Wochen vorgegeben. Wir haben uns für das Spiralmodell entschieden. Die Begründung kann im Abschnitt Entwicklungsprozess eingesehen werden. Eine grobe Zeiteinteilung haben wir wie folgt vorgenommen. Die Angaben sind in Prozent weil wir in einem iterativen Modell immer wieder zwischen den Phasen wechseln.
+
+| Projektphasen   | geplante Zeit in %|
+| --------------- |:-------------:|
+| Planung         | 10 |
+| Entwurf         | 20 |
+| Implementierung | 30 |
+| Zusammenführung | 5 |
+| Tests           | 30 |
+| Dokumentation   | 5 |
+
+### Terminplanung
+
+Nachfolgend ist der Meilensteinplan. Es wurden alle Meilensteine eingehalten.
+
+| Nummer        | Bezeichnung                             | Soll Termin   | Ist Termin |
+| ------------- | --------------------------------------- | ------------- | ---------- |
+| 1             | Projektstart                            | 14.10.2019    | 14.10.2019 |
+| 2             | Projektplanung                          | 21.10.2019    | 21.10.2019 |
+| 3             | Server Client Kommunikation hergestellt | 28.10.2019    | 28.10.2019 |
+| 4             | Oberfläche entworfen                    | 11.11.2019    | 11.11.2019 |
+| 5             | Datenbank eingebunden                   | 25.11.2019    | 25.11.2019 |
+| 6             | erste Funktionalität benutzbar          | 17.12.2019    | 17.12.2019 |
+| 7             | Projekt funktionsfähig                  | 06.01.2019    | 17.12.2019 |
+| 8             | Projektübergabe                         | 13.01.2020    | 13.01.2020 |
+
+### Personalplanung
+
+An dem Projekt haben zwei Entwickler gearbeitet. Die wichtigsten Entscheidungen wurden zusammnegetroffen. Arbeiten wurden aufgeteilt und es standen für Nachfragen oder Hilfestellungen zwei Dozenten zur Verfügung.
+
+### Sachmittelplanung
+
+Sämtliche benutzte Software ist Open-Source-Software, also kostenfrei verfügbar. Da es kein gewerbliches Projekt ist und auch nie als eines geplant war, wurde keine Investitionen vorgenommen. Von Mockplus wurde eine einwöchige Testversion genutzt. Diese Programme wurden benutzt: 
+
+* MySQL Workbench
+* Node.js
+* Android Studio
+* Mockplus
+* git
+
+Es wurden zwei Computer für die Programmierung genutzt und ein Laptop für die Präsentation.
+
+
+### Entwicklungsprozess
+
+Wir haben uns für das Spiralmodell als Entwocklungsmodell geeinigt, weil das Projekt zu komplex ist, um es in einem Zug zu implementieren. Es muss immer wieder getestet werden bevor neue Funktionalitäten implementiert werden können. Ansonsten hätten lange Fehlersuchen den Entwicklungsprozess zu stark verlangsamt. Nachdem das Grundgerüst des Programms stand wurden im gesamten Entwicklungsprozess, iterativ, neue Features implementiert. Damit getestet werden konnte um sie mit dem schon vorhanden Code synergieren.
 
 ## Spielkonzepte
 

@@ -69,13 +69,9 @@ public class MainActivity extends AppCompatActivity {
                 TextView user = findViewById(R.id.a_user);
 
                 planetname.setText(player.name);
-<<<<<<< HEAD
                 size.setText(player.size + " Millionen km²");
                 temperature.setText(player.temperature + "°C");
-=======
-                size.setText(player.size + " km²");
-                temperature.setText(player.temperatur + "°C");
->>>>>>> 4defbbb862d36c180c79269678e63abbe395234a
+
                 position.setText(player.x + ", " + player.y);
                 points.setText("0");
                 user.setText(player.username);
