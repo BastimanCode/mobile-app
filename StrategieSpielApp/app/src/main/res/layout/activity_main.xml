@@ -192,7 +192,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/research"
+            android:id="@+id/attack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -226,7 +226,7 @@
             app:srcCompat="@mipmap/ic_launcher" />
 
         <ImageView
-            android:id="@+id/researchImage"
+            android:id="@+id/galaxyImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -235,8 +235,8 @@
             android:layout_marginBottom="5dp"
             android:contentDescription="@string/research"
             android:scaleType="fitXY"
-            app:layout_constraintStart_toStartOf="@+id/research"
-            app:layout_constraintTop_toBottomOf="@+id/research"
+            app:layout_constraintStart_toStartOf="@+id/attack"
+            app:layout_constraintTop_toBottomOf="@+id/attack"
             app:srcCompat="@mipmap/ic_launcher" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

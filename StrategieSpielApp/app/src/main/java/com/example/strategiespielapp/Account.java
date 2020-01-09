@@ -5,11 +5,13 @@ public class Account {
     String email;
     String username;
     String password;
+    int lastOnline;
 
-    public Account(int id, String email, String username, String password) {
+    public Account(int id, String email, String username, String password, int lastOnline) {
         this.id = id;
         this.email = email;
         this.username = username;
         this.password = password;
+        this.lastOnline = lastOnline;
     }
 }

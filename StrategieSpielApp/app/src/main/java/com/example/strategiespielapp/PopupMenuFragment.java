@@ -55,7 +55,7 @@ public class PopupMenuFragment extends Fragment implements PopupMenu.OnMenuItemC
                 Intent buildingsIntent = new Intent(getActivity(), BuildingsActivity.class);
                 startActivity(buildingsIntent);
                 return true;
-            case R.id.research:
+            case R.id.attack:
                 Intent researchIntent = new Intent(getActivity(), ResearchActivity.class);
                 startActivity(researchIntent);
                 return true;
@@ -71,6 +71,10 @@ public class PopupMenuFragment extends Fragment implements PopupMenu.OnMenuItemC
                 Intent galaxyIntent = new Intent(getActivity(), GalaxyActivity.class);
                 startActivity(galaxyIntent);
                 return true;
+            case R.id.logout:
+                getContext().deleteFile("accountData.json");
+                Intent loginIntent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(loginIntent);
             default:
                 return false;
         }
@@ -94,6 +98,6 @@ public class PopupMenuFragment extends Fragment implements PopupMenu.OnMenuItemC
                 fuel.setText(String.valueOf(player.fuel));
             }
         });
-        get.execute("http://192.168.0.80:8000/?type=refresh&playerid=1&planetid=1");
+        get.execute("http://192.168.178.25:8000/?type=refresh&playerid=1&planetid=1");
     }
 }

@@ -6,7 +6,7 @@
         android:title="@string/resources"/>
     <item android:id="@+id/buildings"
         android:title="@string/buildings"/>
-    <item android:id="@+id/research"
+    <item android:id="@+id/attack"
         android:title="@string/research"/>
     <item android:id="@+id/units"
         android:title="@string/units"/>
@@ -14,4 +14,6 @@
         android:title="@string/fleets"/>
     <item android:id="@+id/galaxy"
         android:title="@string/galaxy"/>
+    <item android:id="@+id/logout"
+        android:title="@string/logout"/>
 </menu>
