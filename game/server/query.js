@@ -20,9 +20,14 @@ function database(connection, queries){
             case "build":
                 string = "SELECT * FROM account JOIN planet ON account.id = planet.Account_id WHERE account.id = " + queryobject.playerid + " AND planet.id = " + queryobject.planetid;
                 break;
+<<<<<<< HEAD
             case "attack":
                 string = "select * from planet";
                 break;          
+=======
+            case "planets":
+                string = "SELECT * FROM planet JOIN account ON planet.Account_id = account.id"
+>>>>>>> 4defbbb862d36c180c79269678e63abbe395234a
     }
     return connection.query(string);    
 }
@@ -30,6 +35,7 @@ function database(connection, queries){
 function databasePost(connection, queries, data, planet){
     const queryobject = queries;
     var string;
+<<<<<<< HEAD
     var time = new Date();
     switch(queryobject.type){
         case "login":
@@ -42,6 +48,22 @@ function databasePost(connection, queries, data, planet){
             " INSERT INTO research (account_id) VALUES ((SELECT id FROM account WHERE username = '" + data.username + "'))";
             break;
     }   
+=======
+    let datetime = new Date();
+    switch(queryobject.type){
+        case "login":
+            string = "UPDATE Account SET last_online = '" + datetime.getTime() + "' WHERE email = '" + data.email + "';" + 
+            " SELECT * FROM account JOIN planet ON account.id = planet.Account_id WHERE email = '" + data.email + "' AND password = '" + data.password + "'";
+            break;
+        case "register":
+            string = "INSERT INTO account (email, username, password, last_online) VALUES ('" + data.email + "', '" + data.username + "', '" + data.password + "', '" + datetime.getTime() + "');" +
+            " INSERT INTO Research (Account_id) VALUES (SELECT id FROM Account WHERE email = '" + data.email + "');" +
+            //" INSERT INTO Planet ..."
+            " SELECT * FROM account JOIN planet ON account.id = planet.Account_id WHERE email = '" + data.email + "' and password = '" + data.password + "';";
+            
+            break;
+    }
+>>>>>>> 4defbbb862d36c180c79269678e63abbe395234a
     return connection.query(string);
 }
 

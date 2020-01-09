@@ -97,11 +97,11 @@ public class RecyclerViewAdapterResearch extends RecyclerView.Adapter<RecyclerVi
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            headline = itemView.findViewById(R.id.headline);
+            headline = itemView.findViewById(R.id.name);
             description = itemView.findViewById(R.id.description);
             level = itemView.findViewById(R.id.level);
-            research = itemView.findViewById(R.id.research);
-            researchImage = itemView.findViewById(R.id.researchImage);
+            research = itemView.findViewById(R.id.attack);
+            researchImage = itemView.findViewById(R.id.galaxyImage);
             parentlayout = itemView.findViewById(R.id.listitemresearch);
             resource1cost = itemView.findViewById(R.id.resource1cost);
             resource2cost = itemView.findViewById(R.id.resource2cost);

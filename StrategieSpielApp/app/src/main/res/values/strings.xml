@@ -24,6 +24,7 @@
         <item>Einheiten</item>
         <item>Flotten</item>
         <item>Galaxie</item>
+        <item>Ausloggen</item>
     </string-array>
     <string name="popup_menu">MENU</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -48,4 +49,9 @@
     <string name="no_incoming_attacks">Keine eingehenden Angriffe</string>
     <string name="back">BACK</string>
     <string name="doresearch">erforschen</string>
+    <string name="planetname">Planeten Name</string>
+    <string name="accountname">Account Name</string>
+    <string name="attack">Angreifen</string>
+    <string name="planetCoords">Koordinaten:</string>
+    <string name="logout">Ausloggen</string>
 </resources>

@@ -11,12 +11,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 
@@ -111,7 +107,7 @@ public class RecyclerViewAdapterResources extends RecyclerView.Adapter<RecyclerV
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            headline = itemView.findViewById(R.id.headline);
+            headline = itemView.findViewById(R.id.name);
             description = itemView.findViewById(R.id.description);
             level = itemView.findViewById(R.id.level);
             build = itemView.findViewById(R.id.build);

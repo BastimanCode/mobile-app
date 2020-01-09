@@ -17,6 +17,9 @@ import com.google.gson.GsonBuilder;
 
 public class MainActivity extends AppCompatActivity {
 
+    int playerID;
+    int planetID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,8 +31,7 @@ public class MainActivity extends AppCompatActivity {
         String fileName = "accountData.json";
         try {
             FileInputStream fis = openFileInput(fileName);
-            InputStreamReader inputStreamReader =
-                    new InputStreamReader(fis, StandardCharsets.UTF_8);
+            InputStreamReader inputStreamReader = new InputStreamReader(fis, StandardCharsets.UTF_8);
             StringBuilder stringBuilder = new StringBuilder();
             try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
                 String line = reader.readLine();
@@ -41,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             } finally {
                 String content = stringBuilder.toString();
+                Gson gson = new GsonBuilder().create();
+                AccountPlanet account = gson.fromJson(content, AccountPlanet.class);
+                playerID = account.accountId;
+                planetID = account.planetId;
                 test.setText(content);
             }
         } catch (IOException e) {
@@ -63,14 +69,19 @@ public class MainActivity extends AppCompatActivity {
                 TextView user = findViewById(R.id.a_user);
 
                 planetname.setText(player.name);
+<<<<<<< HEAD
                 size.setText(player.size + " Millionen km²");
                 temperature.setText(player.temperature + "°C");
+=======
+                size.setText(player.size + " km²");
+                temperature.setText(player.temperatur + "°C");
+>>>>>>> 4defbbb862d36c180c79269678e63abbe395234a
                 position.setText(player.x + ", " + player.y);
                 points.setText("0");
                 user.setText(player.username);
             }
         });
-        get.execute("http://192.168.0.80:8000/?type=refresh&playerid=1&planetid=1");
+        get.execute("http://192.168.178.25:8000/?type=refresh&playerid=" + playerID + "&planetid=" + planetID);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
