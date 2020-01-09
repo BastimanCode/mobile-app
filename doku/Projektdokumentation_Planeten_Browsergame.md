@@ -6,7 +6,7 @@
 
 # Einleitung
 
-Die Folgende Projektbeschreibung schildert den Aufbau und Ablauf des Projekts im Modul Mobile Applikationen der Fachhochschule Bielefeld, welches die Autoren im laufe des Semesters durchgeführt haben.
+Die Folgende Projektbeschreibung schildert den Aufbau und Ablauf des Projekts im Modul Mobile Applikationen der Fachhochschule Bielefeld, welches wir im laufe des Semesters durchgeführt haben.
 
 ## Projektbeschreibung
 
@@ -20,7 +20,7 @@ Das Spielkonzept soll einfach gehalten werden und trotzdem dafür sorgen dem Spi
 
 ## Projektbegründung
 
-Aufgrund der Tatsache, das kaum Browserspiele, so wie sie sind, als Mobile Applikationen veröffentlicht wurden haben sich die Autoren dazu entschieden dieses Projekt zu bearbeiten.
+Aufgrund der Tatsache, das kaum Browserspiele, so wie sie sind, als Mobile Applikationen veröffentlicht wurden haben sich wir dazu entschieden dieses Projekt zu bearbeiten.
 
 ## Projektschnittstellen
 
@@ -147,3 +147,10 @@ Die Benutzeroberfläche wurde so entworfen, dass sich alle Funktionen entweder a
 
 # Zusammenfassung
 
+## Soll-/Ist-Vergleich
+
+Bei einer rückblickenden Betrachtung des Projektes, kann festgehalten werden, dass fast alle zuvor festgelegten [Anforderungen](#Übersicht) erfüllt wurden. Außerdem wurden Aspekte erfüllt, die über die Planung hinaus gehen.
+
+## Lessons learned
+
+Im Laufe des Projekts haben wir wertvolle Erfahrungen bezüglich der Entwicklung von Applikationen sammeln können. Des weiteren haben wir festgestellt das die Entwicklung eines Spieles eine größere Herausforderung ist, als wir Anfangs dachten. Außerdem haben wir viel neues über die Client Server Architektur, explizit die Kommunikation über HTTP sowie die Nützlichkeit von [Node.js](https://nodejs.org/en/) lernen können. [Node.js](https://nodejs.org/en/) regelt einen Großteil des handshakes von HTTP, sodass man sich nur noch um die Verarbeitung der Daten kümmern muss. Auch im Umgang mit einer Datenbank ist es von großem nutzen, da man Queries als Strings sehr einfach ausführen kann und man ein Objekt zurück bekommt das man direkt versenden kann. Auch haben wir von neuem gemerkt das das Dateiformat [JSON](#https://www.json.org/json-de.html) die Kommunikation und Datenverarbeitung durch die Objektifizierung deutlich erleichtert.
