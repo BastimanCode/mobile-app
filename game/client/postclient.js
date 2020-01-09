@@ -11,7 +11,7 @@ var queryplayer = '&playerid=1'
 var queryplanet = '&planetid=1'
   
   const options = {
-    hostname: '192.168.178.25',
+    hostname: '192.168.0.80',
     port: 8000,
     path: '/' + querytype + queryplayer + queryplanet,
     method: 'POST',

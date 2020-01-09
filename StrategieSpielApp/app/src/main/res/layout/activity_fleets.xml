@@ -15,4 +15,14 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:layout="@layout/fragment_popup_menu" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="100dp"
+        android:text="attack"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/popup_menu_fragment" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

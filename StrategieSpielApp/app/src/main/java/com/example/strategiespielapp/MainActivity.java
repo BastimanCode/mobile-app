@@ -57,16 +57,16 @@ public class MainActivity extends AppCompatActivity {
 
                 TextView size = findViewById(R.id.a_size);
                 TextView planetname = findViewById(R.id.planetname);
-                TextView temperature= findViewById(R.id.a_temperature);
+                TextView temperature = findViewById(R.id.a_temperature);
                 TextView position = findViewById(R.id.a_position);
                 TextView points = findViewById(R.id.a_points);
                 TextView user = findViewById(R.id.a_user);
 
                 planetname.setText(player.name);
-                size.setText(String.valueOf(player.size));
-                temperature.setText(player.temperatur + "°C");
+                size.setText(player.size + " Millionen km²");
+                temperature.setText(player.temperature + "°C");
                 position.setText(player.x + ", " + player.y);
-                points.setText("212");
+                points.setText("0");
                 user.setText(player.username);
             }
         });

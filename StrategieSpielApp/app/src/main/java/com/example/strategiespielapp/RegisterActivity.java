@@ -95,7 +95,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         }
                     }
                 });
-                post.execute("http://192.168.178.25:8000/?type=register", json);
+                post.execute("http://192.168.0.80:8000/?type=register", json);
                 break;
             case R.id.buttonBack:
                 Intent loginIntent = new Intent(this, LoginActivity.class);

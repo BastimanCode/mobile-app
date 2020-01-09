@@ -20,32 +20,29 @@ function database(connection, queries){
             case "build":
                 string = "SELECT * FROM account JOIN planet ON account.id = planet.Account_id WHERE account.id = " + queryobject.playerid + " AND planet.id = " + queryobject.planetid;
                 break;
+            case "attack":
+                string = "select * from planet";
+                break;          
     }
     return connection.query(string);    
 }
 
-function databasePost(connection, queries, data){
+function databasePost(connection, queries, data, planet){
     const queryobject = queries;
     var string;
+    var time = new Date();
     switch(queryobject.type){
         case "login":
-                string = "SELECT * FROM account where email = '" + data.email + "' and password = '" + data.password + "'";
-                break;
-            case "register":
-                string = "INSERT INTO account (email, username, password) VALUES ('" + data.email + "', '" + data.username + "', '" + data.password + "');" +
-                " SELECT * FROM account where email = '" + data.email + "' and password = '" + data.password + "';";
-                break;
-    }
+            string = "SELECT * FROM account where email = '" + data.email + "' and password = '" + data.password + "'";
+            break;
+        case "register":
+            string = "INSERT INTO account (email, username, password, last_online) VALUES ('" + data.email + "', '" + data.username + "', '" + data.password + "', '" + time.getTime() + "');" +
+            " SELECT * FROM account where email = '" + data.email + "' and password = '" + data.password + "';" + 
+            " INSERT INTO planet (name, size, temperature, x, y, material, electronics, fuel, account_id) VALUES ('placeholder', " + (100 + (Math.random() * 551)) + ", " + ((Math.random() * -50) + (Math.random() *  80)) + ", " + planet.x + ", " + planet.y + ", 500, 500, 300, (SELECT id FROM account WHERE username = '" + data.username + "'));" + 
+            " INSERT INTO research (account_id) VALUES ((SELECT id FROM account WHERE username = '" + data.username + "'))";
+            break;
+    }   
     return connection.query(string);
-}
-
-function databaseUpdate(connection, queries, material, electronics, fuel){
-    const queryobject = queries;
-    let time = new Date();    
-    //connection.query("UPDATE planet set material = " + material + ", electronics = " + electronics + ", fuel = " + fuel + " WHERE Account_id = " + 1 + " AND id = " + 1);
-    //connection.query("UPDATE account set last_online = " + time.getTime() + " WHERE id = " + queryobject.playerid);
-    //return connection.query("SELECT * FROM planet");
-
 }
 
 module.exports.database = database;
