@@ -1,9 +1,6 @@
 <p style="font-weight:600; font-size:36px; text-align:center;">Planeten Browsergame</p>
-
 <p style="font-weight:600; font-size:18px; text-align:center">Tim Felix Tanner (Matrikelnr)</p>
-
 <p style="font-weight:600; font-size:18px; text-align:center">Bastian Schneider (1151420)</p>
-
 <div style="page-break-after: always;"></div>
 [TOC]
 
@@ -70,11 +67,57 @@ Die Applikation, die vom Benutzer bedient wird, ist nur ein Teil eines Systems. 
 
 Zu Beginn des Projekts waren wir sehr motiviert und haben geglaubt, das wir auch die could have's teilweise noch erreichen könnten. Im Laufe der Arbeit am Projekt hat sich herausgestellt das diese Einschätzung sehr optimistisch war und wir haben uns darauf geeinigt uns mit den should have's zufrieden zu geben. Am Ende ist es dann doch noch dazu gekommen das wir unsere erste Zielsetzung erreicht haben.
 
+## Erste Konzepte
+
+### Landscape Layout
+
+![Startseite](D:\FH\git\mobile-app\doku\mockups\Basti\startpage.png)
+
+<center>Bild 1: Mockup der Startseite</center>
+
+![Übersicht](D:\FH\git\mobile-app\doku\mockups\Basti\overview.png)
+
+<center>Bild 2: Mockup der Übersichtsseite</center>
+
+![Planeten](D:\FH\git\mobile-app\doku\mockups\Basti\planets.png)
+
+<center>Bild 3: Mockup der Planetenseite</center>
+
+![Gebäude](D:\FH\git\mobile-app\doku\mockups\Basti\buildings.png)
+
+<center>Bild 4: Mockup der Gebäudeseite</center>
+
+### Portrait Layout
+
+<img src="D:\FH\git\mobile-app\doku\mockups\Felix\home.png" alt="Übersicht" style="zoom:80%;" />
+
+<center>Bild : Mockup der Übersichtsseite</center>
+
+<img src="D:\FH\git\mobile-app\doku\mockups\Felix\menu.png" alt="Menü" style="zoom:80%;" />
+
+<center>Bild 6: Mockup des Dropdown Menüs</center>
+
+<img src="D:\FH\git\mobile-app\doku\mockups\Felix\resources.png" alt="Ressourcen" style="zoom:80%;" />
+
+<center>Bild 7: Mockup der Ressourcenseite</center>
+
+<img src="D:\FH\git\mobile-app\doku\mockups\Felix\ressourcedetails.png" alt="Ressourcen - Detailansicht" style="zoom:80%;" />
+
+<center>Bild 8: Mockup der Detailansicht</center>
+
+<img src="D:\FH\git\mobile-app\doku\mockups\Felix\buildings.png" alt="Gebäude" style="zoom:80%;" />
+
+<center>Bild 9: Mockup der Gebäudeseite</center>
+
+<img src="D:\FH\git\mobile-app\doku\mockups\Felix\research.png" alt="Forschung" style="zoom:80%;" />
+
+<center>Bild 10: Mockup der Forschungsseite</center>
+
 # Architekturbeschreibung
 
 # Implementierung
 
-## Erste Konzepte
+
 
 ## Spielkonzepte
 
