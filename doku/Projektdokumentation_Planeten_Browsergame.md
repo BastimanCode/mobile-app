@@ -79,47 +79,47 @@ Zu Beginn des Projekts waren wir sehr motiviert und haben geglaubt, das wir auch
 
 ### Landscape Layout 
 
-![Startseite](D:\FH\git\mobile-app\doku\mockups\Basti\startpage.png)
+<img src="D:\FH\git\mobile-app\doku\mockups\Basti\startpage.png" alt="Startseite" style="zoom:50%;" />
 
 <center>Bild 1: Mockup der Startseite</center>
-
-![Übersicht](D:\FH\git\mobile-app\doku\mockups\Basti\overview.png)
+<img src="D:\FH\git\mobile-app\doku\mockups\Basti\overview.png" alt="Übersicht" style="zoom:50%;" />
 
 <center>Bild 2: Mockup der Übersichtsseite</center>
-
-![Planeten](D:\FH\git\mobile-app\doku\mockups\Basti\planets.png)
+<img src="D:\FH\git\mobile-app\doku\mockups\Basti\planets.png" alt="Planeten" style="zoom:50%;" />
 
 <center>Bild 3: Mockup der Planetenseite</center>
-
-![Gebäude](D:\FH\git\mobile-app\doku\mockups\Basti\buildings.png)
+<img src="D:\FH\git\mobile-app\doku\mockups\Basti\buildings.png" alt="Gebäude" style="zoom:50%;" />
 
 <center>Bild 4: Mockup der Gebäudeseite</center>
-
 ### Portrait Layout
 
-<img src="D:\FH\git\mobile-app\doku\mockups\Felix\home.png" alt="Übersicht" style="zoom:75%;" />
+<img src="D:\FH\git\mobile-app\doku\mockups\Felix\home.png" alt="Übersicht" style="zoom:60%;" />
 
-<center>Bild : Mockup der Übersichtsseite</center>
-
-<img src="D:\FH\git\mobile-app\doku\mockups\Felix\menu.png" alt="Menü" style="zoom:75%;" />
+<center>Bild 5: Mockup der Übersichtsseite</center>
+<img src="D:\FH\git\mobile-app\doku\mockups\Felix\menu.png" alt="Menü" style="zoom:60%;" />
 
 <center>Bild 6: Mockup des Dropdown Menüs</center>
-
-<img src="D:\FH\git\mobile-app\doku\mockups\Felix\resources.png" alt="Ressourcen" style="zoom:75%;" />
+<img src="D:\FH\git\mobile-app\doku\mockups\Felix\resources.png" alt="Ressourcen" style="zoom:60%;" />
 
 <center>Bild 7: Mockup der Ressourcenseite</center>
-
-<img src="D:\FH\git\mobile-app\doku\mockups\Felix\ressourcedetails.png" alt="Ressourcen - Detailansicht" style="zoom:75%;" />
+<img src="D:\FH\git\mobile-app\doku\mockups\Felix\ressourcedetails.png" alt="Ressourcen - Detailansicht" style="zoom:60%;" />
 
 <center>Bild 8: Mockup der Detailansicht</center>
-
-<img src="D:\FH\git\mobile-app\doku\mockups\Felix\buildings.png" alt="Gebäude" style="zoom:75%;" />
+<img src="D:\FH\git\mobile-app\doku\mockups\Felix\buildings.png" alt="Gebäude" style="zoom:60%;" />
 
 <center>Bild 9: Mockup der Gebäudeseite</center>
-
-<img src="D:\FH\git\mobile-app\doku\mockups\Felix\research.png" alt="Forschung" style="zoom:75%;" />
+<img src="D:\FH\git\mobile-app\doku\mockups\Felix\research.png" alt="Forschung" style="zoom:60%;" />
 
 <center>Bild 10: Mockup der Forschungsseite</center>
+### Finales Konzept
+
+Hauptsächlich wurden in den tatsächlichen Entwurf der Benutzeroberfläche Ideen aus den Mockups im [Portrait Layout](#Portrait-Layout) übernommen, da sich diese Darstellungsweise besser für Auflistungen eignet als das [Landscape Layout](#Landscape-Layout).
+
+Der Startbildschirm wie er in *Bild 1* zu sehen ist wurde verworfen, da es innerhalb der Applikation kein Einstellungsmenü gibt. Damit verliert der Startbildschirm seine Funktion. Nun ist der Startbildschirm eine Übersichtsseite die der in *Bild 5* ähnlich sieht.
+
+Auch das Dropdown Menü (*Bild 6*) wurde fast genau so übernommen. Die Planetenleiste am rechten Rand der Bilder mit [Portrait Layout](#Portrait-Layout) ist ganz weggefallen, da jeder Spieler nur einen Planet hat und nicht mehrere wie zu Anfang festgelegt. Die Seiten zur Anzeige der Gebäude (*Bild 9*) und Forschung (*Bild 10*) sind fast eins zu eins übernommen worden. Der einzige unterschied hier ist, das sie jetzt die gesamte Breite einnehmen.
+
+Die Wahl der Farbe
 
 # Architekturbeschreibung
 
@@ -143,7 +143,7 @@ Raumschiffe haben vier verschiedene Werte. Trefferpunkte, Schilde, Angriff und F
 
 ### Benutzeroberfläche
 
-Die Benutzeroberfläche wurde so entworfen, dass sich alle Funktionen entweder als Einträge im immer sichtbaren Dropdown Menü wiederfinden oder als Buttons an dem von der ausgeführten Aktion betroffenem Element sind. Des weiteren wurde für alle Seiten mit ähnlichem, Listenartigen Aufbau das gleiche Muster verwendet. Einzelne, zusammengehörende Elemente sind von einem Rahmen umgeben um sie voneinander abzugrenzen. Das Dropdown Menü beinhaltet fast ausschließlich Punkte zum Wechseln der Seite. Das sind Aktionen, die man nicht permanent benötigt und daher werden sie durch die Platzierung im Dropdown Menü versteckt. Dadurch kann Platz für die wichtigeren Aktionen geschaffen werden, die dadurch mehr ins Auge fallen.
+Die Benutzeroberfläche wurde so entworfen, dass sich alle Funktionen entweder als Einträge im immer sichtbaren Dropdown Menü wiederfinden oder als Buttons an dem von der ausgeführten Aktion betroffenem Element sind. Des weiteren wurde für alle Seiten mit ähnlichem, Listenartigen Aufbau das gleiche Muster verwendet. Einzelne, zusammengehörende Elemente sind von einem Rahmen umgeben um sie voneinander abzugrenzen. Das Dropdown Menü beinhaltet fast ausschließlich Punkte zum Wechseln der Seite. Das sind Aktionen, die man nicht permanent benötigt und daher werden sie durch die Platzierung im Dropdown Menü versteckt. Dadurch kann Platz für die wichtigeren Aktionen geschaffen werden, die somit mehr ins Auge fallen.
 
 # Zusammenfassung
 
