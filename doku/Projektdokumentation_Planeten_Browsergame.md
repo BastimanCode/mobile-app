@@ -2,11 +2,12 @@
 <p style="font-weight:600; font-size:18px; text-align:center">Tim Felix Tanner (1151110)</p>
 <p style="font-weight:600; font-size:18px; text-align:center">Bastian Schneider (1151420)</p>
 <div style="page-break-after: always;"></div>
+
 [TOC]
 
 # Einleitung
 
-Die Folgende Projektbeschreibung schildert den Aufbau und Ablauf des Projekts im Modul Mobile Applikationen der Fachhochschule Bielefeld, welches wir im laufe des Semesters durchgeführt haben.
+Die Folgende Projektbeschreibung schildert den Aufbau und Ablauf des Projektes im Modul Mobile Applikationen der Fachhochschule Bielefeld, welches wir im laufe des Semesters durchgeführt haben.
 
 ## Projektbeschreibung
 
@@ -24,7 +25,7 @@ Aufgrund der Tatsache, das kaum Browserspiele, so wie sie sind, als Mobile Appli
 
 ## Projektschnittstellen
 
-Die Applikation, die vom Benutzer bedient wird, ist nur ein Teil eines Systems. Die Eingaben des Benutzers werden an einen Server gesendet und dort verarbeitet. Der Server wurde mithilfe von [Node.js](https://nodejs.org/en/) programmiert. Des weiteren gibt es eine [MySQL](https://www.mysql.com/de/) Datenbank zur Speicherung von verschiedensten Werten. Es wurde außerdem [MySQL Workbench](https://www.mysql.com/de/products/workbench/) zur Überwachung und zum einpflegen der Daten verwendet. Die Kommunikation zwischen Server und Datenbank ist auch mit [Node.js](https://nodejs.org/en/) geregelt und im Server implementiert. Genauere Informationen befinden sich im Kapitel [Implementierung](#Implementierung). Der Benutzer interagiert also nur mit dem Client, während alles andere an anderer Stelle passiert. Mehr dazu im Kapitel, in dem die [Architektur](#Architekturbeschreibung) beschrieben wird.
+Die Applikation, die vom Benutzer bedient wird, ist nur ein Teil eines Systems. Die Eingaben des Benutzers werden an einen Server gesendet und dort verarbeitet. Der Server wurde mithilfe von Node.js programmiert. Des weiteren gibt es eine MySQL Datenbank zur Speicherung von verschiedensten Werten. Es wurde außerdem MySQL Workbench zur Überwachung und zum einpflegen der Daten verwendet. Die Kommunikation zwischen Server und Datenbank ist auch mit Node.js geregelt und im Server implementiert. Genauere Informationen befinden sich im Abschnitt [Implementierung](#Implementierung). Der Benutzer interagiert also nur mit dem Client, während alles andere an anderer Stelle passiert. Mehr dazu im Abschnitt, in dem die [Architektur](#Architekturbeschreibung) beschrieben wird.
 
 ## Projektabgrenzung
 
@@ -32,9 +33,17 @@ Da die Arbeitszeit am Projekt beschränkt ist, soll die Applikation mit wenigen 
 
 # Stand der Technik
 
+Die Sicherheit der Nutzerdaten ist hauptsächlich durch die Architektur und das genutzte Protokoll (HTTP) gewährleistet. Die genannten Daten sind in diesem Fall E-Mail-Adressen und Passwörter. Diese Daten werden in einer Datenbank gespeichert, auf die nur der Server zugriff hat. Der Client, also die vom Benutzer bediente Applikation hat keinerlei Möglichkeit auf die Datenbank zuzugreifen (siehe [Architektur](#Architekturbeschreibung)). Durch die Verwendung von HTTP ist ein gewisses maß an Sicherheit gewährleistet. Zum Beispiel wird für die Übertragung von kritischen Daten die Post-Methode benutzt, damit die Daten im Body übermittelt werden, anstatt direkt in der URL wie bei der Get-Methode. 
+
+Ein mögliches Sicherheitsrisiko ist in der lokalen Speicherung von Accountdaten zu sehen. Wenn sich der Nutzer vor dem Schließen der Applikation nicht ausloggt, wird er automatisch beim Start wieder eingeloggt. Sollte nun jemand anderes Zugriff auf das Endgerät des Nutzers haben, könnte er auf den Account des Nutzers zugreifen. Dieses Risiko ist jedoch vernachlässigbar, da keinerlei persönliche Informationen wie zum Beispiel Kontodaten oder Adressen benutzt werden. Außerdem kann es sein das der Nutzer die Kombination von email und Passwort auch bei anderen Diensten verwendet und somit hätte der Angreifer auch Zugriff auf diese. Zum auslesen dieser Informationen sind jedoch Programmierkenntnisse nötig, daher wird diese Risikowahrscheinlichkeit auf niedrig eingeschätzt.
+
 # Anforderungsdokumentation
 
+Folgend werden die Anforderungen an die entwickelte Applikation zu Beginn des Projektes mit denen die am Ende tatsächlich erfüllt wurden gegenübergestellt. Außerdem wird die anfängliche Konzeption erläutert und wieder mit der endgültigen entgegengestellt
+
 ## Übersicht
+
+An dieser Stelle werden die gestellten Anforderungen dargestellt und durch einen Haken wird gezeigt, welche tatsächlich erfüllt wurden.
 
 **Must have:**
 
@@ -73,73 +82,169 @@ Da die Arbeitszeit am Projekt beschränkt ist, soll die Applikation mit wenigen 
 
 ## Verlauf
 
-Zu Beginn des Projekts waren wir sehr motiviert und haben geglaubt, das wir auch die could have's teilweise noch erreichen könnten. Im Laufe der Arbeit am Projekt hat sich herausgestellt das diese Einschätzung sehr optimistisch war und wir haben uns darauf geeinigt uns mit den should have's zufrieden zu geben. Am Ende ist es dann doch noch dazu gekommen das wir unsere erste Zielsetzung erreicht haben.
+Zu Beginn des Projektes waren wir sehr optimistisch und haben geglaubt, das wir auch die could haves teilweise noch erreichen könnten. Im Laufe der Arbeit am Projekt hat sich herausgestellt das diese Einschätzung sehr optimistisch war und wir haben uns darauf geeinigt uns mit den should haves zufrieden zu geben. Am Ende ist es dann doch noch dazu gekommen das wir unsere erste Zielsetzung erreicht haben.
+
+Auf die restlichen could haves und alle won't haves wurde bewusst verzichtet, da diese kaum neue Funktionalität erzeugt hätten. Sie hätten dazu beigetragen die Applikation vermarktbar zu machen, was für uns den Rahmen dieses Projektes sprengen würde.
 
 ## Erste Konzepte
 
-### Landscape Layout 
+Im folgenden werden die Verschiedenen Konzepte, die zu Beginn des Projektes erstellt wurden anhand von Mockups dargestellt und erläutert. Es wurden grundlegend zwei unterschiedliche Ideen verfolgt.
+
+### Landscape Layout
+
+Nachfolgend sind Mockups zu sehen, die auf einem Konzept beruhen, das mit dem Landscape Layout erdacht wurde.
 
 <img src="D:\FH\git\mobile-app\doku\mockups\Basti\startpage.png" alt="Startseite" style="zoom:50%;" />
 
 <center>Bild 1: Mockup der Startseite</center>
+In diesem Bild sieht man einen Platzhalter für den Namen der Applikation sowie drei Knöpfe. Die Knöpfe sind selbsterklärend. Der erste startet das eigentliche Spiel, der zweite öffnet das Optionsmenü und der letzte beendet die Applikation. Im Hintergrund befindet sich ein Platzhalter für ein Hintergrundbild.
+
 <img src="D:\FH\git\mobile-app\doku\mockups\Basti\overview.png" alt="Übersicht" style="zoom:50%;" />
 
 <center>Bild 2: Mockup der Übersichtsseite</center>
+Hier ist die Übersichtsseite des Spiels dargestellt. Oben rechts sieht man die drei Ressourcen mit zugehörigen Bildern, sowie einen Knopf der in das Optionsmenü führt. Am linken Rand befindet sich die Navigationsleiste zum wechseln der Seiten. Der Hauptteil des Bildschirms ist mit einem Bild und verschiedenen Knöpfen befüllt, die zur Anzeige verschiedenster Informationen führen.
+
 <img src="D:\FH\git\mobile-app\doku\mockups\Basti\planets.png" alt="Planeten" style="zoom:50%;" />
 
 <center>Bild 3: Mockup der Planetenseite</center>
+In dieser Darstellung wird die Planetenseite gezeigt. Der linke und obere Rand sind identisch zum vorherigen Bild. Rechts sieht man nun eine Übersicht aller Planeten mit Informationen über den Besitzer und seine Ressourcen. Des weiteren gibt es für jeden Planeten einen Knopf, der einen Angriff startet.
+
 <img src="D:\FH\git\mobile-app\doku\mockups\Basti\buildings.png" alt="Gebäude" style="zoom:50%;" />
 
 <center>Bild 4: Mockup der Gebäudeseite</center>
+Dieses Bild stellt die Gebäudeseite dar. Sie ähnelt *Bild 2* vom Aufbau, jedoch ist die Funktion der Knöpfe anders. Hier können sie dazu benutzt werden die verschiedenen Gebäude aufzuwerten.
+
+Die weiteren Einträge des Navigationsmenüs (Truppen, Forschung) wurden an dieser Stelle nicht weiter Beschrieben, da sie im Aufbau und der Funktionalität *Bild 4* entsprechen.
+
 ### Portrait Layout
+
+Hier werden Mockups gezeigt, die mit dem Portrait Layout im Sinn entwickelt worden.
 
 <img src="D:\FH\git\mobile-app\doku\mockups\Felix\home.png" alt="Übersicht" style="zoom:60%;" />
 
 <center>Bild 5: Mockup der Übersichtsseite</center>
+In diesem Bild sieht man die Übersichtsseite des Spiels. Am oberen Rand befindet sich eine Leiste, die den Spielernamen, Punktestand und einen Knopf für Einstellungen beinhaltet. Darunter befindet sich links oben in der Ecke ein Knopf, der das Dropdown Menü öffnet. Rechts davon befinden sich Bilder, die die verschiedenen Ressourcen repräsentieren. Diesen Bildern sind die Zahlenwerte der jeweiligen Ressource zugeordnet. Am rechten Rand befindet sich eine Übersicht über die Planeten eines Spielers, die Namen und Bilder zeigt. Mittig befindet sich die Übersicht des ausgewählten Planeten mit allen Relevanten Informationen. Darunter befinden sich mehrere Boxen, die Gebäude, Raumschiffe und Forschungen die gerade im Bau bzw. in der Erforschung sind mit deren Restzeit darstellt. Am unteren Rand befindet sich ein Informationsfeld über die gestarteten Angriffe auf den Planeten des Spielers und wann die dazugehörigen Flotten eintreffen.
+
 <img src="D:\FH\git\mobile-app\doku\mockups\Felix\menu.png" alt="Menü" style="zoom:60%;" />
 
 <center>Bild 6: Mockup des Dropdown Menüs</center>
+Hier sieht man das ausgeklappte Dropdown Menü, das die Navigation steuert inklusive repräsentativer Bilder und Namen der Seite auf der man landet.
+
 <img src="D:\FH\git\mobile-app\doku\mockups\Felix\resources.png" alt="Ressourcen" style="zoom:60%;" />
 
 <center>Bild 7: Mockup der Ressourcenseite</center>
+Diese Darstellung zeigt eine Übersicht der Ressourcenproduzierenden Gebäude mitsamt Bild und Level.
+
 <img src="D:\FH\git\mobile-app\doku\mockups\Felix\ressourcedetails.png" alt="Ressourcen - Detailansicht" style="zoom:60%;" />
 
 <center>Bild 8: Mockup der Detailansicht</center>
+Wenn man im vorherigen Bild (*Bild 7*) auf einen Eintrag tippt, öffnet sich die hier dargestellte Detailansicht. Diese zeigt den Namen, ein Bild, eine Beschreibung, sowie die Kosten für die Verbesserung des Gebäudes an.
+
 <img src="D:\FH\git\mobile-app\doku\mockups\Felix\buildings.png" alt="Gebäude" style="zoom:60%;" />
 
 <center>Bild 9: Mockup der Gebäudeseite</center>
+Dieses Bild zeigt die Gebäudeseite, die Informationen zu eben diesen enthält. Die einzelnen Elemente enthalten den Namen, ein Bild, eine Beschreibung, sowie die Kosten für die Verbesserung des Gebäudes.
+
 <img src="D:\FH\git\mobile-app\doku\mockups\Felix\research.png" alt="Forschung" style="zoom:60%;" />
 
 <center>Bild 10: Mockup der Forschungsseite</center>
-### Finales Konzept
+Hier ist die Forschungsseite dargestellt. Man sieht ein Bild, den Namen sowie eine Beschreibung.
+
+Die Detailansicht für die Forschung sowie die weiteren Einträge des Navigationsmenüs (Einheiten, Flotten und Galaxie) werden an dieser Stelle nicht gezeigt, da sie sich kaum von den vorhandenen Darstellungen und Erläuterungen unterscheiden würden.
+
+## Finales Konzept
 
 Hauptsächlich wurden in den tatsächlichen Entwurf der Benutzeroberfläche Ideen aus den Mockups im [Portrait Layout](#Portrait-Layout) übernommen, da sich diese Darstellungsweise besser für Auflistungen eignet als das [Landscape Layout](#Landscape-Layout).
 
-Der Startbildschirm wie er in *Bild 1* zu sehen ist wurde verworfen, da es innerhalb der Applikation kein Einstellungsmenü gibt. Damit verliert der Startbildschirm seine Funktion. Nun ist der Startbildschirm eine Übersichtsseite die der in *Bild 5* ähnlich sieht.
+Der Startbildschirm wie er in *Bild 1* zu sehen ist wurde verworfen, da es innerhalb der Applikation kein Einstellungsmenü gibt. Damit verliert der Startbildschirm seine Funktion. Nun ist der Startbildschirm eine Übersichtsseite die der in *Bild 5* ähnlich sieht. Das dient dem Zweck das der Spieler direkt wenn er das Spiel startet zugriff auf nahezu alle relevanten Informationen hat. Auch das Dropdown Menü (*Bild 6*) wurde fast genau so übernommen wie hier dargestellt. 
 
-Auch das Dropdown Menü (*Bild 6*) wurde fast genau so übernommen. Die Planetenleiste am rechten Rand der Bilder mit [Portrait Layout](#Portrait-Layout) ist ganz weggefallen, da jeder Spieler nur einen Planet hat und nicht mehrere wie zu Anfang festgelegt. Die Seiten zur Anzeige der Gebäude (*Bild 9*) und Forschung (*Bild 10*) sind fast eins zu eins übernommen worden. Der einzige unterschied hier ist, das sie jetzt die gesamte Breite einnehmen.
+Die Planetenleiste am rechten Rand der Bilder mit [Portrait Layout](#Portrait-Layout) ist ganz weggefallen, da jeder Spieler nur einen Planet hat und nicht mehrere, wie zu Anfang festgelegt. Die Seiten zur Anzeige der Gebäude (*Bild 9*) und Forschung (*Bild 10*) sind fast eins zu eins übernommen worden. Der einzige unterschied hier ist, das sie jetzt die gesamte Breite einnehmen.
 
-Die Wahl der Farbe
+Die Wahl der Farbe und des Hintergrunds ist eher moderat ausgefallen. Das basiert auf der Tatsache das ein Hintergrund wie in den *Bildern 5 bis 10* zu sehen für schlechte Lesbarkeit sorgt. Daher ist der Hintergrund nun weiß und alle Elemente sind entweder Schwarz oder ***FARBE EINFÜGEN***.
 
 # Architekturbeschreibung
 
 ## Aufbau
 
-Wir haben nach dem Entwicklungsmodell Modell View Controller gearbeitet, um die Logik des Programms von der Benutzeroberfläche zu trennen. Wobei wir für die Datenspeicherung also der View eine Datenbank verwenden. Der Controller wurde durch einen Server umgesetzt und die View durch den Client. Der Client ist nur dazu da die Daten anzufordern und sie anzuzeigen, die Logik ist im Controller also bei uns im Server realisiert.Nachfolgend werden diese Komponenten beschrieben und unsere Entscheidungen erklärt.
+Wir haben nach dem Entwicklungsmodell Modell View Controller gearbeitet, um die Logik des Programms von der Benutzeroberfläche zu trennen. Wobei wir für die Datenspeicherung also der View eine Datenbank verwenden. Der Controller wurde durch einen Server umgesetzt und die View durch den Client. Der Client ist nur dazu da die Daten anzufordern und sie anzuzeigen, die Logik ist im Controller also bei uns im Server realisiert. Nachfolgend werden diese Komponenten beschrieben und unsere Entscheidungen erklärt.
 
 ### Client
 
-Da wir eine mobile Applikation schreiben wollten haben wir uns für die Entwicklungsumgebung Android Studio entschieden, um den Client darzustellen. Android Studio hat eine umfangreiche Auswahl von Bibliotheken und Möglichkeiten zur Gestaltung der Benutzer-Oberfläche. Der Client ist dazu gedacht die Daten darzustellen und sendet Http-Requests an den Server um Ressourcen anzufordern.
+Da wir eine mobile Applikation schreiben wollten haben wir uns für die Entwicklungsumgebung Android Studio entschieden, um den Client darzustellen. Android Studio hat eine umfangreiche Auswahl von Bibliotheken und Möglichkeiten zur Gestaltung der Benutzer-Oberfläche. Der Client ist dazu gedacht die Daten darzustellen und sendet HTTP-Requests an den Server um Ressourcen anzufordern.
 
 ### Server
 
-Der Server verwaltet die Daten aus der Datenbank und beantwortet die Anfragen vom Client. Er berechnet die Kämpfe und die manipuliert die Daten nach Aktion des Spielers. Er hat die Aufgabe die gesamte Spiellogik zu halten und ist deshalb auch das komplexeste der drei Teilprogramme. Wir haben uns hier für die Umsetzung in Node.js entschieden. Als Programmiersprache wird Javascript verwendet. So fiel es uns besonders leicht mit JSON-Objekten umzugehen. Javascript unterstützt Methoden um aus den Datenbank Queries erhaltene Datensets, direkt in JSON umzuwandeln und diese an die Http-Responses anzuhängen.
+Der Server verwaltet die Daten aus der Datenbank und beantwortet die Anfragen vom Client. Er berechnet die Kämpfe und die manipuliert die Daten nach Aktion des Spielers. Er hat die Aufgabe die gesamte Spiellogik zu halten und ist deshalb auch das komplexeste der drei Teilprogramme. Wir haben uns hier für die Umsetzung in Node.js entschieden. Als Programmiersprache wird Javascript verwendet. So fiel es uns besonders leicht mit JSON-Objekten umzugehen. Javascript unterstützt Methoden um aus den Datenbank Queries erhaltene Datensets, direkt in JSON umzuwandeln und diese an die HTTP-Responses anzuhängen.
 
 ### Datenbank
 
-Wir haben uns für die Nutzung einer Datenbank entschieden, um die Daten von Spielern zu speichern und um den Spielfortschritt festzuhalten. Als Datenbankmanagementsystem haben wir uns für MySQL entschieden. Der Grund dafür ist die einfache Handhabung und die nativen SQL-Queries. Wir haben im Umgang mit diesem DBMS schon positive Erfahrungen gemacht und konnten unser Vorwissen nutzen um relativ schnell eine funktionsfähige Datenbank aufzubauen. Mit der MySql Workbench konnten wir ein Entity-Relationship-Modell erstellen. Aus diesem Modell wurde dann ein Schema erstellt das auf einem Datenbank-Server läuft.
+Wir haben uns für die Nutzung einer Datenbank entschieden, um die Daten von Spielern zu speichern und um den Spielfortschritt festzuhalten. Als Datenbankmanagementsystem (DBMS) haben wir uns für MySQL entschieden. Der Grund dafür ist die einfache Handhabung und die nativen SQL-Queries. Wir haben im Umgang mit diesem DBMS schon positive Erfahrungen gemacht und konnten unser Vorwissen nutzen um relativ schnell eine funktionsfähige Datenbank aufzubauen. Mit der MySQL Workbench konnten wir ein Entity-Relationship-Modell erstellen. Aus diesem Modell wurde dann ein Schema erstellt das auf einem Datenbank-Server läuft.
+
+## Beispiel
+
+Es folgt eine Erläuterung der Architektur anhand eines konkreten Beispiels aus dem Projekt. Der Aspekt, der gewählt wurde ist die Übersicht der Gebäude.
+
+Die Klasse `BuildingsActivity` ist im Zusammenspiel mit der Klasse `RecyclerViewAdapterBuildings` für das Anzeigen der Gebäude auf dem Endgerät des Benutzers (wird ab jetzt **Client** genannt) zuständig. Damit das Anzeigen von Daten passieren kann, muss eine HTTP-Anfrage an den **Server** gestellt werden. Dafür ist die Klasse `HttpGetRequest` zuständig. Um die Anfrage zu stellen und die Antwort des Servers verarbeiten zu können, muss eine Instanz erzeugt und die Methode `setUpdateListener` implementiert werden. Folgender Codeausschnitt veranschaulicht diesen Ablauf:
+
+```
+HttpGetRequest buildingsdata = new HttpGetRequest();
+buildingsdata.setUpdateListener(new HttpGetRequest.OnUpdateListener() {
+    @Override
+    public void onUpdate(String result) {
+        Gson gson = new GsonBuilder().create();
+        Buildingsdata[] buildingsdata = gson.fromJson(result, Buildingsdata[].class);
+        for (int i = 0;i < 4; i++){
+        	mHeadlines.add(buildingsdata[i * 11 + 1].name);
+            mmaterial.add(buildingsdata[i * 11 + mLevels.get(i)].material);
+            melectronics.add(buildingsdata[i * 11 + mLevels.get(i)].electronics);
+            mfuel.add(buildingsdata[i * 11 + mLevels.get(i)].fuel);
+            mDescriptions.add("Beschreibung: " + i);
+            
+            initImageBitmaps();
+        }
+    }
+});
+buildingsdata.execute("http://192.168.0.80:8000/?type=buildings");
+```
+
+Die for-Schleife iteriert über ein Array in dem die Informationen über die Verschiedenen Gebäudetypen enthalten sind und fügt diese einer Recyclerview hinzu. Durch das Aufrufen der Methode `execute()` wird die Anfrage ausgeführt. Der Parameter `type=buildings` wird im Server verarbeitet. Die HTTP-Anfrage wird anschließend im Server (`server.js`) beantwortet. Der Codeausschnitt der verantwortliche Funktion folgt: 
+
+```
+function SetupServer(connection) {
+    server = http.createServer(function(request, response) {
+      const queryObject = url.parse(request.url,true).query;
+
+      if (request.method == "GET") {       
+        queries.database(connection, queryObject)
+        .then(e => {
+            response.writeHead(200, {'Content-Type': 'application/json'})
+          	response.end(JSON.stringify(e));
+        });
+      }
+    });
+}
+```
+
+Der Aufruf von `queries.database()` führt dazu das `function database(connection, queries){...}` (`query.js`) aufgerufen wird. Hier die Darstellung des Codeausschnitts:
+
+```
+function database(connection, queries){
+    const queryobject = queries;
+	var string = "";
+    switch(queryobject.type){
+        case "buildings":
+            string = "SELECT name, level, material, electronics, fuel FROM buildings JOIN buildingsdata ON buildings.id = buildingsdata.Buildings_id"
+            break;
+    }
+    return connection.query(string);
+}
+```
+
+Somit wird das Ergebnis der Query an den Server weitergegeben und dieser sendet die Daten im HTTP-Body an den **Client**, wo dieser die Daten ausliest und Darstellt.
 
 # Implementierung
+
+Im folgenden Abschnitt wird der Ablauf des Projektes beschrieben. Der gesamte Verlauf wurde in die Phasen Projektplanung, Projektdurchführung ***WEITERE PHASEN?*** eingeteilt um die Prozesse besser nachvollziehen zu können.
 
 ## Projektplanung
 
@@ -160,20 +265,20 @@ Es war ein Zeitraum von 13 Wochen vorgegeben. Wir haben uns für das Spiralmodel
 
 Nachfolgend ist der Meilensteinplan. Es wurden alle Meilensteine eingehalten.
 
-| Nummer        | Bezeichnung                             | Soll Termin   | Ist Termin |
-| ------------- | --------------------------------------- | ------------- | ---------- |
-| 1             | Projektstart                            | 14.10.2019    | 14.10.2019 |
-| 2             | Projektplanung                          | 21.10.2019    | 21.10.2019 |
-| 3             | Server Client Kommunikation hergestellt | 28.10.2019    | 28.10.2019 |
-| 4             | Oberfläche entworfen                    | 11.11.2019    | 11.11.2019 |
-| 5             | Datenbank eingebunden                   | 25.11.2019    | 25.11.2019 |
-| 6             | erste Funktionalität benutzbar          | 17.12.2019    | 17.12.2019 |
-| 7             | Projekt funktionsfähig                  | 06.01.2019    | 17.12.2019 |
-| 8             | Projektübergabe                         | 13.01.2020    | 13.01.2020 |
+| Nummer | Bezeichnung                             | Soll Termin | Ist Termin |
+| ------ | --------------------------------------- | ----------- | ---------- |
+| 1      | Projektstart                            | 14.10.2019  | 14.10.2019 |
+| 2      | Projektplanung                          | 21.10.2019  | 21.10.2019 |
+| 3      | Server Client Kommunikation hergestellt | 28.10.2019  | 28.10.2019 |
+| 4      | Oberfläche entworfen                    | 11.11.2019  | 11.11.2019 |
+| 5      | Datenbank eingebunden                   | 25.11.2019  | 25.11.2019 |
+| 6      | erste Funktionalität benutzbar          | 17.12.2019  | 17.12.2019 |
+| 7      | Projekt funktionsfähig                  | 06.01.2019  | 17.12.2019 |
+| 8      | Projektübergabe                         | 13.01.2020  | 13.01.2020 |
 
 ### Personalplanung
 
-An dem Projekt haben zwei Entwickler gearbeitet. Die wichtigsten Entscheidungen wurden zusammengetroffen. Die Arbeiten wurden aufgeteilt und es standen für Nachfragen oder Hilfestellungen zwei Dozenten zur Verfügung.
+An dem Projekt haben zwei Entwickler gearbeitet. Die wichtigsten Entscheidungen wurden zusammen getroffen. Die Arbeiten wurden aufgeteilt und es standen für Nachfragen oder Hilfestellungen zwei Dozenten zur Verfügung.
 
 ### Sachmittelplanung
 
@@ -190,7 +295,7 @@ Es wurden zwei Computer für die Programmierung genutzt und ein Laptop für die 
 
 ### Entwicklungsprozess
 
-Wir haben uns für das Spiralmodell als Entwicklungsmodell geeinigt, weil das Projekt zu komplex ist, um es in einem Zug zu implementieren. Es muss immer wieder getestet werden bevor neue Funktionalitäten implementiert werden können. Ansonsten hätten lange Fehlersuchen den Entwicklungsprozess zu stark verlangsamt. Nachdem das Grundgerüst des Programms stand, wurden im gesamten Entwicklungsprozess, iterativ, neue Features implementiert.damit getestet werden konnte ob sie mit dem schon vorhanden Code synergieren.
+Wir haben uns für das Spiralmodell als Entwicklungsmodell geeinigt, weil das Projekt zu komplex ist, um es in einem Zug zu implementieren. Es muss immer wieder getestet werden bevor neue Funktionalitäten implementiert werden können. Ansonsten hätten lange Fehlersuchen den Entwicklungsprozess zu stark verlangsamt. Nachdem das Grundgerüst des Programms stand, wurden im gesamten Entwicklungsprozess, iterativ, neue Features implementiert. Damit getestet werden konnte ob sie mit dem schon vorhanden Code synergieren.
 
 ## Spielkonzepte
 
@@ -204,9 +309,11 @@ Raumschiffe haben vier verschiedene Werte. Trefferpunkte, Schilde, Angriff und F
 
 # Tests und Usability
 
-## Usability
+## Tests
 
-### Benutzeroberfläche
+Im Verlauf der Entwicklung wurden entsprechend des Vorgehensmodells immer wieder Testdaten in die Datenbank eingepflegt und neu implementierte Funktionen mit diesen getestet. Oft sind uns dabei Fehler, die wir vorher übersehen haben.
+
+## Usability
 
 Die Benutzeroberfläche wurde so entworfen, dass sich alle Funktionen entweder als Einträge im immer sichtbaren Dropdown Menü wiederfinden oder als Buttons an dem von der ausgeführten Aktion betroffenem Element sind. Des weiteren wurde für alle Seiten mit ähnlichem, Listenartigen Aufbau das gleiche Muster verwendet. Einzelne, zusammengehörende Elemente sind von einem Rahmen umgeben um sie voneinander abzugrenzen. Das Dropdown Menü beinhaltet fast ausschließlich Punkte zum Wechseln der Seite. Das sind Aktionen, die man nicht permanent benötigt und daher werden sie durch die Platzierung im Dropdown Menü versteckt. Dadurch kann Platz für die wichtigeren Aktionen geschaffen werden, die somit mehr ins Auge fallen.
 
@@ -218,4 +325,4 @@ Bei einer rückblickenden Betrachtung des Projektes, kann festgehalten werden, d
 
 ## Lessons learned
 
-Im Laufe des Projekts haben wir wertvolle Erfahrungen bezüglich der Entwicklung von Applikationen sammeln können. Des weiteren haben wir festgestellt das die Entwicklung eines Spieles eine größere Herausforderung ist, als wir Anfangs dachten. Außerdem haben wir viel neues über die Client Server Architektur, explizit die Kommunikation über HTTP sowie die Nützlichkeit von [Node.js](https://nodejs.org/en/) lernen können. [Node.js](https://nodejs.org/en/) regelt einen Großteil des handshakes von HTTP, sodass man sich nur noch um die Verarbeitung der Daten kümmern muss. Auch im Umgang mit einer Datenbank ist es von großem nutzen, da man Queries als Strings sehr einfach ausführen kann und man ein Objekt zurück bekommt das man direkt versenden kann. Auch haben wir von neuem gemerkt das das Dateiformat [JSON](#https://www.json.org/json-de.html) die Kommunikation und Datenverarbeitung durch die Objektifizierung deutlich erleichtert.
+Im Laufe des Projektes haben wir wertvolle Erfahrungen bezüglich der Entwicklung von Applikationen sammeln können. Des weiteren haben wir festgestellt das die Entwicklung eines Spieles eine größere Herausforderung ist, als wir Anfangs dachten. Außerdem haben wir viel neues über die Client Server Architektur, explizit die Kommunikation über HTTP sowie die Nützlichkeit von Node.js lernen können. Node.js regelt einen Großteil des handshakes von HTTP, sodass man sich nur noch um die Verarbeitung der Daten kümmern muss. Auch im Umgang mit einer Datenbank ist es von großem nutzen, da man Queries als Strings sehr einfach ausführen kann und man ein Objekt zurück bekommt das man direkt versenden kann. Auch haben wir von neuem gemerkt das das Dateiformat JSON die Kommunikation und Datenverarbeitung durch die Objektifizierung deutlich erleichtert.
