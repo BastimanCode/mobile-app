@@ -32,9 +32,7 @@ Da die Arbeitszeit am Projekt beschränkt ist, soll die Applikation mit wenigen 
 
 # Stand der Technik
 
-Die Sicherheit der Nutzerdaten ist hauptsächlich durch die Architektur und das genutzte Protokoll (HTTP) gewährleistet. Die genannten Daten sind in diesem Fall E-Mail-Adressen und Passwörter. Diese Daten werden in einer Datenbank gespeichert, auf die nur der Server Zugriff hat. Der Client, also die vom Benutzer bediente Applikation hat keinerlei Möglichkeit auf die Datenbank zuzugreifen (siehe [Architektur](#Architekturbeschreibung)). Durch die Verwendung von HTTP ist ein gewisses Maß an Sicherheit gewährleistet. Zum Beispiel wird für die Übertragung von kritischen Daten die Post-Methode benutzt, damit die Daten im Body übermittelt werden, anstatt direkt in der URL wie bei der Get-Methode. 
 
-Ein mögliches Sicherheitsrisiko ist in der lokalen Speicherung von Accountdaten zu sehen. Wenn sich der Nutzer vor dem Schließen der Applikation nicht ausloggt, wird er automatisch beim Start wieder eingeloggt. Sollte nun jemand anderer Zugriff auf das Endgerät des Nutzers haben, könnte er auf den Account des Nutzers zugreifen. Dieses Risiko ist jedoch vernachlässigbar, da keinerlei persönliche Informationen, wie zum Beispiel Kontodaten oder Adressen benutzt werden. Außerdem kann es sein das der Nutzer die Kombination von E-mail und Passwort auch bei anderen Diensten verwendet und somit hätte der Angreifer auch Zugriff auf diese. Zum Auslesen dieser Informationen sind jedoch Programmierkenntnisse nötig, daher wird diese Risikowahrscheinlichkeit auf niedrig eingeschätzt.
 
 # Anforderungsdokumentation
 
@@ -348,9 +346,15 @@ Zunächst haben wir uns auf die Gestaltung der Oberfläche konzentriert. Da die 
 
 ## Qualitätssicherung
 
-#### Kontinuierliche Tests
+### Kontinuierliche Tests
 
 Während der Entwicklungsphase wurde die Software in Intervallen getestet. Es wurden Tests nach jedem neuen Feature gemacht und die Datenbank wurde auf Anomalien überprüft. Siehe hierzu auch das Kapitel [Tests](#Tests).
+
+### Sicherheit
+
+Die Sicherheit der Nutzerdaten ist hauptsächlich durch die Architektur und das genutzte Protokoll (HTTP) gewährleistet. Die genannten Daten sind in diesem Fall E-Mail-Adressen und Passwörter. Diese Daten werden in einer Datenbank gespeichert, auf die nur der Server Zugriff hat. Der Client, also die vom Benutzer bediente Applikation hat keinerlei Möglichkeit auf die Datenbank zuzugreifen (siehe [Architektur](#Architekturbeschreibung)). Durch die Verwendung von HTTP ist ein gewisses Maß an Sicherheit gewährleistet. Zum Beispiel wird für die Übertragung von kritischen Daten die Post-Methode benutzt, damit die Daten im Body übermittelt werden, anstatt direkt in der URL wie bei der Get-Methode. 
+
+Ein mögliches Sicherheitsrisiko ist in der lokalen Speicherung von Accountdaten zu sehen. Wenn sich der Nutzer vor dem Schließen der Applikation nicht ausloggt, wird er automatisch beim Start wieder eingeloggt. Sollte nun jemand anderer Zugriff auf das Endgerät des Nutzers haben, könnte er auf den Account des Nutzers zugreifen. Dieses Risiko ist jedoch vernachlässigbar, da keinerlei persönliche Informationen, wie zum Beispiel Kontodaten oder Adressen benutzt werden. Außerdem kann es sein das der Nutzer die Kombination von E-mail und Passwort auch bei anderen Diensten verwendet und somit hätte der Angreifer auch Zugriff auf diese. Zum Auslesen dieser Informationen sind jedoch Programmierkenntnisse nötig, daher wird diese Risikowahrscheinlichkeit auf niedrig eingeschätzt.
 
 ## Spielkonzepte
 
