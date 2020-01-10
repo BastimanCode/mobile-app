@@ -10,7 +10,7 @@ Die Folgende Projektbeschreibung schildert den Aufbau und Ablauf des Projektes i
 
 ## Projektbeschreibung
 
-Die Entwicklung eines Spiels, das auf Browserspielen basiert, die früher populär waren. Das Thema des Spiels ist, aufgrund der Tatsache das der Fantasie kaum Grenzen gesetzt sind, Science-Fiction. Das Spiel findet in einem fiktivem Universum statt und der Spieler übernimmt die Rolle des Herrschers eines Planeten. 
+Die Entwicklung eines Spiels, das auf Browserspielen basiert, die früher populär waren. Das Thema des Spiels ist, aufgrund der Tatsache das der Fantasie kaum Grenzen gesetzt sind, Science-Fiction. Das Spiel findet in einem fiktivem Universum statt und der Spieler übernimmt die Rolle des Herrschers eines Planeten. Der Spieler ist in der Lage Gebäude, Raumschiffe zu bauen und Forschung zu betreiben. Er kann mit gezielte Überfälle auf andere Spieler sich einen Spielfortschritt erarbeiten, um  die größte Flotte aufbauen.
 
 ## Projektziel
 
@@ -20,7 +20,7 @@ Das Spielkonzept soll einfach gehalten werden und trotzdem dafür sorgen dem Spi
 
 ## Projektbegründung
 
-Aufgrund der Tatsache, das kaum Browserspiele, so wie sie sind, als Mobile Applikationen veröffentlicht wurden haben sich wir dazu entschieden dieses Projekt zu bearbeiten.
+Aufgrund der Tatsache, das kaum Browserspiele, so wie sie sind, als Mobile Applikationen veröffentlicht wurden, haben wir uns dazu entschieden dieses Projekt zu bearbeiten.  
 
 ## Projektschnittstellen
 
@@ -165,7 +165,7 @@ Die Wahl der Farbe und des Hintergrunds ist eher moderat ausgefallen. Das basier
 
 ## Aufbau
 
-Wir haben nach dem Entwicklungsmodell Modell View Controller gearbeitet, um die Logik des Programms von der Benutzeroberfläche zu trennen. Wobei wir für die Datenspeicherung also der View eine Datenbank verwenden. Der Controller wurde durch einen Server umgesetzt und die View durch den Client. Der Client ist nur dazu da die Daten anzufordern und sie anzuzeigen, die Logik ist im Controller also bei uns im Server realisiert. Nachfolgend werden diese Komponenten beschrieben und unsere Entscheidungen erklärt.
+Wir haben nach dem Entwicklungsmodell Model View Controller gearbeitet, um die Logik des Programms von der Benutzeroberfläche zu trennen. Wobei wir für die Datenspeicherung also der View eine Datenbank verwenden. Der Controller wurde durch einen Server umgesetzt und die View durch den Client. Der Client ist nur dazu da die Daten anzufordern und sie anzuzeigen, die Logik ist im Controller also bei uns im Server realisiert. Nachfolgend werden diese Komponenten beschrieben und unsere Entscheidungen erklärt. Durch Einhalten des Model View Controller Entwicklungsmodell, ist das Projekt erweiterbar,  so dass im Nachhinein neue Features realisiert werden können.
 
 ### Client
 
@@ -262,12 +262,21 @@ Es war ein Zeitraum von 13 Wochen vorgegeben. Wir haben uns für das Spiralmodel
 
 ### Gantt-Diagramm
 
-Das nachfolgende Gantt-Diagramm zeigt die Zeiteinteilung beginnend mit der Phase Planung, die direkt nach dem Projektstart beginnt. Hier wurden die ersten Absprachen bezüglich des Projektaufbaus gemacht. Die Entwickler einigen sich auf die Details und den Umfang des Projekts. Es werden die ersten Mock-Ups erstellt um die eigenen Vorstellungen zu vergleichen und zu kommentieren. Die grundlegensten Themen werden geklärt, damit jeder weiß worauf man sich im Projekt konzentrieren muss. Anschließend beginnt die Phase Entwurf in der die ersten Modelle entstehen, die für die Implementierung später wichtig sind. Die Modelle werden besprochen und iterativ ausgebaut. Wichtig ist hier das die Modelle nicht kurz vor Projektende fertig sind,  sonst übertragen sich die Änderungen auf die anderen Teile des Projekts. Erst wenn die Entwürfe fertig sind kann mit dem Erstellen des Codes angefangen werden. Die ersten Arbeiten zielten auf das Designen der Benutzeroberfläche in Android Studio. Die Oberfläche wurde zu Beginn des Projekts fertig gestellt und nur noch kleinere Komponenten wurden im Nachhinein ergänzt oder bearbeitet. Für das Erstellen der Benutzeroberfläche wurde ein Zeitraum von 3 Wochen eingerechnet, parallel dazu wurden Tests und Recherchen für die Entwicklung einer Client-Server Verbindung und die Benutzung einer Datenbank durchgeführt. Nach ausreichender Recherche und Planung wurde dann die Datenbank aufgesetzt. Die Datenbank wurde in mehreren Iterationen verfeinert, bis das fertige Modell nach 2 Wochen stand. Eine Änderung in der Datenbank bedeutete immer viel Aufwand, weshalb hier auch ein durchdachter Aufbau seine Wichtigkeit zeigte. Der Server wurde anschließend realisiert, als Bindeglied zwischen Client und Datenbank. Es musste zu diesem Zeitpunkt klar sein wir die Datenbank aussieht, damit man die entsprechenden Queries schreiben konnte. Nachdem das Projekt jetzt vorläufig in Betrieb genommen werden konnte, haben sich die Entwickler auf die Erweiterung des Projekts und die Implementierung neuer Features konzentriert.
+Das nachfolgende Gantt-Diagramm zeigt die Zeiteinteilung beginnend mit der Phase Planung, die direkt nach dem Projektstart beginnt. Hier wurden die ersten Absprachen bezüglich des Projektaufbaus gemacht. Die Entwickler einigen sich auf die Details und den Umfang des Projekts. Es werden die ersten Mock-Ups erstellt um die eigenen Vorstellungen zu vergleichen und zu kommentieren. Die grundlegensten Themen werden geklärt, damit jeder weiß worauf man sich im Projekt konzentrieren muss.
+
+Anschließend beginnt die Phase Entwurf in der die ersten Modelle entstehen, die für die Implementierung später wichtig sind. Die Modelle werden besprochen und iterativ ausgebaut. Wichtig ist hier das die Modelle nicht kurz vor Projektende fertig sind,  sonst übertragen sich die Änderungen auf die anderen Teile des Projekts. Erst wenn die Entwürfe fertig sind kann mit dem Erstellen des Codes angefangen werden.
+
+Die ersten Arbeiten zielten auf das Designen der Benutzeroberfläche in Android Studio. Die Oberfläche wurde zu Beginn des Projekts fertig gestellt und nur noch kleinere Komponenten wurden im Nachhinein ergänzt oder bearbeitet. Für das Erstellen der Benutzeroberfläche wurde ein Zeitraum von 3 Wochen eingerechnet, parallel dazu wurden Tests und Recherchen für die Entwicklung einer Client-Server Verbindung und die Benutzung einer Datenbank durchgeführt.
+
+Nach ausreichender Recherche und Planung wurde dann die Datenbank aufgesetzt. Die Datenbank wurde in mehreren Iterationen verfeinert, bis das fertige Modell nach 2 Wochen stand. Eine Änderung in der Datenbank bedeutete immer viel Aufwand, weshalb hier auch ein durchdachter Aufbau seine Wichtigkeit zeigte.
+
+Der Server wurde anschließend realisiert, als Bindeglied zwischen Client und Datenbank. Es musste zu diesem Zeitpunkt klar sein wir die Datenbank aussieht, damit man die entsprechenden Queries schreiben konnte.
+
+Nachdem das Projekt jetzt vorläufig in Betrieb genommen werden konnte, haben sich die Entwickler auf die Erweiterung des Projekts und die Implementierung neuer Features konzentriert.
 
 <img src="D:\FH\git\mobile-app\doku\diagramme\GanttDiagramm.PNG" alt="ER-Modell" style="zoom:60%;" />
 
 <center>Bild11: Gantt-Diagramm</center>
-
 ### Terminplanung
 
 Nachfolgend ist der Meilensteinplan. Es wurden alle Meilensteine eingehalten.
@@ -358,7 +367,7 @@ Raumschiffe haben vier verschiedene Werte. Trefferpunkte, Schilde, Angriff und F
 
 ## Tests
 
-Im Verlauf der Entwicklung wurden entsprechend des Vorgehensmodells immer wieder Testdaten in die Datenbank eingepflegt und neu implementierte Funktionen mit diesen getestet. Oft sind uns dabei Fehler, die wir vorher übersehen haben.
+Im Verlauf der Entwicklung wurden entsprechend des Vorgehensmodells immer wieder Testdaten in die Datenbank eingepflegt und neu implementierte Funktionen mit diesen getestet. Oft sind uns dabei Fehler aufgefallen, die wir vorher übersehen haben.
 
 ## Usability
 
@@ -368,8 +377,12 @@ Die Benutzeroberfläche wurde so entworfen, dass sich alle Funktionen entweder a
 
 ## Soll-/Ist-Vergleich
 
-Bei einer rückblickenden Betrachtung des Projektes, kann festgehalten werden, dass fast alle zuvor festgelegten [Anforderungen](#Übersicht) erfüllt wurden. Außerdem wurden Aspekte erfüllt, die über die Planung hinaus gehen.
+Bei einer rückblickenden Betrachtung des Projektes, kann festgehalten werden, dass fast alle zuvor festgelegten [Anforderungen](#Übersicht) erfüllt wurden. Außerdem wurden Aspekte erfüllt, die über die Planung hinaus gehen. Die erwarteten Ressourcen wurde eingehalten und es wurden keine weiteren Ressourcen benötigt. Das Projektziel konnte im Rahmen der gegebenen Möglichkeiten erfüllt werden. Der vorher erstellte Zeitplan und die Meilenstein konnten eingehalten werden.
 
 ## Lessons learned
 
 Im Laufe des Projekts haben wir wertvolle Erfahrungen bezüglich der Entwicklung von Applikationen sammeln können. Des weiteren haben wir festgestellt das die Entwicklung eines Spieles eine größere Herausforderung ist, als wir Anfangs dachten. Außerdem haben wir viel neues über die Client Server Architektur, explizit die Kommunikation über HTTP sowie die Nützlichkeit von Node.js lernen können. Node.js regelt einen Großteil des handshakes von HTTP, sodass man sich nur noch um die Verarbeitung der Daten kümmern muss. Auch im Umgang mit einer Datenbank ist es von großem Nutzen, da man Queries als Strings sehr einfach ausführen kann und man ein Objekt zurück bekommt, dass man direkt versenden kann. Auch haben wir von Neuem gemerkt das das Dateiformat JSON die Kommunikation und Datenverarbeitung durch die Objektifizierung deutlich erleichtert.
+
+## Ausblick
+
+Obwohl das Projektergebnis die definierten Anforderungen erfüllt hat, können in Zukunft noch neue Anforderungen und Erweiterungsvorschläge realisiert werden. Das Projekt bietet das Potential noch neue Ideen einfließen zu lassen und kann auch noch optimiert werden. Es war nicht geplant das Spiel zu veröffentlichen und es würde auch noch einige Arbeitsstunden beanspruchen.
