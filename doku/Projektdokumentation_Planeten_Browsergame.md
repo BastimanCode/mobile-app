@@ -428,7 +428,7 @@ Im Laufe des Projekts haben wir wertvolle Erfahrungen bezüglich der Entwicklung
 
 Obwohl das Projektergebnis die definierten Anforderungen erfüllt hat, können in Zukunft noch neue Anforderungen und Erweiterungsvorschläge realisiert werden. Das Projekt bietet das Potential noch neue Ideen einfließen zu lassen und kann auch noch optimiert werden. Es war nicht geplant das Spiel zu veröffentlichen und es würde auch noch einige Arbeitsstunden beanspruchen.
 
-# Quellen
+# Quellenverzeichnis
 
 [HTTPS](#HTTPS):
 
