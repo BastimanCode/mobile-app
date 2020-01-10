@@ -45,13 +45,13 @@ Eine andere Möglichkeit ein Spiel interessant zu machen ist durch ein gutes Spi
 ## HTTPS
 Bei der Übertragung von kritischen Nutzerdaten, wie zum Beispiel Kontoinformationen oder Adressen ist HTTP nicht mehr ausreichend. Angreifer können diese Nachrichten relativ leicht auslesen, da ihr Inhalt nicht verschlüsselt ist.
 
-Deswegen gibt es eine Erweiterung des Protokolls in Form von HTTPS. Im Gegensatz zu HTTP werden hierbei die gesendeten Daten verschlüsselt. Außerdem gibt es eine Authentifizierung anhand eines Zertifikates, die dem Client sicherstellt das der Server der ist, für den er sich ausgibt.
+Deswegen gibt es eine Erweiterung des Protokolls in Form von HTTPS. Im Gegensatz zu HTTP werden hierbei die gesendeten Daten verschlüsselt. Außerdem gibt es eine Authentifizierung anhand eines Zertifikates, die dem Client sicherstellt das der Server, der ist, für den er sich ausgibt.
 
 Die Verschlüsselung basiert auf einem Prinzip aus mehreren Schlüsseln. Es gibt einen öffentlichen Schlüssel, der für jeden Client Sichtbar ist, der sich mit dem Server verbindet. Hat der Client mithilfe des Zertifikats den Server Authentifiziert (und der Server den Client) dann erhält er den Öffentlichen Schlüssel (public key). Der Server hat den zweiten Schlüssel, der privat ist (private key). Nun erzeugt der Client mithilfe des ersten Schlüssels einen verschlüsselten dritten Schlüssel (session key). Dieser Schlüssel wird nun mit dem Server geteilt. Mithilfe des privaten Schlüssels kann der Server den dritten Schlüssel entschlüsseln.
 
 Somit wurde die zuvor Asymmetrische Verschlüsselung, also Verschlüsselung mit zwei verschiedenen zusammengehörigen Schlüsseln, zu Symmetrischer Verschlüsselung, also Verschlüsselung mit einem gemeinsamen Schlüssel und Nachrichten können sicher ausgetauscht werden.
 
-Im Fall unseres Projektes ist diese Art der Sicherheit nicht notwendig, da die einzige kritische Information, die übertragen wird die E-Mail-Adresse ist (siehe auch [Sicherheit](#Sicherheit)). Des Weiteren haben wir unseren Server selbst programmiert und lassen ihn lokal auf einem privatem Laptop laufen, was zur Folge hat das wir keine offizielle Authentifizierung haben. Daher macht es keinen Sinn die erweiterte Variante von HTTP zu verwenden.
+Im Fall unseres Projektes ist diese Art der Sicherheit nicht notwendig, da die einzige kritische Information, die übertragen wird, die E-Mail-Adresse ist (siehe auch [Sicherheit](#Sicherheit)). Des Weiteren haben wir unseren Server selbst programmiert und lassen ihn lokal auf einem privaten Laptop laufen, was zur Folge hat das wir keine offizielle Authentifizierung haben. Daher macht es keinen Sinn die erweiterte Variante von HTTP zu verwenden.
 
 # Anforderungsdokumentation
 
@@ -296,7 +296,6 @@ Nachdem das Projekt jetzt vorläufig in Betrieb genommen werden konnte, haben si
 <img src="D:\FH\git\mobile-app\doku\diagramme\GanttDiagramm.PNG" alt="Gantt-Diagramm" style="zoom:60%;" />
 
 <center>Bild 11: Gantt-Diagramm</center>
-
 ### Terminplanung
 
 Nachfolgend ist der Meilensteinplan. Es wurden alle Meilensteine eingehalten.
@@ -333,7 +332,7 @@ Es wurden zwei Computer für die Programmierung genutzt und ein Laptop für die 
 
 ### Entwicklungsprozess
 
-Wir haben uns für das Spiralmodell als Entwicklungsmodell geeinigt, weil das Projekt zu komplex ist, um es in einem Zug zu implementieren. Es muss immer wieder getestet werden bevor neue Funktionalitäten implementiert werden können. Ansonsten hätten lange Fehlersuchen den Entwicklungsprozess zu stark verlangsamt. Nachdem das Grundgerüst des Programms stand, wurden im gesamten Entwicklungsprozess, iterativ, neue Features implementiert. Damit das Zusammenspiel mit dem schon vorhanden Code getestet werden konnte.
+Wir haben uns für das Spiralmodell als Entwicklungsmodell geeinigt, weil das Projekt zu komplex ist, um es in einem Zug zu implementieren. Es muss immer wieder getestet werden bevor neue Funktionalitäten implementiert werden können. Ansonsten hätten lange Fehlersuchen den Entwicklungsprozess zu stark verlangsamt. Nachdem das Grundgerüst des Programms stand, wurden im gesamten Entwicklungsprozess, iterativ, neue Features implementiert. Damit das Zusammenspiel mit dem schon vorhandenen Code getestet werden konnte.
 
 ## Projektdurchführung
 
@@ -343,11 +342,11 @@ Nachdem die vorbereitenden Maßnahmen abgeschlossen waren, kommen wir zur Projek
 
 Als erstes galt es ein geeignetes Datenbank Management System zu evaluieren. Die am weitesten verbreiteten Datenbank Management Systeme sind Oracle, MySQL und Microsoft SQL-Server, für andere sinkt mit der Popularität auch deren Unterstützung durch Dokumentation. Wir beschränken die Entscheidungsfindung auf diese drei, weil wir auch schon Vorerfahrung haben und so ein schnelles Anlaufen des Projektes gewährleisten können. Da Microsoft SQL-Server kostenpflichtig ist und uns keine Ressourcen zu Verfügung stehen, blieben noch Oracle und MySQL übrig. Durch die umfangreiche Unterstützung von MySQL in verschiedenen Sprachen und auf diversen Plattformen haben wir uns letztendlich dafür entschieden.
 
-Für die Auswahl des Servers haben wir uns für eine lokale Variante entschieden, weil uns die Ressourcen fehlen einen Server anzuschaffen. Da wir unsere privaten Computer dafür nutzen, wollten wir bei der Gefahr eine Sicherheitslücke zu erzeugen keinen Zugriff auf unsere privaten Daten ermöglichen. Deshalb haben wir den Server selber in Node.js erzeugt und das Verhalten implementiert.
+Für die Auswahl des Servers haben wir uns für eine lokale Variante entschieden, weil uns die Ressourcen fehlen einen Server anzuschaffen. Da wir unsere privaten Computer dafür nutzen, wollten wir bei der Gefahr eine Sicherheitslücke zu erzeugen keinen Zugriff auf unsere privaten Daten ermöglichen. Deshalb haben wir den Server selbst in Node.js erzeugt und das Verhalten implementiert.
 
 ### Beschreibende Arbeitsschritte
 
-Im Folgenden beschreiben wir einige elementare Arbeitsschritte, die notwendig waren, um diese Projekt durchzuführen.
+Im Folgenden beschreiben wir einige elementare Arbeitsschritte, die notwendig waren, um dieses Projekt durchzuführen.
 
 #### Aufsetzen der Datenbank
 
@@ -436,9 +435,6 @@ https://de.wikipedia.org/wiki/Transport_Layer_Security#Vor-_und_Nachteile 10.01.
 
 https://tiptopsecurity.com/how-does-https-work-rsa-encryption-explained/ 10.01.2020 20:00
 
-
+[Spieleentwicklung](#Spieleentwicklung):
 
 https://de.wikipedia.org/wiki/Spiel-Engine 10.01.2020 20:30
-
-
-
