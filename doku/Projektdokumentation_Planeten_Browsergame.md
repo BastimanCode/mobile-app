@@ -32,6 +32,7 @@ Da die Arbeitszeit am Projekt beschränkt ist, soll die Applikation mit wenigen 
 
 # Stand der Technik
 
+<<<<<<< HEAD
 ### Spieleentwicklung
 
 In der heutigen Spieleentwicklung wird viel Arbeit in das Design und in Animationen investiert. Viele der aktuellen Spiele werden mit einer Game Engine entwickelt. Weil die Arbeit an einer eigenen Engine zu viel Zeit in Anspruch nimmt, kann man eine Engine benutzen die der Öffentlichkeit zur Verfügung gestellt wird wie die Unreal Engine 3 oder Unity. Andere Game Engines wie die Frostbite Engine von EA Games werden nur von EA Games selbst benutzt oder an andere Entwicklerstudios verliehen.
@@ -42,7 +43,19 @@ Spiele überzeugen heutzutage oftmals durch sehr schönes Design oder umfangreic
 
 Eine andere Möglichkeit ein Spiel interessant zu machen ist durch ein gutes Spielkonzept. Hier haben wir die Idee aufgegriffen und unser Spieledesign an das, der früheren Browsergames angelehnt. Dadurch dass es keine Runde gibt die endet, wird der Spieler ermutigt aktiver am Spielgeschehen teilzunehmen und durch viel Teilnahme wird man mit einer größeren Flotte belohnt. 
 
+=======
+## HTTPS
+>>>>>>> de98c9818d64071da09b462280483d39dbd5f3fe
 
+Bei der Übertragung von kritischen Nutzerdaten wie zum Beispiel Kontoinformationen oder Adressen ist HTTP nicht mehr ausreichend. Angreifer können diese Nachrichten relativ leicht auslesen, da ihr Inhalt nicht verschlüsselt ist.
+
+Deswegen gibt es eine Erweiterung des Protokolls in Form von HTTPS. Im Gegensatz zu HTTP werden hierbei die gesendeten Daten verschlüsselt. Außerdem gibt es eine Authentifizierung anhand eines Zertifikates, die dem Client Sicherstellt das der Server der ist, für den er sich ausgibt.
+
+Die Verschlüsselung Basiert auf einem Prinzip aus mehreren Schlüsseln. Es gibt einen öffentlichen Schlüssel, der für jeden Client Sichtbar ist, der sich mit dem Server verbindet. Hat der Client mithilfe des Zertifikats den Server Authentifiziert (und der Server den Client) dann erhält er den Öffentlichen Schlüssel (public key). Der Server hat den zweiten Schlüssel, der privat ist (private key). Nun erzeugt der Client mithilfe des ersten Schlüssels einen verschlüsselten dritten Schlüssel (session key). Dieser Schlüssel wird nun mit dem Server geteilt. Mithilfe des privaten Schlüssels kann der Server den dritten Schlüssel entschlüsseln.
+
+Somit wurde die zuvor Asymmetrische Verschlüsselung, also Verschlüsselung mit zwei verschiedenen zusammengehörigen Schlüsseln, zu Symmetrischer Verschlüsselung, also Verschlüsselung mit einem gemeinsamen Schlüssel und Nachrichten können sicher ausgetauscht werden.
+
+Im Fall unseres Projektes ist diese Art der Sicherheit nicht notwendig, da die einzige kritische Information die übertragen wird die E-Mail-Adresse ist (siehe auch [Sicherheit](#Sicherheit)). Des weiteren haben wir unseren Server selbst programmiert und lassen ihn lokal auf einem privatem Laptop laufen, was zur Folge hat das wir keine offizielle Authentifizierung haben. Daher macht es keinen Sinn die erweiterte Variante von HTTP zu verwenden.
 
 # Anforderungsdokumentation
 
@@ -251,7 +264,7 @@ Somit wird das Ergebnis der Query an den **Server** weitergegeben und dieser sen
 
 # Implementierung
 
-Im folgenden Abschnitt wird der Ablauf des Projektes beschrieben. Der gesamte Verlauf wurde in die Phasen Projektplanung, Projektdurchführung eingeteilt, um die Prozesse besser nachvollziehen zu können.
+Im folgenden Abschnitt wird der Ablauf des Projektes beschrieben. Der gesamte Verlauf wurde in die Phasen Projektplanung und Projektdurchführung eingeteilt, um die Prozesse besser nachvollziehen zu können.
 
 ## Projektplanung
 
@@ -270,7 +283,7 @@ Es war ein Zeitraum von 13 Wochen vorgegeben. Wir haben uns für das Spiralmodel
 
 ### Gantt-Diagramm
 
-Das nachfolgende Gantt-Diagramm zeigt die Zeiteinteilung beginnend mit der Phase Planung, die direkt nach dem Projektstart beginnt. Hier wurden die ersten Absprachen bezüglich des Projektaufbaus gemacht. Die Entwickler einigen sich auf die Details und den Umfang des Projekts. Es werden die ersten Mock-Ups erstellt, um die eigenen Vorstellungen zu vergleichen und zu kommentieren. Die grundlegensten Themen werden geklärt, damit jeder weiß worauf man sich im Projekt konzentrieren muss.
+Das nachfolgende Gantt-Diagramm zeigt die Zeiteinteilung beginnend mit der Phase Planung, die direkt nach dem Projektstart beginnt. Hier wurden die ersten Absprachen bezüglich des Projektaufbaus gemacht. Die Entwickler einigen sich auf die Details und den Umfang des Projekts. Es werden die ersten Mockups erstellt, um die eigenen Vorstellungen zu vergleichen und zu kommentieren. Die grundlegendsten Themen werden geklärt, damit jeder weiß worauf man sich im Projekt konzentrieren muss.
 
 Anschließend beginnt die Phase Entwurf in der die ersten Modelle entstehen, die für die Implementierung später wichtig sind. Die Modelle werden besprochen und iterativ ausgebaut. Wichtig ist hier das die Modelle nicht kurz vor Projektende fertig sind,  sonst übertragen sich die Änderungen auf die anderen Teile des Projekts. Erst wenn die Entwürfe fertig sind kann mit dem Erstellen des Codes angefangen werden.
 
@@ -415,3 +428,14 @@ Im Laufe des Projekts haben wir wertvolle Erfahrungen bezüglich der Entwicklung
 ## Ausblick
 
 Obwohl das Projektergebnis die definierten Anforderungen erfüllt hat, können in Zukunft noch neue Anforderungen und Erweiterungsvorschläge realisiert werden. Das Projekt bietet das Potential noch neue Ideen einfließen zu lassen und kann auch noch optimiert werden. Es war nicht geplant das Spiel zu veröffentlichen und es würde auch noch einige Arbeitsstunden beanspruchen.
+
+# Quellen
+
+[HTTPS](#HTTPS):
+
+https://de.wikipedia.org/wiki/Hypertext_Transfer_Protocol_Secure 10.01.2020 19:35
+
+https://de.wikipedia.org/wiki/Transport_Layer_Security#Vor-_und_Nachteile 10.01.2020 19:35
+
+https://tiptopsecurity.com/how-does-https-work-rsa-encryption-explained/ 10.01.2020 20:00
+
