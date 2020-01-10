@@ -10,7 +10,7 @@ Die Folgende Projektbeschreibung schildert den Aufbau und Ablauf des Projektes i
 
 ## Projektbeschreibung
 
-Die Entwicklung eines Spiels, das auf Browserspielen basiert, die früher populär waren. Das Thema des Spiels ist, aufgrund der Tatsache das der Fantasie kaum Grenzen gesetzt sind, Science-Fiction. Das Spiel findet in einem fiktiven Universum statt und der Spieler übernimmt die Rolle des Herrschers eines Planeten. Der Spieler ist in der Lage Gebäude, Raumschiffe zu bauen und Forschung zu betreiben. Er kann mit gezielten Überfälle auf andere Spieler sich einen Spielfortschritt erarbeiten, um  die größte Flotte aufbauen.
+Die Entwicklung eines Spiels, das auf Browserspielen basiert, die früher populär waren. Das Thema des Spiels ist, aufgrund der Tatsache das der Fantasie kaum Grenzen gesetzt sind, Science-Fiction. Das Spiel findet in einem fiktiven Universum statt und der Spieler übernimmt die Rolle des Herrschers eines Planeten. Der Spieler ist in der Lage Gebäude, Raumschiffe zu bauen und Forschung zu betreiben. Er kann sich mit gezielten Überfällen auf andere Spieler einen Spielfortschritt erarbeiten, um  die größte Flotte aufbauen.
 
 ## Projektziel
 
@@ -32,7 +32,7 @@ Da die Arbeitszeit am Projekt beschränkt ist, soll die Applikation mit wenigen 
 
 # Stand der Technik
 
-### Spieleentwicklung
+## Spieleentwicklung
 
 In der heutigen Spieleentwicklung wird viel Arbeit in das Design und in Animationen investiert. Viele der aktuellen Spiele werden mit einer Game Engine entwickelt. Weil die Arbeit an einer eigenen Engine zu viel Zeit in Anspruch nimmt, kann man eine Engine benutzen die der Öffentlichkeit zur Verfügung gestellt wird wie die Unreal Engine 3 oder Unity. Andere Game Engines wie die Frostbite Engine von EA Games werden nur von EA Games selbst benutzt oder an andere Entwicklerstudios verliehen.
 
@@ -40,18 +40,18 @@ Weil die Entwicklung mit einer Game Engine sehr aufwendig ist und das Designen u
 
 Spiele überzeugen heutzutage oftmals durch sehr schönes Design oder umfangreiche Spielmöglichkeiten. Durch immer leistungsstärkere Hardware ist es mittlerweile mögliche sogar in Mobilen Applikationen auf umfangreiche Grafik zu setzen.
 
-Eine andere Möglichkeit ein Spiel interessant zu machen ist durch ein gutes Spielkonzept. Hier haben wir die Idee aufgegriffen und unser Spieledesign an das, der früheren Browsergames angelehnt. Dadurch dass es keine Runde gibt die endet, wird der Spieler ermutigt aktiver am Spielgeschehen teilzunehmen und durch viel Teilnahme wird man mit einer größeren Flotte belohnt. 
+Eine andere Möglichkeit ein Spiel interessant zu machen ist durch ein gutes Spielkonzept. Hier haben wir die Idee aufgegriffen und unser Spieledesign an das, der früheren Browsergames angelehnt. Dadurch dass es keine Runde gibt, die endet, wird der Spieler ermutigt aktiver am Spielgeschehen teilzunehmen und durch viel Teilnahme wird man mit einer größeren Flotte belohnt. 
 
 ## HTTPS
-Bei der Übertragung von kritischen Nutzerdaten wie zum Beispiel Kontoinformationen oder Adressen ist HTTP nicht mehr ausreichend. Angreifer können diese Nachrichten relativ leicht auslesen, da ihr Inhalt nicht verschlüsselt ist.
+Bei der Übertragung von kritischen Nutzerdaten, wie zum Beispiel Kontoinformationen oder Adressen ist HTTP nicht mehr ausreichend. Angreifer können diese Nachrichten relativ leicht auslesen, da ihr Inhalt nicht verschlüsselt ist.
 
-Deswegen gibt es eine Erweiterung des Protokolls in Form von HTTPS. Im Gegensatz zu HTTP werden hierbei die gesendeten Daten verschlüsselt. Außerdem gibt es eine Authentifizierung anhand eines Zertifikates, die dem Client Sicherstellt das der Server der ist, für den er sich ausgibt.
+Deswegen gibt es eine Erweiterung des Protokolls in Form von HTTPS. Im Gegensatz zu HTTP werden hierbei die gesendeten Daten verschlüsselt. Außerdem gibt es eine Authentifizierung anhand eines Zertifikates, die dem Client sicherstellt das der Server der ist, für den er sich ausgibt.
 
-Die Verschlüsselung Basiert auf einem Prinzip aus mehreren Schlüsseln. Es gibt einen öffentlichen Schlüssel, der für jeden Client Sichtbar ist, der sich mit dem Server verbindet. Hat der Client mithilfe des Zertifikats den Server Authentifiziert (und der Server den Client) dann erhält er den Öffentlichen Schlüssel (public key). Der Server hat den zweiten Schlüssel, der privat ist (private key). Nun erzeugt der Client mithilfe des ersten Schlüssels einen verschlüsselten dritten Schlüssel (session key). Dieser Schlüssel wird nun mit dem Server geteilt. Mithilfe des privaten Schlüssels kann der Server den dritten Schlüssel entschlüsseln.
+Die Verschlüsselung basiert auf einem Prinzip aus mehreren Schlüsseln. Es gibt einen öffentlichen Schlüssel, der für jeden Client Sichtbar ist, der sich mit dem Server verbindet. Hat der Client mithilfe des Zertifikats den Server Authentifiziert (und der Server den Client) dann erhält er den Öffentlichen Schlüssel (public key). Der Server hat den zweiten Schlüssel, der privat ist (private key). Nun erzeugt der Client mithilfe des ersten Schlüssels einen verschlüsselten dritten Schlüssel (session key). Dieser Schlüssel wird nun mit dem Server geteilt. Mithilfe des privaten Schlüssels kann der Server den dritten Schlüssel entschlüsseln.
 
 Somit wurde die zuvor Asymmetrische Verschlüsselung, also Verschlüsselung mit zwei verschiedenen zusammengehörigen Schlüsseln, zu Symmetrischer Verschlüsselung, also Verschlüsselung mit einem gemeinsamen Schlüssel und Nachrichten können sicher ausgetauscht werden.
 
-Im Fall unseres Projektes ist diese Art der Sicherheit nicht notwendig, da die einzige kritische Information die übertragen wird die E-Mail-Adresse ist (siehe auch [Sicherheit](#Sicherheit)). Des weiteren haben wir unseren Server selbst programmiert und lassen ihn lokal auf einem privatem Laptop laufen, was zur Folge hat das wir keine offizielle Authentifizierung haben. Daher macht es keinen Sinn die erweiterte Variante von HTTP zu verwenden.
+Im Fall unseres Projektes ist diese Art der Sicherheit nicht notwendig, da die einzige kritische Information, die übertragen wird die E-Mail-Adresse ist (siehe auch [Sicherheit](#Sicherheit)). Des Weiteren haben wir unseren Server selbst programmiert und lassen ihn lokal auf einem privatem Laptop laufen, was zur Folge hat das wir keine offizielle Authentifizierung haben. Daher macht es keinen Sinn die erweiterte Variante von HTTP zu verwenden.
 
 # Anforderungsdokumentation
 
@@ -118,7 +118,7 @@ In diesem Bild sieht man einen Platzhalter für den Namen der Applikation sowie 
 <img src="D:\FH\git\mobile-app\doku\mockups\Basti\overview.png" alt="Übersicht" style="zoom:50%;" />
 
 <center>Bild 2: Mockup der Übersichtsseite</center>
-Hier ist die Übersichtsseite des Spiels dargestellt. Oben rechts sieht man die drei Ressourcen mit zugehörigen Bildern, sowie einen Knopf, der in das Optionsmenü führt. Am linken Rand befindet sich die Navigationsleiste zum wechseln der Seiten. Der Hauptteil des Bildschirms ist mit einem Bild und verschiedenen Knöpfen befüllt, die zur Anzeige verschiedenster Informationen führen.
+Hier ist die Übersichtsseite des Spiels dargestellt. Oben rechts sieht man die drei Ressourcen mit zugehörigen Bildern, sowie einen Knopf, der in das Optionsmenü führt. Am linken Rand befindet sich die Navigationsleiste zum Wechseln der Seiten. Der Hauptteil des Bildschirms ist mit einem Bild und verschiedenen Knöpfen befüllt, die zur Anzeige verschiedenster Informationen führen.
 
 <img src="D:\FH\git\mobile-app\doku\mockups\Basti\planets.png" alt="Planeten" style="zoom:50%;" />
 
@@ -144,7 +144,7 @@ In diesem Bild sieht man die Übersichtsseite des Spiels. Am oberen Rand befinde
 <img src="D:\FH\git\mobile-app\doku\mockups\Felix\menu.png" alt="Menü" style="zoom:60%;" />
 
 <center>Bild 6: Mockup des Dropdown Menüs</center>
-Hier sieht man das ausgeklappte Dropdown Menü, das die Navigation steuert, inklusive repräsentativer Bilder und Namen der Seite auf der man landet.
+Hier sieht man das ausgeklappte Dropdown Menü, das die Navigation steuert, inklusive repräsentativer Bilder und Namen der Seite, auf der man landet.
 
 <img src="D:\FH\git\mobile-app\doku\mockups\Felix\resources.png" alt="Ressourcen" style="zoom:60%;" />
 
@@ -172,11 +172,11 @@ Die Detailansicht für die Forschung sowie die weiteren Einträge des Navigation
 
 Hauptsächlich wurden in den tatsächlichen Entwurf der Benutzeroberfläche Ideen aus den Mockups im [Portrait Layout](#Portrait-Layout) übernommen, da sich diese Darstellungsweise besser für Auflistungen eignet als das [Landscape Layout](#Landscape-Layout).
 
-Der Startbildschirm wie er in *Bild 1* zu sehen ist wurde verworfen, da es innerhalb der Applikation kein Einstellungsmenü gibt. Damit verliert der Startbildschirm seine Funktion. Nun ist der Startbildschirm eine Übersichtsseite, die der in *Bild 5* ähnlich sieht. Das dient dem Zweck das der Spieler direkt, wenn er das Spiel startet zugriff auf nahezu alle relevanten Informationen hat. Auch das Dropdown Menü (*Bild 6*) wurde fast genauso übernommen wie hier dargestellt. 
+Der Startbildschirm wie er in *Bild 1* zu sehen ist wurde verworfen, da es innerhalb der Applikation kein Einstellungsmenü gibt. Damit verliert der Startbildschirm seine Funktion. Nun ist der Startbildschirm eine Übersichtsseite, die der in *Bild 5* ähnlichsieht. Das dient dem Zweck das der Spieler direkt, wenn er das Spiel startet Zugriff auf nahezu alle relevanten Informationen hat. Auch das Dropdown Menü (*Bild 6*) wurde fast genauso übernommen wie hier dargestellt. 
 
 Die Planetenleiste am rechten Rand der Bilder mit [Portrait Layout](#Portrait-Layout) ist ganz weggefallen, da jeder Spieler nur ein Planet hat und nicht mehrere, wie zu Anfang festgelegt. Die Seiten zur Anzeige der Gebäude (*Bild 9*) und Forschung (*Bild 10*) sind fast eins zu eins übernommen worden. Der einzige Unterschied hier ist, dass sie jetzt die gesamte Breite einnehmen.
 
-Die Wahl der Farbe und des Hintergrunds ist eher moderat ausgefallen. Das basiert auf der Tatsache das ein Hintergrund wie in den *Bildern 5 bis 10* zu sehen für schlechte Lesbarkeit sorgt. Daher ist der Hintergrund nun weiß und alle Elemente sind entweder Schwarz oder ***FARBE EINFÜGEN***.
+Die Wahl der Farbe und des Hintergrunds ist eher moderat ausgefallen. Das basiert auf der Tatsache das ein Hintergrund wie in den *Bildern 5 bis 10* zu sehen für schlechte Lesbarkeit sorgt. Daher ist der Hintergrund nun weiß und alle Elemente sind entweder Schwarz oder Blau.
 
 # Architekturbeschreibung
 
@@ -293,7 +293,8 @@ Nachdem das Projekt jetzt vorläufig in Betrieb genommen werden konnte, haben si
 
 <img src="D:\FH\git\mobile-app\doku\diagramme\GanttDiagramm.PNG" alt="Gantt-Diagramm" style="zoom:60%;" />
 
-<center>Bild11: Gantt-Diagramm</center>
+<center>Bild 11: Gantt-Diagramm</center>
+
 ### Terminplanung
 
 Nachfolgend ist der Meilensteinplan. Es wurden alle Meilensteine eingehalten.
@@ -330,7 +331,7 @@ Es wurden zwei Computer für die Programmierung genutzt und ein Laptop für die 
 
 ### Entwicklungsprozess
 
-Wir haben uns für das Spiralmodell als Entwicklungsmodell geeinigt, weil das Projekt zu komplex ist, um es in einem Zug zu implementieren. Es muss immer wieder getestet werden bevor neue Funktionalitäten implementiert werden können. Ansonsten hätten lange Fehlersuchen den Entwicklungsprozess zu stark verlangsamt. Nachdem das Grundgerüst des Programms stand, wurden im gesamten Entwicklungsprozess, iterativ, neue Features implementiert. Damit getestet werden konnte ob sie mit dem schon vorhanden Code synergieren.
+Wir haben uns für das Spiralmodell als Entwicklungsmodell geeinigt, weil das Projekt zu komplex ist, um es in einem Zug zu implementieren. Es muss immer wieder getestet werden bevor neue Funktionalitäten implementiert werden können. Ansonsten hätten lange Fehlersuchen den Entwicklungsprozess zu stark verlangsamt. Nachdem das Grundgerüst des Programms stand, wurden im gesamten Entwicklungsprozess, iterativ, neue Features implementiert. Damit das Zusammenspiel mit dem schon vorhanden Code getestet werden konnte.
 
 ## Projektdurchführung
 
@@ -338,19 +339,17 @@ Nachdem die vorbereitenden Maßnahmen abgeschlossen waren, kommen wir zur Projek
 
 ### Entscheidungsfindung
 
-Als erstes galt es ein geeignetes Datenbank Management System zu evaluieren. Die am weitesten verbreiteten Datenbank Management Systeme sind Oracle, MySQL und Microsoft SQL Server, für andere sinkt mit der Popularität auch deren Unterstützung durch Dokumentation. Wir beschränken die Entscheidungsfindung auf diese drei, weil wir auch schon Vorerfahrung haben und so ein schnelles Anlaufen des Projektes gewährleisten können. Da Microsoft SQL-Server kostenpflichtig ist und uns keine Ressourcen zu Verfügung stehen, blieben noch Oracle und MySQL übrig. Durch die umfangreiche Unterstützung von MySQL in verschiedenen Sprachen und auf diversen Plattformen haben wir uns letztendlich dafür entschieden.
+Als erstes galt es ein geeignetes Datenbank Management System zu evaluieren. Die am weitesten verbreiteten Datenbank Management Systeme sind Oracle, MySQL und Microsoft SQL-Server, für andere sinkt mit der Popularität auch deren Unterstützung durch Dokumentation. Wir beschränken die Entscheidungsfindung auf diese drei, weil wir auch schon Vorerfahrung haben und so ein schnelles Anlaufen des Projektes gewährleisten können. Da Microsoft SQL-Server kostenpflichtig ist und uns keine Ressourcen zu Verfügung stehen, blieben noch Oracle und MySQL übrig. Durch die umfangreiche Unterstützung von MySQL in verschiedenen Sprachen und auf diversen Plattformen haben wir uns letztendlich dafür entschieden.
 
 Für die Auswahl des Servers haben wir uns für eine lokale Variante entschieden, weil uns die Ressourcen fehlen einen Server anzuschaffen. Da wir unsere privaten Computer dafür nutzen, wollten wir bei der Gefahr eine Sicherheitslücke zu erzeugen keinen Zugriff auf unsere privaten Daten ermöglichen. Deshalb haben wir den Server selber in Node.js erzeugt und das Verhalten implementiert.
 
 ### Beschreibende Arbeitsschritte
 
-Im Folgenden beschreiben wir einige elementare Arbeitsschritte, die notwendig waren um diese Projekt durchzuführen.
+Im Folgenden beschreiben wir einige elementare Arbeitsschritte, die notwendig waren, um diese Projekt durchzuführen.
 
 #### Aufsetzen der Datenbank
 
-Um die Datenbank aufzusetzen, wurde ein Entity-Relationship-Model erstellt. Da es Probleme bei der Struktur der Datenbank gab, wurde die Hilfe der Dozenten in Anspruch genommen. Die Daten wurden getrennt aufgeteilt in eine Benutzer bezogene Gruppe und in Daten die ausschließlich für das Spiel gedacht sind und nicht in irgendeiner Art vom Client verändert werden können. Anschließend wird das Entity-Relationship-Model in ein SQL-Script umgewandelt, damit es in die Datenbank eingespielt werden kann. Dort erzeugt es ein Schema, in dem die Daten eingesehen und verändert werden können. 
-
-
+Um die Datenbank aufzusetzen, wurde ein Entity-Relationship-Model erstellt. Da es Probleme bei der Struktur der Datenbank gab, wurde die Hilfe der Dozenten in Anspruch genommen. Die Daten wurden getrennt aufgeteilt in eine Benutzerbezogene Gruppe und in Daten die ausschließlich für das Spiel gedacht sind und nicht in irgendeiner Art vom Client verändert werden können. Anschließend wird das Entity-Relationship-Model in ein SQL-Script umgewandelt, damit es in die Datenbank eingespielt werden kann. Dort erzeugt es ein Schema, in dem die Daten eingesehen und verändert werden können. 
 
 <img src="D:\FH\git\mobile-app\doku\diagramme\ErModell.PNG" alt="ER-Modell" style="zoom:60%;" />
 
@@ -361,7 +360,7 @@ Der Server wurde in seiner ersten Version in Java geschrieben, um die Kommunikat
 
 #### Umsetzung des Clients
 
-Zunächst haben wir uns auf die Gestaltung der Oberfläche konzentriert. Da die Oberfläche größtenteils unabhängig von dem Backend entwickelt werden kann, bietet es sich an damit anzufangen. Danach haben wir in der ersten Anläufen verschiedene Kommunikationsarten und Bibliotheken für die Verwendung im Backend getestet. Die Entscheidung fiel dann auf HttpURLConnection, durch die leichte Erlernbarkeit und durch die ausführliche Dokumentation. Zum Schluss haben wir die HTTP-Anfragen als sogenannte Async Tasks implementiert. Um innerhalb dieser Klasse zugriff auf Elemente der Benutzeroberfläche zu haben, wurde in der Klasse ein Interface angelegt, das immer wenn die Klasse aufgerufen wird, gefüllt wird.
+Zunächst haben wir uns auf die Gestaltung der Oberfläche konzentriert. Da die Oberfläche größtenteils unabhängig von dem Backend entwickelt werden kann, bietet es sich an damit anzufangen. Danach haben wir in den ersten Anläufen verschiedene Kommunikationsarten und Bibliotheken für die Verwendung im Backend getestet. Die Entscheidung fiel dann auf HttpURLConnection, durch die leichte Erlernbarkeit und durch die ausführliche Dokumentation. Zum Schluss haben wir die HTTP-Anfragen als sogenannte Async Tasks implementiert. Um innerhalb dieser Klasse Zugriff auf Elemente der Benutzeroberfläche zu haben, wurde in der Klasse ein Interface angelegt, das immer, wenn die Klasse aufgerufen wird, gefüllt wird.
 
 ## Qualitätssicherung
 
@@ -373,7 +372,7 @@ Während der Entwicklungsphase wurde die Software in Intervallen getestet. Es wu
 
 Die Sicherheit der Nutzerdaten ist hauptsächlich durch die Architektur und das genutzte Protokoll (HTTP) gewährleistet. Die genannten Daten sind in diesem Fall E-Mail-Adressen und Passwörter. Diese Daten werden in einer Datenbank gespeichert, auf die nur der Server Zugriff hat. Der Client, also die vom Benutzer bediente Applikation hat keinerlei Möglichkeit auf die Datenbank zuzugreifen (siehe [Architektur](#Architekturbeschreibung)). Durch die Verwendung von HTTP ist ein gewisses Maß an Sicherheit gewährleistet. Zum Beispiel wird für die Übertragung von kritischen Daten die Post-Methode benutzt, damit die Daten im Body übermittelt werden, anstatt direkt in der URL wie bei der Get-Methode. 
 
-Ein mögliches Sicherheitsrisiko ist in der lokalen Speicherung von Accountdaten zu sehen. Wenn sich der Nutzer vor dem Schließen der Applikation nicht ausloggt, wird er automatisch beim Start wieder eingeloggt. Sollte nun jemand anderer Zugriff auf das Endgerät des Nutzers haben, könnte er auf den Account des Nutzers zugreifen. Dieses Risiko ist jedoch vernachlässigbar, da keinerlei persönliche Informationen, wie zum Beispiel Kontodaten oder Adressen benutzt werden. Außerdem kann es sein das der Nutzer die Kombination von E-mail und Passwort auch bei anderen Diensten verwendet und somit hätte der Angreifer auch Zugriff auf diese. Zum Auslesen dieser Informationen sind jedoch Programmierkenntnisse nötig, daher wird diese Risikowahrscheinlichkeit auf niedrig eingeschätzt.
+Ein mögliches Sicherheitsrisiko ist in der lokalen Speicherung von Accountdaten zu sehen. Wenn sich der Nutzer vor dem Schließen der Applikation nicht ausloggt, wird er automatisch beim Start wieder eingeloggt. Sollte nun jemand anderer Zugriff auf das Endgerät des Nutzers haben, könnte er auf den Account des Nutzers zugreifen. Dieses Risiko ist jedoch vernachlässigbar, da keinerlei persönliche Informationen, wie zum Beispiel Kontodaten oder Adressen benutzt werden. Außerdem kann es sein das der Nutzer die Kombination von E-Mail und Passwort auch bei anderen Diensten verwendet und somit hätte der Angreifer auch Zugriff auf diese. Zum Auslesen dieser Informationen sind jedoch Programmierkenntnisse nötig, daher wird diese Risikowahrscheinlichkeit auf niedrig eingeschätzt.
 
 ## Spielkonzepte
 
@@ -385,7 +384,7 @@ Jeder Spieler kann auf seinem Planeten drei verschiedene Ressourcen abbauen, die
 
 Angriffe sind ein weiterer Weg, um Ressourcen zu erhalten. Der Spieler kann seine Raumschiffe zu einem anderen Planeten schicken und versuchen einem anderen Spieler Ressourcen zu stehlen. An dieser Stelle kommen die Verteidigungsanlagen, die man auf einem Planeten errichten und verbessern kann nun ins Spiel. Durch diese erhöht man seine Chance den Kampf zu gewinnen, da diese zusätzlich zu den eigenen Raumschiffen am Kampf teilnehmen.
 
-Raumschiffe haben vier verschiedene Werte. Trefferpunkte, Schilde, Angriff und Feuerrate. Anhand dieser Werte wird ein Kampf simuliert. Die Verschiedenen Schiffe haben Stärken und Schwächen, wie zum Beispiel eine besonders hoher Schaden aber dafür eine geringere Feuerrate oder ähnliches.
+Raumschiffe haben vier verschiedene Werte. Trefferpunkte, Schilde, Angriff und Feuerrate. Anhand dieser Werte wird ein Kampf simuliert. Die Verschiedenen Schiffe haben Stärken und Schwächen, wie zum Beispiel ein besonders hoher Schaden aber dafür eine geringere Feuerrate oder ähnliches.
 
 Die Simulation des Kampfes basiert auf folgender Formel: 
 
@@ -419,7 +418,7 @@ Bei einer rückblickenden Betrachtung des Projektes, kann festgehalten werden, d
 
 ## Lessons learned
 
-Im Laufe des Projekts haben wir wertvolle Erfahrungen bezüglich der Entwicklung von Applikationen sammeln können. Des Weiteren haben wir festgestellt das die Entwicklung eines Spieles eine größere Herausforderung ist, als wir Anfangs dachten. Außerdem haben wir viel neues über die Client Server Architektur, explizit die Kommunikation über HTTP sowie die Nützlichkeit von Node.js lernen können. Node.js regelt einen Großteil des handshakes von HTTP, sodass man sich nur noch um die Verarbeitung der Daten kümmern muss. Auch im Umgang mit einer Datenbank ist es von großem Nutzen, da man Queries als Strings sehr einfach ausführen kann und man ein Objekt zurückbekommt, dass man direkt versenden kann. Auch haben wir von Neuem gemerkt, das das Dateiformat JSON die Kommunikation und Datenverarbeitung durch die Objektifizierung deutlich erleichtert.
+Im Laufe des Projekts haben wir wertvolle Erfahrungen bezüglich der Entwicklung von Applikationen sammeln können. Des Weiteren haben wir festgestellt das die Entwicklung eines Spieles eine größere Herausforderung ist, als wir Anfangs dachten. Außerdem haben wir viel neues über die Client Server Architektur, explizit die Kommunikation über HTTP sowie die Nützlichkeit von Node.js lernen können. Node.js regelt einen Großteil des handshakes von HTTP, sodass man sich nur noch um die Verarbeitung der Daten kümmern muss. Auch im Umgang mit einer Datenbank ist es von großem Nutzen, da man Queries als Strings sehr einfach ausführen kann und man ein Objekt zurückbekommt, dass man direkt versenden kann. Auch haben wir von Neuem gemerkt, dass das Dateiformat JSON die Kommunikation und Datenverarbeitung durch die Objektifizierung deutlich erleichtert.
 
 ## Ausblick
 
