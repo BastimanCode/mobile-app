@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 user.setText(player.username);
             }
         });
-        get.execute("http://192.168.178.25:8000/?type=refresh&playerid=" + playerID + "&planetid=" + planetID);
+        get.execute("http://192.168.0.80:8000/?type=refresh&playerid=" + playerID + "&planetid=" + planetID);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

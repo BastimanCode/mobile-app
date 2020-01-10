@@ -14,9 +14,9 @@ Die Entwicklung eines Spiels, das auf Browserspielen basiert, die früher popul�
 
 ## Projektziel
 
-Die entwickelte Applikation soll anschaulich und intuitiv sein. Es wird bewusst auf Animationen und ähnliches verzichtet, um den Stil und Charme der vorher genannten Browserspiele beizubehalten. Die Benutzeroberfläche soll simpel gehalten werden und dennoch alle nötigen Funktionen klar erkennbar darstellen um eine einfache Bedienung zu gewährleisten. Das Design soll einheitlich sein um der Applikation ein natürliches Aussehen zu verleihen.
+Die entwickelte Applikation soll anschaulich und intuitiv sein. Es wird bewusst auf Animationen und Ähnliches verzichtet, um den Stil und Charme der vorher genannten Browserspiele beizubehalten. Die Benutzeroberfläche soll simpel gehalten werden und dennoch alle nötigen Funktionen klar erkennbar darstellen um eine einfache Bedienung zu gewährleisten. Das Design soll einheitlich sein, um der Applikation ein natürliches Aussehen zu verleihen.
 
-Das Spielkonzept soll einfach gehalten werden und trotzdem dafür sorgen dem Spieler Spaß und die Lust zum weiterzuspielen bringen. Berechnungen und ähnliches sollen daher auch im Hintergrund geschehen um den Fluss des Spiels so wenig wie möglich zu unterbrechen.
+Das Spielkonzept soll einfach gehalten werden und trotzdem dafür sorgen dem Spieler Spaß und die Lust zum weiterzuspielen bringen. Berechnungen und Ähnliches sollen daher auch im Hintergrund geschehen um den Fluss des Spiels so wenig wie möglich zu unterbrechen.
 
 ## Projektbegründung
 
@@ -260,6 +260,14 @@ Es war ein Zeitraum von 13 Wochen vorgegeben. Wir haben uns für das Spiralmodel
 | Tests           |         30         |
 | Dokumentation   |         5          |
 
+### Gantt-Diagramm
+
+Das nachfolgende Gantt-Diagramm zeigt die Zeiteinteilung beginnend mit der Phase Planung, die direkt nach dem Projektstart beginnt. Hier wurden die ersten Absprachen bezüglich des Projektaufbaus gemacht. Die Entwickler einigen sich auf die Details und den Umfang des Projekts. Es werden die ersten Mock-Ups erstellt um die eigenen Vorstellungen zu vergleichen und zu kommentieren. Die grundlegensten Themen werden geklärt, damit jeder weiß worauf man sich im Projekt konzentrieren muss. Anschließend beginnt die Phase Entwurf in der die ersten Modelle entstehen, die für die Implementierung später wichtig sind. Die Modelle werden besprochen und iterativ ausgebaut. Wichtig ist hier das die Modelle nicht kurz vor Projektende fertig sind,  sonst übertragen sich die Änderungen auf die anderen Teile des Projekts. Erst wenn die Entwürfe fertig sind kann mit dem Erstellen des Codes angefangen werden. Die ersten Arbeiten zielten auf das Designen der Benutzeroberfläche in Android Studio. Die Oberfläche wurde zu Beginn des Projekts fertig gestellt und nur noch kleinere Komponenten wurden im Nachhinein ergänzt oder bearbeitet. Für das Erstellen der Benutzeroberfläche wurde ein Zeitraum von 3 Wochen eingerechnet, parallel dazu wurden Tests und Recherchen für die Entwicklung einer Client-Server Verbindung und die Benutzung einer Datenbank durchgeführt. Nach ausreichender Recherche und Planung wurde dann die Datenbank aufgesetzt. Die Datenbank wurde in mehreren Iterationen verfeinert, bis das fertige Modell nach 2 Wochen stand. Eine Änderung in der Datenbank bedeutete immer viel Aufwand, weshalb hier auch ein durchdachter Aufbau seine Wichtigkeit zeigte. Der Server wurde anschließend realisiert, als Bindeglied zwischen Client und Datenbank. Es musste zu diesem Zeitpunkt klar sein wir die Datenbank aussieht, damit man die entsprechenden Queries schreiben konnte. Nachdem das Projekt jetzt vorläufig in Betrieb genommen werden konnte, haben sich die Entwickler auf die Erweiterung des Projekts und die Implementierung neuer Features konzentriert.
+
+<img src="D:\FH\git\mobile-app\doku\diagramme\GanttDiagramm.PNG" alt="ER-Modell" style="zoom:60%;" />
+
+<center>Bild11: Gantt-Diagramm</center>
+
 ### Terminplanung
 
 Nachfolgend ist der Meilensteinplan. Es wurden alle Meilensteine eingehalten.
@@ -271,8 +279,8 @@ Nachfolgend ist der Meilensteinplan. Es wurden alle Meilensteine eingehalten.
 | 3      | Server Client Kommunikation hergestellt | 28.10.2019  | 28.10.2019 |
 | 4      | Oberfläche entworfen                    | 11.11.2019  | 11.11.2019 |
 | 5      | Datenbank eingebunden                   | 25.11.2019  | 25.11.2019 |
-| 6      | erste Funktionalität benutzbar          | 17.12.2019  | 17.12.2019 |
-| 7      | Projekt funktionsfähig                  | 06.01.2019  | 17.12.2019 |
+| 6      | erste Funktionalität benutzbar          | 16.12.2019  | 16.12.2019 |
+| 7      | Projekt funktionsfähig                  | 06.01.2020  | 06.01.2020 |
 | 8      | Projektübergabe                         | 13.01.2020  | 13.01.2020 |
 
 ### Personalplanung
@@ -316,10 +324,12 @@ Im folgenden beschreiben wir einige elementare Arbeitsschritte, die notwendig wa
 
 Um die Datenbank aufzusetzen, wurde ein Entity-Relationship-Model erstellt. Da es Probleme bei der Struktur der Datenbank gab, wurde die Hilfe der Dozenten in Anspruch genommen. Die Daten wurden getrennt aufgeteilt eine Benutzer bezogene Gruppe und in Daten die ausschließlich für das Spiel gedacht sind und nicht in irgendeiner Art vom Client verändert werden können. Anschließend wird das Entity-Relationship-Model in ein SQL-Script umgewandelt, damit es in die Datenbank eingespielt werden kann. Dort erzeugt es ein Schema, in dem die Daten eingesehen und verändert werden können. 
 
-<img src="D:\FH\git\mobile-app\doku\diagramme\Er-Modell.png" alt="ER-Modell" style="zoom:60%;" />
 
+
+<img src="D:\FH\git\mobile-app\doku\diagramme\ErModell.PNG" alt="ER-Modell" style="zoom:60%;" />
+
+<center>Bild 11: Entity-Relationship-Model</center>>
 <center>Bild 11: Entity-Relationship-Modell der Datenbank</center>
-
 #### Implementierung des Servers
 
 Der Server wurde in seiner ersten Version in Java geschrieben, um die Kommunikation zu testen. Durch Recherchen sind wir dann auf eine bessere Methode gestoßen und haben den Server in Node.js implementiert. Da in Javascript Funktionen asynchron ausgeführt werden, haben wir mit Promise-Objekten gearbeitet, die das Programm zwingen auf den Rückgabewert einer Funktion zu warten. Das war unabdingbar, um die Ergebnisse der SQL-Queries an die Http-Responses anzuhängen. Ohne dieses Verfahren wurden die Http-Responses ohne Inhalt im body zurück an den Client gesendet.

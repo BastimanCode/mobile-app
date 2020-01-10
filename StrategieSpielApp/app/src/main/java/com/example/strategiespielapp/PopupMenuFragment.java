@@ -98,6 +98,6 @@ public class PopupMenuFragment extends Fragment implements PopupMenu.OnMenuItemC
                 fuel.setText(String.valueOf(player.fuel));
             }
         });
-        get.execute("http://192.168.178.25:8000/?type=refresh&playerid=1&planetid=1");
+        get.execute("http://192.168.0.80:8000/?type=refresh&playerid=1&planetid=1");
     }
 }

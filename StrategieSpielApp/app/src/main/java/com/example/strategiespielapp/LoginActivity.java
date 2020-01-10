@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         }
                     }
                 });
-                post.execute("http://192.168.178.25:8000/?type=login", content);
+                post.execute("http://192.168.0.80:8000/?type=login", content);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -150,7 +150,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         }
                     }
                 });
-                post.execute("http://192.168.178.25:8000/?type=login", json);
+                post.execute("http://192.168.0.80:8000/?type=login", json);
 
 
                 break;
