@@ -147,29 +147,29 @@ Wir haben uns für die Nutzung einer Datenbank entschieden, um die Daten von Spi
 
 Es war ein Zeitraum von 13 Wochen vorgegeben. Wir haben uns für das Spiralmodell entschieden. Die Begründung kann im Abschnitt Entwicklungsprozess eingesehen werden. Eine grobe Zeiteinteilung haben wir wie folgt vorgenommen. Die Angaben sind in Prozent weil wir in einem iterativen Modell immer wieder zwischen den Phasen wechseln.
 
-| Projektphasen   | geplante Zeit in %|
-| --------------- |:-------------:|
-| Planung         | 10 |
-| Entwurf         | 20 |
-| Implementierung | 30 |
-| Zusammenführung | 5 |
-| Tests           | 30 |
-| Dokumentation   | 5 |
+| Projektphasen   | geplante Zeit in % |
+| --------------- | :----------------: |
+| Planung         |         10         |
+| Entwurf         |         20         |
+| Implementierung |         30         |
+| Zusammenführung |         5          |
+| Tests           |         30         |
+| Dokumentation   |         5          |
 
 ### Terminplanung
 
 Nachfolgend ist der Meilensteinplan. Es wurden alle Meilensteine eingehalten.
 
-| Nummer        | Bezeichnung                             | Soll Termin   | Ist Termin |
-| ------------- | --------------------------------------- | ------------- | ---------- |
-| 1             | Projektstart                            | 14.10.2019    | 14.10.2019 |
-| 2             | Projektplanung                          | 21.10.2019    | 21.10.2019 |
-| 3             | Server Client Kommunikation hergestellt | 28.10.2019    | 28.10.2019 |
-| 4             | Oberfläche entworfen                    | 11.11.2019    | 11.11.2019 |
-| 5             | Datenbank eingebunden                   | 25.11.2019    | 25.11.2019 |
-| 6             | erste Funktionalität benutzbar          | 17.12.2019    | 17.12.2019 |
-| 7             | Projekt funktionsfähig                  | 06.01.2019    | 17.12.2019 |
-| 8             | Projektübergabe                         | 13.01.2020    | 13.01.2020 |
+| Nummer | Bezeichnung                             | Soll Termin | Ist Termin |
+| ------ | --------------------------------------- | ----------- | ---------- |
+| 1      | Projektstart                            | 14.10.2019  | 14.10.2019 |
+| 2      | Projektplanung                          | 21.10.2019  | 21.10.2019 |
+| 3      | Server Client Kommunikation hergestellt | 28.10.2019  | 28.10.2019 |
+| 4      | Oberfläche entworfen                    | 11.11.2019  | 11.11.2019 |
+| 5      | Datenbank eingebunden                   | 25.11.2019  | 25.11.2019 |
+| 6      | erste Funktionalität benutzbar          | 17.12.2019  | 17.12.2019 |
+| 7      | Projekt funktionsfähig                  | 06.01.2019  | 17.12.2019 |
+| 8      | Projektübergabe                         | 13.01.2020  | 13.01.2020 |
 
 ### Personalplanung
 
@@ -192,11 +192,45 @@ Es wurden zwei Computer für die Programmierung genutzt und ein Laptop für die 
 
 Wir haben uns für das Spiralmodell als Entwicklungsmodell geeinigt, weil das Projekt zu komplex ist, um es in einem Zug zu implementieren. Es muss immer wieder getestet werden bevor neue Funktionalitäten implementiert werden können. Ansonsten hätten lange Fehlersuchen den Entwicklungsprozess zu stark verlangsamt. Nachdem das Grundgerüst des Programms stand, wurden im gesamten Entwicklungsprozess, iterativ, neue Features implementiert.damit getestet werden konnte ob sie mit dem schon vorhanden Code synergieren.
 
+## Projektdurchführung
+
+Nachdem die vorbereitenden Mapnahmen abgeschlossen waren, kommen wir zur Projektdurchführung. In diesem Kapitel beschreiben wir den Ablauf des Projekts, gehen auf einige Arbeitsschritte und die Qualitätssicherung ein.
+
+### Entscheidungsfindung
+
+Als erstes galt es ein geeignetes Datenbank Management System zu evaluieren. Die am weitesten verbreiteten Datenbank Management Systeme sind Oracle, MySQL und Microsoft SQL Server, für andere sinkt mit der Popularität auch deren Unterstützung durch Dokumentation. Wir beschränken die Entscheidungsfindung auf diese drei, weil wir auch schon Vorerfahrung haben und so ein schnelles Anlaufen des Projektes gewährleisten können. Da Microsoft SQL Server kostenpflichtig ist und uns keine Ressourcen zu Verfügung stehen, blieben noch Oracle und MySQL übrig. Durch die umfangreiche Unterstützung von MySQL in verschiedenen Sprachen und auf diversen Plattformen haben wir uns letztendlich dafür entschieden.
+
+Für die Auswahl des Servers haben wir uns für eine lokale Variante entschieden, weil uns die Ressourcen fehlen einen Server anzuschaffen. Da wir unsere privaten Computer dafür nutzen, wollten wir bei der Gefahr eine Sicherheitslücke zu erzeugen keinen Zugriff auf unsere privaten Daten ermöglichen. Deshalb haben wir den Server selber in Node.js erzeugt und das Verhalten implementiert.
+
+### Beschreibende Arbeitsschritte
+
+Im folgenden beschreiben wir einige elementare Arbeitsschritte, die notwendig waren um diese Projekt durchzuführen.
+
+#### Aufsetzen der Datenbank
+
+Um die Datenbank aufzusetzen, wurde ein Entity-Relationship-Model erstellt. Da es Probleme bei der Struktur der Datenbank gab, wurde die Hilfe der Dozenten in Anspruch genommen. Die Daten wurden getrennt aufgeteilt eine Benutzer bezogene Gruppe und in Daten die ausschließlich für das Spiel gedacht sind und nicht in irgendeiner Art vom Client verändert werden können. Anschließend wird das Entity-Relationship-Model in ein SQL-Script ungewandelt, damit es in die Datenbank eingespielt werden kann. Dort erzeugt es ein Schema, in dem die Daten eingesehen und verändert werden können. 
+
+<img src="D:\FH\git\mobile-app\doku\diagramme\Er-Modell.png" alt="ER-Modell" style="zoom:60%;" />
+
+#### Implementierung des Servers
+
+Der Server wurde in seiner ersten Version in Java geschrieben, um die Kommunikation zu testen. Durch Recherchen sind wir dann auf eine bessere Methode gestoßen und haben den Server in Node.js implementiert. Da in Javascript Funktionen asynchron ausgeführt werden, haben wir mit Promise-Objekten gearbeitet, die das Programm zwingen auf den Rückgabewert einer Funktion zu warten. Das war unabdingbar, um die Ergebnisse der SQL-Queries an die Http-Responses anzuhängen. Ohne dieses Verfahren wurden die Http-Responses ohne Inhalt im body zurück an den Client gesendet.
+
+#### Umsetzung des Clients
+
+Zunächst haben wir uns auf die Gestaltung des Oberfläche konzentriert. Da die Oberfläche größtenteils unabhängig von dem Backend entwickelt werden kann, bietet es sich an damit anzufangen. In der ersten Anläufen wurden verschiedene Kommunikationsarten und Bibliotheken getestet. Die Entscheidung fiel dann auf HttpURLConnection, durch die leichte Erlernbarkeit und durch die ausführliche Dokumentation. 
+
+### Qualitätssicherung
+
+#### Kontinuierliche Tests
+
+Während der Entwicklungsphase wurde die Software in Intervallen getestet. Es wurden Tests nach jedem neuen Feature gemacht und die Datenbank wurde auf Anomalien überprüft. 
+
 ## Spielkonzepte
 
-Jeder Spieler kann auf seinem Planeten drei verschiedene Ressourcen abbauen, die für verschiedenste Gebäude und Verbesserungen benötigt werden. Der Abbau findet passiv statt. Das heißt, das auch wenn man nicht aktiv im Spiel - also "Offline" - ist werden Ressourcen erzeugt. Diese Ressourcen sind Baumaterialien, Computerchips und Treibstoff. Sie können verwendet werden, um Gebäude zu errichten, Raumschiffe und Verteidigungsanlagen zu bauen und Forschung zu betreiben. Des weiteren können Gebäude Verbessert werden, was verschiedene Boni mit sich bringt. Zum einen gibt es Gebäude, die die Produktion bestimmter Ressourcen verbessern, zum anderen gibt es Gebäude die die maximale Kapazität der Ressourcen erhöht. Des weiteren gibt es Gebäude die die Produktivität verschiedener Aspekte, wie zum Beispiel die Geschwindigkeit der Forschung oder das Bauen von Raumschiffen verbessert.
+Jeder Spieler kann auf seinem Planeten drei verschiedene Ressourcen abbauen, die für verschiedenste Gebäude und Verbesserungen benötigt werden. Der Abbau findet passiv statt. Das heißt, das auch wenn man nicht aktiv im Spiel - also "Offline" - ist werden Ressourcen erzeugt. Diese Ressourcen sind Baumaterialien, Computerchips und Treibstoff. Sie können verwendet werden, um Gebäude zu errichten, Raumschiffe und Verteidigungsanlagen zu bauen und Forschung zu betreiben. Des weiteren können Gebäude verbessert werden, was verschiedene Boni mit sich bringt. Zum einen gibt es Gebäude, die die Produktion bestimmter Ressourcen verbessern, zum anderen gibt es Gebäude die die maximale Kapazität der Ressourcen erhöht. Des weiteren gibt es Gebäude die die Produktivität verschiedener Aspekte, wie zum Beispiel die Geschwindigkeit der Forschung oder das Bauen von Raumschiffen verbessert.
 
-Die meisten Gebäude können dazu noch aufgewertet werden, was dazu führt das die Ressourcenkosten mit dem jeweiligen Bonus steigen. Das dient dem Zweck dem Spieler einen Sinn für das erlangen von Ressourcen zu geben. Durch die Verbesserung von Verteidigungsanlagen kann der Spieler seine Chancen vergrößern Angriffe von anderen Spielern abzuwehren.
+Die meisten Gebäude können dazu noch aufgewertet werden, was dazu führt das die Ressourcenkosten mit dem jeweiligen Bonus steigen. Das dient dem Zweck dem Spieler einen Sinn für das Erlangen von Ressourcen zu geben. Durch die Verbesserung von Verteidigungsanlagen kann der Spieler seine Chancen vergrößern Angriffe von anderen Spielern abzuwehren.
 
 Angriffe sind ein weiterer Weg um Ressourcen zu erhalten. Der Spieler kann seine Raumschiffe zu einem anderen Planeten schicken und versuchen einem anderen Spieler Ressourcen zu stehlen. An dieser Stelle kommen die Verteidigungsanlagen, die man auf einem Planeten errichten und verbessern kann nun ins Spiel. Durch diese erhöht man seine Chance den Kampf zu gewinnen, da diese zusätzlich zu den eigenen Raumschiffen am Kampf teilnehmen.
 
@@ -218,4 +252,4 @@ Bei einer rückblickenden Betrachtung des Projektes, kann festgehalten werden, d
 
 ## Lessons learned
 
-Im Laufe des Projekts haben wir wertvolle Erfahrungen bezüglich der Entwicklung von Applikationen sammeln können. Des weiteren haben wir festgestellt das die Entwicklung eines Spieles eine größere Herausforderung ist, als wir Anfangs dachten. Außerdem haben wir viel neues über die Client Server Architektur, explizit die Kommunikation über HTTP sowie die Nützlichkeit von [Node.js](https://nodejs.org/en/) lernen können. [Node.js](https://nodejs.org/en/) regelt einen Großteil des handshakes von HTTP, sodass man sich nur noch um die Verarbeitung der Daten kümmern muss. Auch im Umgang mit einer Datenbank ist es von großem nutzen, da man Queries als Strings sehr einfach ausführen kann und man ein Objekt zurück bekommt das man direkt versenden kann. Auch haben wir von neuem gemerkt das das Dateiformat [JSON](#https://www.json.org/json-de.html) die Kommunikation und Datenverarbeitung durch die Objektifizierung deutlich erleichtert.
+Im Laufe des Projekts haben wir wertvolle Erfahrungen bezüglich der Entwicklung von Applikationen sammeln können. Des weiteren haben wir festgestellt das die Entwicklung eines Spieles eine größere Herausforderung ist, als wir Anfangs dachten. Außerdem haben wir viel neues über die Client Server Architektur, explizit die Kommunikation über HTTP sowie die Nützlichkeit von [Node.js](https://nodejs.org/en/) lernen können. [Node.js](https://nodejs.org/en/) regelt einen Großteil des handshakes von HTTP, sodass man sich nur noch um die Verarbeitung der Daten kümmern muss. Auch im Umgang mit einer Datenbank ist es von großem Nutzen, da man Queries als Strings sehr einfach ausführen kann und man ein Objekt zurück bekommt, dass man direkt versenden kann. Auch haben wir von Neuem gemerkt das das Dateiformat [JSON](#https://www.json.org/json-de.html) die Kommunikation und Datenverarbeitung durch die Objektifizierung deutlich erleichtert.
