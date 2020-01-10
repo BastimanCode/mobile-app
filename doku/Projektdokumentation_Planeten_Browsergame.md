@@ -183,7 +183,7 @@ Wir haben uns für die Nutzung einer Datenbank entschieden, um die Daten von Spi
 
 Es folgt eine Erläuterung der Architektur anhand eines konkreten Beispiels aus dem Projekt. Der Aspekt, der gewählt wurde ist die Übersicht der Gebäude.
 
-Die Klasse `BuildingsActivity` ist im Zusammenspiel mit der Klasse `RecyclerViewAdapterBuildings` für das Anzeigen der Gebäude auf dem Endgerät des Benutzers (wird ab jetzt **Client** genannt) zuständig. Damit das Anzeigen von Daten passieren kann, muss eine HTTP-Anfrage an den **Server** gestellt werden. Dafür ist die Klasse `HttpGetRequest` zuständig. Um die Anfrage zu stellen und die Antwort des Servers verarbeiten zu können, muss eine Instanz erzeugt und die Methode `setUpdateListener` implementiert werden. Folgender Codeausschnitt veranschaulicht diesen Ablauf:
+Die Klasse `BuildingsActivity` ist im Zusammenspiel mit der Klasse `RecyclerViewAdapterBuildings` für das Anzeigen der Gebäude auf dem Endgerät des Benutzers (wird ab jetzt **Client** genannt) zuständig. Damit das Anzeigen von Daten passieren kann, muss eine HTTP-Anfrage an den **Server** gestellt werden. Dafür ist die Klasse `HttpGetRequest` zuständig. Um die Anfrage zu stellen und die Antwort des **Servers** verarbeiten zu können, muss eine Instanz erzeugt und die Methode `setUpdateListener` implementiert werden. Folgender Codeausschnitt veranschaulicht diesen Ablauf:
 
 ```
 HttpGetRequest buildingsdata = new HttpGetRequest();
@@ -206,7 +206,7 @@ buildingsdata.setUpdateListener(new HttpGetRequest.OnUpdateListener() {
 buildingsdata.execute("http://192.168.0.80:8000/?type=buildings");
 ```
 
-Die for-Schleife iteriert über ein Array in dem die Informationen über die Verschiedenen Gebäudetypen enthalten sind und fügt diese einer Recyclerview hinzu. Durch das Aufrufen der Methode `execute()` wird die Anfrage ausgeführt. Der Parameter `type=buildings` wird im Server verarbeitet. Die HTTP-Anfrage wird anschließend im Server (`server.js`) beantwortet. Der Codeausschnitt der verantwortliche Funktion folgt: 
+Die for-Schleife iteriert über ein Array in dem die Informationen über die Verschiedenen Gebäudetypen enthalten sind und fügt diese einer Recyclerview hinzu. Durch das Aufrufen der Methode `execute()` wird die Anfrage ausgeführt. Der Parameter `type=buildings` wird im **Server** verarbeitet und dadurch wird erkannt welche Daten angefordert worden sind. Die HTTP-Anfrage wird anschließend im **Server** (`server.js`) beantwortet. Der Codeausschnitt der verantwortliche Funktion folgt: 
 
 ```
 function SetupServer(connection) {
@@ -239,7 +239,7 @@ function database(connection, queries){
 }
 ```
 
-Somit wird das Ergebnis der Query an den Server weitergegeben und dieser sendet die Daten im HTTP-Body an den **Client**, wo dieser die Daten ausliest und Darstellt.
+Somit wird das Ergebnis der Query an den **Server** weitergegeben und dieser sendet die Daten im HTTP-Body an den **Client**, wo dieser die Daten ausliest und darstellt.
 
 # Implementierung
 
@@ -332,17 +332,33 @@ Zunächst haben wir uns auf die Gestaltung des Oberfläche konzentriert. Da die 
 
 #### Kontinuierliche Tests
 
-Während der Entwicklungsphase wurde die Software in Intervallen getestet. Es wurden Tests nach jedem neuen Feature gemacht und die Datenbank wurde auf Anomalien überprüft. 
+Während der Entwicklungsphase wurde die Software in Intervallen getestet. Es wurden Tests nach jedem neuen Feature gemacht und die Datenbank wurde auf Anomalien überprüft. Siehe hierzu auch das Kapitel [Tests](#Tests).
 
 ## Spielkonzepte
 
-Jeder Spieler kann auf seinem Planeten drei verschiedene Ressourcen abbauen, die für verschiedenste Gebäude und Verbesserungen benötigt werden. Der Abbau findet passiv statt. Das heißt, das auch wenn man nicht aktiv im Spiel - also "Offline" - ist werden Ressourcen erzeugt. Diese Ressourcen sind Baumaterialien, Computerchips und Treibstoff. Sie können verwendet werden, um Gebäude zu errichten, Raumschiffe und Verteidigungsanlagen zu bauen und Forschung zu betreiben. Des weiteren können Gebäude verbessert werden, was verschiedene Boni mit sich bringt. Zum einen gibt es Gebäude, die die Produktion bestimmter Ressourcen verbessern, zum anderen gibt es Gebäude die die maximale Kapazität der Ressourcen erhöht. Des weiteren gibt es Gebäude die die Produktivität verschiedener Aspekte, wie zum Beispiel die Geschwindigkeit der Forschung oder das Bauen von Raumschiffen verbessert.
+### Planeten, Ressourcen, Gebäude
 
-Die meisten Gebäude können dazu noch aufgewertet werden, was dazu führt das die Ressourcenkosten mit dem jeweiligen Bonus steigen. Das dient dem Zweck dem Spieler einen Sinn für das Erlangen von Ressourcen zu geben. Durch die Verbesserung von Verteidigungsanlagen kann der Spieler seine Chancen vergrößern Angriffe von anderen Spielern abzuwehren.
+Jeder Spieler kann auf seinem Planeten drei verschiedene Ressourcen abbauen, die für verschiedenste Gebäude und Verbesserungen benötigt werden. Der Abbau findet passiv statt. Das heißt, das auch wenn man nicht aktiv im Spiel - also "Offline" - ist, werden Ressourcen erzeugt. Diese Ressourcen sind Baumaterialien, Computerchips und Treibstoff. Sie können verwendet werden, um Gebäude zu errichten, Raumschiffe und Verteidigungsanlagen zu bauen und Forschung zu betreiben. Des weiteren können Gebäude verbessert werden, was verschiedene Boni mit sich bringt. Zum einen gibt es Gebäude, die die Produktion bestimmter Ressourcen verbessern, zum anderen gibt es Gebäude die die maximale Kapazität der Ressourcen erhöht. Außerdem gibt es Gebäude die die Produktivität verschiedener Aspekte, wie zum Beispiel die Geschwindigkeit der Forschung oder das Bauen von Raumschiffen verbessert. Durch die Verbesserung von Verteidigungsanlagen kann der Spieler seine Chancen vergrößern Angriffe von anderen Spielern abzuwehren.
+
+### Angriffe, Raumschiffe
 
 Angriffe sind ein weiterer Weg um Ressourcen zu erhalten. Der Spieler kann seine Raumschiffe zu einem anderen Planeten schicken und versuchen einem anderen Spieler Ressourcen zu stehlen. An dieser Stelle kommen die Verteidigungsanlagen, die man auf einem Planeten errichten und verbessern kann nun ins Spiel. Durch diese erhöht man seine Chance den Kampf zu gewinnen, da diese zusätzlich zu den eigenen Raumschiffen am Kampf teilnehmen.
 
 Raumschiffe haben vier verschiedene Werte. Trefferpunkte, Schilde, Angriff und Feuerrate. Anhand dieser Werte wird ein Kampf simuliert. Die Verschiedenen Schiffe haben Stärken und Schwächen wie zum Beispiel eine besonders hoher Schaden aber dafür eine geringere Feuerrate oder ähnliches.
+
+Die Simulation des Kampfes basiert auf folgenden Formel: 
+
+<div style="text-align:center; font-style:italic;">
+    Angriff<sub>Gesamt</sub> = Angriff<sub>Schiff</sub> * Feuerrate<sub>Schiff</sub> * Anzahl<sub>Schiff</sub><br>
+    Schild<sub>Gesamt</sub> = Schild<sub>Schiff</sub> * Anzahl<sub>Schiff</sub><br>
+    Trefferpunkte<sub>Gesamt</sub> = Trefferpunkte<sub>Schiff</sub> * Anzahl<sub>Schiff</sub><br>
+</div>
+
+Diese Werte basieren auf den verschiedenen Typen von Schiffen und werden pro Typ berechnet und dann addiert. Nun wird iterativ die folgende Formel berechnet bis die Trefferpunkte einer Seite (Angreifer oder Verteidiger) auf Null sinken:
+
+<div style="text-align:center; font-style:italic;">
+    Trefferpunkte<sub>Übrig</sub> = Trefferpunkte<sub>Gesamt</sub> + Schild<sub>Gesamt</sub> - Angriff<sub>Gesamt</sub>
+</div>
 
 # Tests und Usability
 
