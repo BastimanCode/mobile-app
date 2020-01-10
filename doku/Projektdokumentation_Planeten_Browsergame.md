@@ -122,7 +122,7 @@ Hier werden Mockups gezeigt, die mit dem Portrait Layout im Sinn entwickelt word
 <img src="D:\FH\git\mobile-app\doku\mockups\Felix\home.png" alt="Übersicht" style="zoom:60%;" />
 
 <center>Bild 5: Mockup der Übersichtsseite</center>
-In diesem Bild sieht man die Übersichtsseite des Spiels. Am oberen Rand befindet sich eine Leiste, die den Spielernamen, Punktestand und einen Knopf für Einstellungen beinhaltet. Darunter befindet sich links oben in der Ecke ein Knopf, der das Dropdown Menü öffnet. Rechts davon befinden sich Bilder, die die verschiedenen Ressourcen repräsentieren. Diesen Bildern sind die Zahlenwerte der jeweiligen Ressource zugeordnet. Am rechten Rand befindet sich eine Übersicht über die Planeten eines Spielers, die Namen und Bilder zeigt. Mittig befindet sich die Übersicht des ausgewählten Planeten mit allen Relevanten Informationen. Darunter befinden sich mehrere Boxen, die Gebäude, Raumschiffe und Forschungen die gerade im Bau bzw. in der Erforschung sind mit deren Restzeit darstellt. Am unteren Rand befindet sich ein Informationsfeld über die gestarteten Angriffe auf den Planeten des Spielers und wann die dazugehörigen Flotten eintreffen.
+In diesem Bild sieht man die Übersichtsseite des Spiels. Am oberen Rand befindet sich eine Leiste, die den Spielernamen, Punktestand und einen Knopf für Einstellungen beinhaltet. Darunter befindet sich links oben in der Ecke ein Knopf, der das Dropdown Menü öffnet. Rechts davon befinden sich Bilder, die die verschiedenen Ressourcen repräsentieren. Diesen Bildern sind die Zahlenwerte der jeweiligen Ressource zugeordnet. Am rechten Rand befindet sich eine Übersicht über die Planeten eines Spielers, die Namen und Bilder zeigt. Mittig befindet sich die Übersicht des ausgewählten Planeten mit allen Relevanten Informationen. Darunter befinden sich mehrere Boxen, die Gebäude, Raumschiffe und Forschungen die gerade im Bau beziehungsweise in der Erforschung sind mit deren Restzeit darstellt. Am unteren Rand befindet sich ein Informationsfeld über die gestarteten Angriffe auf den Planeten des Spielers und wann die dazugehörigen Flotten eintreffen.
 
 <img src="D:\FH\git\mobile-app\doku\mockups\Felix\menu.png" alt="Menü" style="zoom:60%;" />
 
@@ -243,7 +243,7 @@ Somit wird das Ergebnis der Query an den Server weitergegeben und dieser sendet 
 
 # Implementierung
 
-Im folgenden Abschnitt wird der Ablauf des Projektes beschrieben. Der gesamte Verlauf wurde in die Phasen Projektplanung, Projektdurchführung ***WEITERE PHASEN?*** eingeteilt um die Prozesse besser nachvollziehen zu können.
+Im folgenden Abschnitt wird der Ablauf des Projektes beschrieben. Der gesamte Verlauf wurde in die Phasen Projektplanung, Projektdurchführung eingeteilt um die Prozesse besser nachvollziehen zu können.
 
 ## Projektplanung
 
@@ -308,7 +308,7 @@ Wir haben uns für das Spiralmodell als Entwicklungsmodell geeinigt, weil das Pr
 
 ## Projektdurchführung
 
-Nachdem die vorbereitenden Mapnahmen abgeschlossen waren, kommen wir zur Projektdurchführung. In diesem Kapitel beschreiben wir den Ablauf des Projekts, gehen auf einige Arbeitsschritte und die Qualitätssicherung ein.
+Nachdem die vorbereitenden Maßnahmen abgeschlossen waren, kommen wir zur Projektdurchführung. In diesem Kapitel beschreiben wir den Ablauf des Projekts, gehen auf einige Arbeitsschritte und die Qualitätssicherung ein.
 
 ### Entscheidungsfindung
 
@@ -322,7 +322,7 @@ Im folgenden beschreiben wir einige elementare Arbeitsschritte, die notwendig wa
 
 #### Aufsetzen der Datenbank
 
-Um die Datenbank aufzusetzen, wurde ein Entity-Relationship-Model erstellt. Da es Probleme bei der Struktur der Datenbank gab, wurde die Hilfe der Dozenten in Anspruch genommen. Die Daten wurden getrennt aufgeteilt eine Benutzer bezogene Gruppe und in Daten die ausschließlich für das Spiel gedacht sind und nicht in irgendeiner Art vom Client verändert werden können. Anschließend wird das Entity-Relationship-Model in ein SQL-Script ungewandelt, damit es in die Datenbank eingespielt werden kann. Dort erzeugt es ein Schema, in dem die Daten eingesehen und verändert werden können. 
+Um die Datenbank aufzusetzen, wurde ein Entity-Relationship-Model erstellt. Da es Probleme bei der Struktur der Datenbank gab, wurde die Hilfe der Dozenten in Anspruch genommen. Die Daten wurden getrennt aufgeteilt eine Benutzer bezogene Gruppe und in Daten die ausschließlich für das Spiel gedacht sind und nicht in irgendeiner Art vom Client verändert werden können. Anschließend wird das Entity-Relationship-Model in ein SQL-Script umgewandelt, damit es in die Datenbank eingespielt werden kann. Dort erzeugt es ein Schema, in dem die Daten eingesehen und verändert werden können. 
 
 
 
@@ -372,4 +372,4 @@ Bei einer rückblickenden Betrachtung des Projektes, kann festgehalten werden, d
 
 ## Lessons learned
 
-Im Laufe des Projekts haben wir wertvolle Erfahrungen bezüglich der Entwicklung von Applikationen sammeln können. Des weiteren haben wir festgestellt das die Entwicklung eines Spieles eine größere Herausforderung ist, als wir Anfangs dachten. Außerdem haben wir viel neues über die Client Server Architektur, explizit die Kommunikation über HTTP sowie die Nützlichkeit von [Node.js](https://nodejs.org/en/) lernen können. [Node.js](https://nodejs.org/en/) regelt einen Großteil des handshakes von HTTP, sodass man sich nur noch um die Verarbeitung der Daten kümmern muss. Auch im Umgang mit einer Datenbank ist es von großem Nutzen, da man Queries als Strings sehr einfach ausführen kann und man ein Objekt zurück bekommt, dass man direkt versenden kann. Auch haben wir von Neuem gemerkt das das Dateiformat [JSON](#https://www.json.org/json-de.html) die Kommunikation und Datenverarbeitung durch die Objektifizierung deutlich erleichtert.
+Im Laufe des Projekts haben wir wertvolle Erfahrungen bezüglich der Entwicklung von Applikationen sammeln können. Des weiteren haben wir festgestellt das die Entwicklung eines Spieles eine größere Herausforderung ist, als wir Anfangs dachten. Außerdem haben wir viel neues über die Client Server Architektur, explizit die Kommunikation über HTTP sowie die Nützlichkeit von Node.js lernen können. Node.js regelt einen Großteil des handshakes von HTTP, sodass man sich nur noch um die Verarbeitung der Daten kümmern muss. Auch im Umgang mit einer Datenbank ist es von großem Nutzen, da man Queries als Strings sehr einfach ausführen kann und man ein Objekt zurück bekommt, dass man direkt versenden kann. Auch haben wir von Neuem gemerkt das das Dateiformat JSON die Kommunikation und Datenverarbeitung durch die Objektifizierung deutlich erleichtert.
