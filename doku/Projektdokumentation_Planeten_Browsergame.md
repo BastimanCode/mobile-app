@@ -337,11 +337,11 @@ Um die Datenbank aufzusetzen, wurde ein Entity-Relationship-Model erstellt. Da e
 
 #### Implementierung des Servers
 
-Der Server wurde in seiner ersten Version in Java geschrieben, um die Kommunikation zu testen. Durch Recherchen sind wir dann auf eine bessere Methode gestoßen und haben den Server in Node.js implementiert. Da in Javascript Funktionen asynchron ausgeführt werden, haben wir mit Promise-Objekten gearbeitet, die das Programm zwingen auf den Rückgabewert einer Funktion zu warten. Das war unabdingbar, um die Ergebnisse der SQL-Queries an die Http-Responses anzuhängen. Ohne dieses Verfahren wurden die Http-Responses ohne Inhalt im body zurück an den Client gesendet.
+Der Server wurde in seiner ersten Version in Java geschrieben, um die Kommunikation zu testen. Durch Recherchen sind wir dann auf eine bessere Methode gestoßen und haben den Server in Node.js implementiert. Da in Javascript Funktionen asynchron ausgeführt werden, haben wir mit Promise-Objekten gearbeitet, die das Programm zwingen auf den Rückgabewert einer Funktion zu warten. Das war unabdingbar, um die Ergebnisse der SQL-Queries an die HTTP-Responses anzuhängen. Ohne dieses Verfahren wurden die HTTP-Responses ohne Inhalt im body zurück an den Client gesendet.
 
 #### Umsetzung des Clients
 
-Zunächst haben wir uns auf die Gestaltung des Oberfläche konzentriert. Da die Oberfläche größtenteils unabhängig von dem Backend entwickelt werden kann, bietet es sich an damit anzufangen. In der ersten Anläufen wurden verschiedene Kommunikationsarten und Bibliotheken getestet. Die Entscheidung fiel dann auf HttpURLConnection, durch die leichte Erlernbarkeit und durch die ausführliche Dokumentation. 
+Zunächst haben wir uns auf die Gestaltung des Oberfläche konzentriert. Da die Oberfläche größtenteils unabhängig von dem Backend entwickelt werden kann, bietet es sich an damit anzufangen. Danach haben wir in der ersten Anläufen verschiedene Kommunikationsarten und Bibliotheken für die verwendung im Backend getestet . Die Entscheidung fiel dann auf HttpURLConnection, durch die leichte Erlernbarkeit und durch die ausführliche Dokumentation. Zum Schluss haben wir die HTTP-Anfragen als sogenannte Async Tasks implementiert. Um innerhalb dieser Klasse zugriff auf Elemente der Benutzeroberfläche zu haben, wurde in der Klasse ein Interface angelegt, das immer wenn die Klasse aufgerufen wird, gefüllt wird.
 
 ### Qualitätssicherung
 
