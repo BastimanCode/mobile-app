@@ -291,6 +291,8 @@ Der Server wurde anschließend realisiert, als Bindeglied zwischen Client und Da
 
 Nachdem das Projekt jetzt vorläufig in Betrieb genommen werden konnte, haben sich die Entwickler auf die Erweiterung des Projekts und die Implementierung neuer Features konzentriert.
 
+
+
 <img src="D:\FH\git\mobile-app\doku\diagramme\GanttDiagramm.PNG" alt="Gantt-Diagramm" style="zoom:60%;" />
 
 <center>Bild 11: Gantt-Diagramm</center>
@@ -433,4 +435,10 @@ https://de.wikipedia.org/wiki/Hypertext_Transfer_Protocol_Secure 10.01.2020 19:3
 https://de.wikipedia.org/wiki/Transport_Layer_Security#Vor-_und_Nachteile 10.01.2020 19:35
 
 https://tiptopsecurity.com/how-does-https-work-rsa-encryption-explained/ 10.01.2020 20:00
+
+
+
+https://de.wikipedia.org/wiki/Spiel-Engine 10.01.2020 20:30
+
+
 
