@@ -43,15 +43,15 @@ Spiele überzeugen heutzutage oftmals durch sehr schönes Design oder umfangreic
 Eine andere Möglichkeit ein Spiel interessant zu machen ist durch ein gutes Spielkonzept. Hier haben wir die Idee aufgegriffen und unser Spieledesign an das, der früheren Browsergames angelehnt. Dadurch dass es keine Runde gibt die endet, wird der Spieler ermutigt aktiver am Spielgeschehen teilzunehmen und durch viel Teilnahme wird man mit einer größeren Flotte belohnt. 
 
 ## HTTPS
-Bei der Übertragung von kritischen Nutzerdaten wie zum Beispiel Kontoinformationen oder Adressen ist HTTP nicht mehr ausreichend. Angreifer können diese Nachrichten relativ leicht auslesen, da ihr Inhalt nicht verschlüsselt ist.
+Bei der Übertragung von kritischen Nutzerdaten, wie zum Beispiel Kontoinformationen oder Adressen ist HTTP nicht mehr ausreichend. Angreifer können diese Nachrichten relativ leicht auslesen, da ihr Inhalt nicht verschlüsselt ist.
 
-Deswegen gibt es eine Erweiterung des Protokolls in Form von HTTPS. Im Gegensatz zu HTTP werden hierbei die gesendeten Daten verschlüsselt. Außerdem gibt es eine Authentifizierung anhand eines Zertifikates, die dem Client Sicherstellt das der Server der ist, für den er sich ausgibt.
+Deswegen gibt es eine Erweiterung des Protokolls in Form von HTTPS. Im Gegensatz zu HTTP werden hierbei die gesendeten Daten verschlüsselt. Außerdem gibt es eine Authentifizierung anhand eines Zertifikates, die dem Client sicherstellt das der Server der ist, für den er sich ausgibt.
 
-Die Verschlüsselung Basiert auf einem Prinzip aus mehreren Schlüsseln. Es gibt einen öffentlichen Schlüssel, der für jeden Client Sichtbar ist, der sich mit dem Server verbindet. Hat der Client mithilfe des Zertifikats den Server Authentifiziert (und der Server den Client) dann erhält er den Öffentlichen Schlüssel (public key). Der Server hat den zweiten Schlüssel, der privat ist (private key). Nun erzeugt der Client mithilfe des ersten Schlüssels einen verschlüsselten dritten Schlüssel (session key). Dieser Schlüssel wird nun mit dem Server geteilt. Mithilfe des privaten Schlüssels kann der Server den dritten Schlüssel entschlüsseln.
+Die Verschlüsselung basiert auf einem Prinzip aus mehreren Schlüsseln. Es gibt einen öffentlichen Schlüssel, der für jeden Client Sichtbar ist, der sich mit dem Server verbindet. Hat der Client mithilfe des Zertifikats den Server Authentifiziert (und der Server den Client) dann erhält er den Öffentlichen Schlüssel (public key). Der Server hat den zweiten Schlüssel, der privat ist (private key). Nun erzeugt der Client mithilfe des ersten Schlüssels einen verschlüsselten dritten Schlüssel (session key). Dieser Schlüssel wird nun mit dem Server geteilt. Mithilfe des privaten Schlüssels kann der Server den dritten Schlüssel entschlüsseln.
 
 Somit wurde die zuvor Asymmetrische Verschlüsselung, also Verschlüsselung mit zwei verschiedenen zusammengehörigen Schlüsseln, zu Symmetrischer Verschlüsselung, also Verschlüsselung mit einem gemeinsamen Schlüssel und Nachrichten können sicher ausgetauscht werden.
 
-Im Fall unseres Projektes ist diese Art der Sicherheit nicht notwendig, da die einzige kritische Information die übertragen wird die E-Mail-Adresse ist (siehe auch [Sicherheit](#Sicherheit)). Des weiteren haben wir unseren Server selbst programmiert und lassen ihn lokal auf einem privatem Laptop laufen, was zur Folge hat das wir keine offizielle Authentifizierung haben. Daher macht es keinen Sinn die erweiterte Variante von HTTP zu verwenden.
+Im Fall unseres Projektes ist diese Art der Sicherheit nicht notwendig, da die einzige kritische Information, die übertragen wird die E-Mail-Adresse ist (siehe auch [Sicherheit](#Sicherheit)). Des Weiteren haben wir unseren Server selbst programmiert und lassen ihn lokal auf einem privatem Laptop laufen, was zur Folge hat das wir keine offizielle Authentifizierung haben. Daher macht es keinen Sinn die erweiterte Variante von HTTP zu verwenden.
 
 # Anforderungsdokumentation
 
@@ -113,7 +113,6 @@ Nachfolgend sind Mockups zu sehen, die auf einem Konzept beruhen, das mit dem La
 <img src="D:\FH\git\mobile-app\doku\mockups\Basti\startpage.png" alt="Startseite" style="zoom:50%;" />
 
 <center>Bild 1: Mockup der Startseite</center>
-
 In diesem Bild sieht man einen Platzhalter für den Namen der Applikation sowie drei Knöpfe. Die Knöpfe sind selbsterklärend. Der erste startet das eigentliche Spiel, der zweite öffnet das Optionsmenü und der letzte beendet die Applikation. Im Hintergrund befindet sich ein Platzhalter für ein Hintergrundbild.
 
 <img src="D:\FH\git\mobile-app\doku\mockups\Basti\overview.png" alt="Übersicht" style="zoom:50%;" />
