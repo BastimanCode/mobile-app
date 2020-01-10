@@ -14,9 +14,9 @@ Die Entwicklung eines Spiels, das auf Browserspielen basiert, die früher popul�
 
 ## Projektziel
 
-Die entwickelte Applikation soll anschaulich und intuitiv sein. Es wird bewusst auf Animationen und ähnliches verzichtet, um den Stil und Charme der vorher genannten Browserspiele beizubehalten. Die Benutzeroberfläche soll simpel gehalten werden und dennoch alle nötigen Funktionen klar erkennbar darstellen um eine einfache Bedienung zu gewährleisten. Das Design soll einheitlich sein um der Applikation ein natürliches Aussehen zu verleihen.
+Die entwickelte Applikation soll anschaulich und intuitiv sein. Es wird bewusst auf Animationen und Ähnliches verzichtet, um den Stil und Charme der vorher genannten Browserspiele beizubehalten. Die Benutzeroberfläche soll simpel gehalten werden und dennoch alle nötigen Funktionen klar erkennbar darstellen um eine einfache Bedienung zu gewährleisten. Das Design soll einheitlich sein, um der Applikation ein natürliches Aussehen zu verleihen.
 
-Das Spielkonzept soll einfach gehalten werden und trotzdem dafür sorgen dem Spieler Spaß und die Lust zum weiterzuspielen bringen. Berechnungen und ähnliches sollen daher auch im Hintergrund geschehen um den Fluss des Spiels so wenig wie möglich zu unterbrechen.
+Das Spielkonzept soll einfach gehalten werden und trotzdem dafür sorgen dem Spieler Spaß und die Lust zum weiterzuspielen bringen. Berechnungen und Ähnliches sollen daher auch im Hintergrund geschehen um den Fluss des Spiels so wenig wie möglich zu unterbrechen.
 
 ## Projektbegründung
 
@@ -210,7 +210,11 @@ Im folgenden beschreiben wir einige elementare Arbeitsschritte, die notwendig wa
 
 Um die Datenbank aufzusetzen, wurde ein Entity-Relationship-Model erstellt. Da es Probleme bei der Struktur der Datenbank gab, wurde die Hilfe der Dozenten in Anspruch genommen. Die Daten wurden getrennt aufgeteilt eine Benutzer bezogene Gruppe und in Daten die ausschließlich für das Spiel gedacht sind und nicht in irgendeiner Art vom Client verändert werden können. Anschließend wird das Entity-Relationship-Model in ein SQL-Script ungewandelt, damit es in die Datenbank eingespielt werden kann. Dort erzeugt es ein Schema, in dem die Daten eingesehen und verändert werden können. 
 
-<img src="D:\FH\git\mobile-app\doku\diagramme\Er-Modell.png" alt="ER-Modell" style="zoom:60%;" />
+
+
+<img src="D:\FH\git\mobile-app\doku\diagramme\Er-Modell.PNG" alt="ER-Modell" style="zoom:60%;" />
+
+<center>Bild 11: Entity-Relationship-Model</center>>
 
 #### Implementierung des Servers
 

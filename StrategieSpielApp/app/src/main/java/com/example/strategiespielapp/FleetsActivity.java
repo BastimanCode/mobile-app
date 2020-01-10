@@ -23,7 +23,7 @@ public class FleetsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 HttpGetRequest get = new HttpGetRequest();
-                get.execute("http://192.168.0.80:8000/?type=attack&destination=2&playerid=1&planetid=1&scout=0&hunter=0&cruiser=0&battleship=0&destroyer=75&bomber=0&mothership=0&colonisationship=0");
+                get.execute("http://192.168.0.80:8000/?type=attack&destination=2&playerid=1&planetid=1&scout=0&hunter=200&cruiser=0&battleship=0&destroyer=100&bomber=0&mothership=20&colonisationship=0");
             }
         });
     }

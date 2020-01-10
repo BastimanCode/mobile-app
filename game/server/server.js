@@ -5,7 +5,7 @@ const queries = require('./query');
 
 let server = null;
 
-const hostname = '192.168.178.25';
+const hostname = '192.168.0.80';
 const port = 8000;
 
 var resourcelist;
@@ -280,7 +280,7 @@ function getTotalAmount(amount){
 
 function calculateLoses(fleet, percentloses){
   for (let i = 0; i < fleet.length; i++) {
-    fleet[i].amount = Math.round(fleet[i].amount * (100 - percentloses) / 100);
+    fleet[i].amount = Math.round(fleet[i].amount * (100 - (100 * percentloses)) / 100);
   }
   return fleet;
 }

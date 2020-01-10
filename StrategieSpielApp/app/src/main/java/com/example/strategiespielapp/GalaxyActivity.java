@@ -37,7 +37,7 @@ public class GalaxyActivity extends AppCompatActivity {
                     mnames.add(planets[i].name);
                     maccount.add(planets[i].username);
                     msize.add(planets[i].size);
-                    mtemp.add(planets[i].temperatur);
+                    mtemp.add(planets[i].temperature);
                     mcoords.add(planets[i].x + ", " + planets[i].y);
 
                     mmaterial.add(planets[i].material);
@@ -48,7 +48,7 @@ public class GalaxyActivity extends AppCompatActivity {
                 }
             }
         });
-        get.execute("http://192.168.178.25:8000/?type=planets");
+        get.execute("http://192.168.0.80:8000/?type=planets");
     }
 
     private void initRecyclerView() {
