@@ -32,8 +32,17 @@ Da die Arbeitszeit am Projekt beschränkt ist, soll die Applikation mit wenigen 
 
 # Stand der Technik
 
-## HTTPS
+### Spieleentwicklung
 
+In der heutigen Spieleentwicklung wird viel Arbeit in das Design und in Animationen investiert. Viele der aktuellen Spiele werden mit einer Game Engine entwickelt. Weil die Arbeit an einer eigenen Engine zu viel Zeit in Anspruch nimmt, kann man eine Engine benutzen die der Öffentlichkeit zur Verfügung gestellt wird wie die Unreal Engine 3 oder Unity. Andere Game Engines wie die Frostbite Engine von EA Games werden nur von EA Games selbst benutzt oder an andere Entwicklerstudios verliehen.
+
+Weil die Entwicklung mit einer Game Engine sehr aufwendig ist und das Designen und Animieren sehr viel Zeit in Anspruch nimmt und unseren Projektrahmen übersteigt, haben wir uns bewusst für ein Spiel ohne die genannten Komponenten entschieden. 
+
+Spiele überzeugen heutzutage oftmals durch sehr schönes Design oder umfangreiche Spielmöglichkeiten. Durch immer leistungsstärkere Hardware ist es mittlerweile mögliche sogar in Mobilen Applikationen auf umfangreiche Grafik zu setzen.
+
+Eine andere Möglichkeit ein Spiel interessant zu machen ist durch ein gutes Spielkonzept. Hier haben wir die Idee aufgegriffen und unser Spieledesign an das, der früheren Browsergames angelehnt. Dadurch dass es keine Runde gibt die endet, wird der Spieler ermutigt aktiver am Spielgeschehen teilzunehmen und durch viel Teilnahme wird man mit einer größeren Flotte belohnt. 
+
+## HTTPS
 Bei der Übertragung von kritischen Nutzerdaten wie zum Beispiel Kontoinformationen oder Adressen ist HTTP nicht mehr ausreichend. Angreifer können diese Nachrichten relativ leicht auslesen, da ihr Inhalt nicht verschlüsselt ist.
 
 Deswegen gibt es eine Erweiterung des Protokolls in Form von HTTPS. Im Gegensatz zu HTTP werden hierbei die gesendeten Daten verschlüsselt. Außerdem gibt es eine Authentifizierung anhand eines Zertifikates, die dem Client Sicherstellt das der Server der ist, für den er sich ausgibt.
