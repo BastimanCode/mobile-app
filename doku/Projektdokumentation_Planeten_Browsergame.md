@@ -185,7 +185,7 @@ Es folgt eine Erläuterung der Architektur anhand eines konkreten Beispiels aus 
 
 Die Klasse `BuildingsActivity` ist im Zusammenspiel mit der Klasse `RecyclerViewAdapterBuildings` für das Anzeigen der Gebäude auf dem Endgerät des Benutzers (wird ab jetzt **Client** genannt) zuständig. Damit das Anzeigen von Daten passieren kann, muss eine HTTP-Anfrage an den **Server** gestellt werden. Dafür ist die Klasse `HttpGetRequest` zuständig. Um die Anfrage zu stellen und die Antwort des **Servers** verarbeiten zu können, muss eine Instanz erzeugt und die Methode `setUpdateListener` implementiert werden. Folgender Codeausschnitt veranschaulicht diesen Ablauf:
 
-```
+```java
 HttpGetRequest buildingsdata = new HttpGetRequest();
 buildingsdata.setUpdateListener(new HttpGetRequest.OnUpdateListener() {
     @Override
@@ -208,7 +208,7 @@ buildingsdata.execute("http://192.168.0.80:8000/?type=buildings");
 
 Die for-Schleife iteriert über ein Array in dem die Informationen über die Verschiedenen Gebäudetypen enthalten sind und fügt diese einer Recyclerview hinzu. Durch das Aufrufen der Methode `execute()` wird die Anfrage ausgeführt. Der Parameter `type=buildings` wird im **Server** verarbeitet und dadurch wird erkannt welche Daten angefordert worden sind. Die HTTP-Anfrage wird anschließend im **Server** (`server.js`) beantwortet. Der Codeausschnitt der verantwortliche Funktion folgt: 
 
-```
+```javascript
 function SetupServer(connection) {
     server = http.createServer(function(request, response) {
       const queryObject = url.parse(request.url,true).query;
@@ -226,7 +226,7 @@ function SetupServer(connection) {
 
 Der Aufruf von `queries.database()` führt dazu das `function database(connection, queries){...}` (`query.js`) aufgerufen wird. Hier die Darstellung des Codeausschnitts:
 
-```
+```javascript
 function database(connection, queries){
     const queryobject = queries;
 	var string = "";
@@ -262,12 +262,17 @@ Es war ein Zeitraum von 13 Wochen vorgegeben. Wir haben uns für das Spiralmodel
 
 ### Gantt-Diagramm
 
-Das nachfolgende Gantt-Diagramm zeigt die Zeiteinteilung beginnend mit der Phase Planung, die direkt nach dem Projektstart beginnt. Hier wurden die ersten Absprachen bezüglich des Projektaufbaus gemacht. Die Entwickler einigen sich auf die Details und den Umfang des Projekts. Es werden die ersten Mock-Ups erstellt um die eigenen Vorstellungen zu vergleichen und zu kommentieren. Die grundlegensten Themen werden geklärt, damit jeder weiß worauf man sich im Projekt konzentrieren muss. Anschließend beginnt die Phase Entwurf in der die ersten Modelle entstehen, die für die Implementierung später wichtig sind. Die Modelle werden besprochen und iterativ ausgebaut. Wichtig ist hier das die Modelle nicht kurz vor Projektende fertig sind,  sonst übertragen sich die Änderungen auf die anderen Teile des Projekts. Erst wenn die Entwürfe fertig sind kann mit dem Erstellen des Codes angefangen werden. Die ersten Arbeiten zielten auf das Designen der Benutzeroberfläche in Android Studio. Die Oberfläche wurde zu Beginn des Projekts fertig gestellt und nur noch kleinere Komponenten wurden im Nachhinein ergänzt oder bearbeitet. Für das Erstellen der Benutzeroberfläche wurde ein Zeitraum von 3 Wochen eingerechnet, parallel dazu wurden Tests und Recherchen für die Entwicklung einer Client-Server Verbindung und die Benutzung einer Datenbank durchgeführt. Nach ausreichender Recherche und Planung wurde dann die Datenbank aufgesetzt. Die Datenbank wurde in mehreren Iterationen verfeinert, bis das fertige Modell nach 2 Wochen stand. Eine Änderung in der Datenbank bedeutete immer viel Aufwand, weshalb hier auch ein durchdachter Aufbau seine Wichtigkeit zeigte. Der Server wurde anschließend realisiert, als Bindeglied zwischen Client und Datenbank. Es musste zu diesem Zeitpunkt klar sein wir die Datenbank aussieht, damit man die entsprechenden Queries schreiben konnte. Nachdem das Projekt jetzt vorläufig in Betrieb genommen werden konnte, haben sich die Entwickler auf die Erweiterung des Projekts und die Implementierung neuer Features konzentriert.
+Das nachfolgende Gantt-Diagramm zeigt die Zeiteinteilung beginnend mit der Phase Planung, die direkt nach dem Projektstart beginnt. Hier wurden die ersten Absprachen bezüglich des Projektaufbaus gemacht. Die Entwickler einigen sich auf die Details und den Umfang des Projekts. Es werden die ersten Mockups erstellt um die eigenen Vorstellungen zu vergleichen und zu kommentieren. Die grundlegendsten Themen werden geklärt, damit jeder weiß worauf man sich im Projekt konzentrieren muss. 
+
+Anschließend beginnt die Phase Entwurf in der die ersten Modelle entstehen, die für die Implementierung später wichtig sind. Die Modelle werden besprochen und iterativ ausgebaut. Wichtig ist hier das die Modelle nicht kurz vor Projektende fertig sind,  sonst übertragen sich die Änderungen auf die anderen Teile des Projekts. Erst wenn die Entwürfe fertig sind kann mit dem Erstellen des Codes angefangen werden. 
+
+Die ersten Arbeiten zielten auf das Designen der Benutzeroberfläche in Android Studio. Die Oberfläche wurde zu Beginn des Projekts fertig gestellt und nur noch kleinere Komponenten wurden im Nachhinein ergänzt oder bearbeitet. Für das Erstellen der Benutzeroberfläche wurde ein Zeitraum von 3 Wochen eingerechnet, parallel dazu wurden Tests und Recherchen für die Entwicklung einer Client-Server Verbindung und die Benutzung einer Datenbank durchgeführt. Nach ausreichender Recherche und Planung wurde dann die Datenbank aufgesetzt. Die Datenbank wurde in mehreren Iterationen verfeinert, bis das fertige Modell nach 2 Wochen stand. Eine Änderung in der Datenbank bedeutete immer viel Aufwand, weshalb hier auch ein durchdachter Aufbau seine Wichtigkeit zeigte. 
+
+Der Server wurde anschließend realisiert, als Bindeglied zwischen Client und Datenbank. Es musste zu diesem Zeitpunkt klar sein wie die Datenbank aussieht, damit man die entsprechenden Queries schreiben konnte. Nachdem das Projekt jetzt vorläufig in Betrieb genommen werden konnte, haben sich die Entwickler auf die Erweiterung des Projekts und die Implementierung neuer Features konzentriert.
 
 <img src="D:\FH\git\mobile-app\doku\diagramme\GanttDiagramm.PNG" alt="ER-Modell" style="zoom:60%;" />
 
 <center>Bild11: Gantt-Diagramm</center>
-
 ### Terminplanung
 
 Nachfolgend ist der Meilensteinplan. Es wurden alle Meilensteine eingehalten.
@@ -328,8 +333,8 @@ Um die Datenbank aufzusetzen, wurde ein Entity-Relationship-Model erstellt. Da e
 
 <img src="D:\FH\git\mobile-app\doku\diagramme\ErModell.PNG" alt="ER-Modell" style="zoom:60%;" />
 
-<center>Bild 11: Entity-Relationship-Model</center>>
-<center>Bild 11: Entity-Relationship-Modell der Datenbank</center>
+<center>Bild 12: Entity-Relationship-Model</center>
+
 #### Implementierung des Servers
 
 Der Server wurde in seiner ersten Version in Java geschrieben, um die Kommunikation zu testen. Durch Recherchen sind wir dann auf eine bessere Methode gestoßen und haben den Server in Node.js implementiert. Da in Javascript Funktionen asynchron ausgeführt werden, haben wir mit Promise-Objekten gearbeitet, die das Programm zwingen auf den Rückgabewert einer Funktion zu warten. Das war unabdingbar, um die Ergebnisse der SQL-Queries an die Http-Responses anzuhängen. Ohne dieses Verfahren wurden die Http-Responses ohne Inhalt im body zurück an den Client gesendet.
