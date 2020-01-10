@@ -113,6 +113,7 @@ Nachfolgend sind Mockups zu sehen, die auf einem Konzept beruhen, das mit dem La
 <img src="D:\FH\git\mobile-app\doku\mockups\Basti\startpage.png" alt="Startseite" style="zoom:50%;" />
 
 <center>Bild 1: Mockup der Startseite</center>
+
 In diesem Bild sieht man einen Platzhalter für den Namen der Applikation sowie drei Knöpfe. Die Knöpfe sind selbsterklärend. Der erste startet das eigentliche Spiel, der zweite öffnet das Optionsmenü und der letzte beendet die Applikation. Im Hintergrund befindet sich ein Platzhalter für ein Hintergrundbild.
 
 <img src="D:\FH\git\mobile-app\doku\mockups\Basti\overview.png" alt="Übersicht" style="zoom:50%;" />
@@ -291,6 +292,8 @@ Der Server wurde anschließend realisiert, als Bindeglied zwischen Client und Da
 
 Nachdem das Projekt jetzt vorläufig in Betrieb genommen werden konnte, haben sich die Entwickler auf die Erweiterung des Projekts und die Implementierung neuer Features konzentriert.
 
+
+
 <img src="D:\FH\git\mobile-app\doku\diagramme\GanttDiagramm.PNG" alt="Gantt-Diagramm" style="zoom:60%;" />
 
 <center>Bild11: Gantt-Diagramm</center>
@@ -434,4 +437,10 @@ https://de.wikipedia.org/wiki/Hypertext_Transfer_Protocol_Secure 10.01.2020 19:3
 https://de.wikipedia.org/wiki/Transport_Layer_Security#Vor-_und_Nachteile 10.01.2020 19:35
 
 https://tiptopsecurity.com/how-does-https-work-rsa-encryption-explained/ 10.01.2020 20:00
+
+
+
+https://de.wikipedia.org/wiki/Spiel-Engine 10.01.2020 20:30
+
+
 
