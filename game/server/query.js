@@ -25,6 +25,8 @@ function database(connection, queries){
                 break;          
             case "planets":
                 string = "SELECT * FROM planet JOIN account ON planet.Account_id = account.id"
+            case "shipdata":
+                string = "SELECT * FROM shipdata"
     }
     return connection.query(string);    
 }

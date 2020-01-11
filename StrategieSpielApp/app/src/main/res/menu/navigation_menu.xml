@@ -10,8 +10,8 @@
         android:title="@string/research"/>
     <item android:id="@+id/units"
         android:title="@string/units"/>
-    <item android:id="@+id/fleets"
-        android:title="@string/fleets"/>
+    <item android:id="@+id/defense"
+        android:title="@string/defenses"/>
     <item android:id="@+id/galaxy"
         android:title="@string/galaxy"/>
     <item android:id="@+id/logout"

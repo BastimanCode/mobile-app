@@ -1,36 +1,40 @@
 package com.example.strategiespielapp;
 
 import android.content.Context;
-        import android.view.LayoutInflater;
-        import android.view.View;
-        import android.view.ViewGroup;
-        import android.widget.Button;
-        import android.widget.ImageView;
-        import android.widget.RelativeLayout;
-        import android.widget.TextView;
-        import androidx.annotation.NonNull;
-        import androidx.recyclerview.widget.RecyclerView;
-        import java.util.ArrayList;
+import android.content.Intent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
-public class RecyclerViewAdapterBuildings extends RecyclerView.Adapter<RecyclerViewAdapterBuildings.ViewHolder>{
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
-    private static final String TAG = "RecyclerViewAdapterBuildings";
+import java.util.ArrayList;
+
+public class RecyclerViewAdapterUnits extends RecyclerView.Adapter<RecyclerViewAdapterUnits.ViewHolder>{
+
+    private static final String TAG = "RecyclerViewAdapterUnits";
 
     private Context mContext;
     private ArrayList<Integer> mImages = new ArrayList<>();
     private ArrayList<String> mHeadlines = new ArrayList<>();
     private ArrayList<String> mDescriptions = new ArrayList<>();
-    private ArrayList<Integer> mLevels = new ArrayList<>();
+    private ArrayList<Integer> mAmounts = new ArrayList<>();
     private ArrayList<Integer> mmaterial = new ArrayList<>();
     private ArrayList<Integer> melectronics = new ArrayList<>();
     private ArrayList<Integer> mfuel = new ArrayList<>();
 
-    public RecyclerViewAdapterBuildings(Context mContext, ArrayList<Integer> mImages, ArrayList<String> mHeadlines, ArrayList<String> mDescriptions, ArrayList<Integer> mLevels, ArrayList<Integer> mmaterial, ArrayList<Integer> melectronics, ArrayList<Integer> mfuel) {
+    public RecyclerViewAdapterUnits(Context mContext, ArrayList<Integer> mImages, ArrayList<String> mHeadlines, ArrayList<String> mDescriptions, ArrayList<Integer> mAmounts, ArrayList<Integer> mmaterial, ArrayList<Integer> melectronics, ArrayList<Integer> mfuel) {
         this.mContext = mContext;
         this.mImages = mImages;
         this.mHeadlines = mHeadlines;
         this.mDescriptions = mDescriptions;
-        this.mLevels = mLevels;
+        this.mAmounts = mAmounts;
         this.mmaterial = mmaterial;
         this.melectronics = melectronics;
         this.mfuel = mfuel;
@@ -39,18 +43,18 @@ public class RecyclerViewAdapterBuildings extends RecyclerView.Adapter<RecyclerV
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.buildings_listitem,parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.units_listitem,parent, false);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.buildingImage.setImageResource(mImages.get(position));
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+        holder.unitsimage.setImageResource(mImages.get(position));
 
         holder.headline.setText(mHeadlines.get(position));
         holder.description.setText(mDescriptions.get(position));
-        holder.level.setText("Stufe: " + mLevels.get(position));
+        holder.amount.setText(String.valueOf(mAmounts.get(position)));
 
         holder.resource1cost.setText(String.valueOf(mmaterial.get(position)));
         holder.resource2cost.setText(String.valueOf(melectronics.get(position)));
@@ -64,7 +68,17 @@ public class RecyclerViewAdapterBuildings extends RecyclerView.Adapter<RecyclerV
         holder.build.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //HTTP-Request an Server zum Erforschen
+                HttpGetRequest get = new HttpGetRequest();
+                get.setUpdateListener(new HttpGetRequest.OnUpdateListener() {
+                    @Override
+                    public void onUpdate(String result) {
+                        Intent buildingsIntent = new Intent(mContext, UnitsActivity.class);
+                        mContext.startActivity(buildingsIntent);
+                    }
+
+                });
+                get.execute("http://192.168.0.80:8000/?type=build&playerid=1&planetid=1&level=" + mAmounts.get(position) + "&buildid=" + (position));
+
             }
         });
     }
@@ -78,9 +92,10 @@ public class RecyclerViewAdapterBuildings extends RecyclerView.Adapter<RecyclerV
 
         TextView headline;
         TextView description;
-        TextView level;
+        TextView amount;
         Button build;
-        ImageView buildingImage;
+        EditText amountToBuild;
+        ImageView unitsimage;
         RelativeLayout parentlayout;
 
         TextView resource1cost;
@@ -95,10 +110,11 @@ public class RecyclerViewAdapterBuildings extends RecyclerView.Adapter<RecyclerV
             super(itemView);
             headline = itemView.findViewById(R.id.name);
             description = itemView.findViewById(R.id.description);
-            level = itemView.findViewById(R.id.amount);
+            amount = itemView.findViewById(R.id.amount);
             build = itemView.findViewById(R.id.build);
-            buildingImage = itemView.findViewById(R.id.buildingImage);
-            parentlayout = itemView.findViewById(R.id.listitembuildings);
+            amountToBuild = itemView.findViewById(R.id.amountToBuild);
+            unitsimage = itemView.findViewById(R.id.UnitImage);
+            parentlayout = itemView.findViewById(R.id.listitemunits);
             resource1cost = itemView.findViewById(R.id.resource1cost);
             resource2cost = itemView.findViewById(R.id.resource2cost);
             resource3cost = itemView.findViewById(R.id.resource3cost);
@@ -108,4 +124,5 @@ public class RecyclerViewAdapterBuildings extends RecyclerView.Adapter<RecyclerV
         }
     }
 }
+
 

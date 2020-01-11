@@ -54,4 +54,7 @@
     <string name="attack">Angreifen</string>
     <string name="planetCoords">Koordinaten:</string>
     <string name="logout">Ausloggen</string>
+    <string name="amount">Anzahl</string>
+    <string name="defenses">Verteidigung</string>
+    <string name="UnitImage">Einheitenbild</string>
 </resources>

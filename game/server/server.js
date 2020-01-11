@@ -90,11 +90,12 @@ function SetupServer(connection) {
     server = http.createServer(function(request, response) {
       const queryObject = url.parse(request.url,true).query;
 
-      if (request.method == "GET") {       
+      if (request.method == "GET") {
         queries.database(connection, queryObject)
         .then(e => {
           if(queryObject.type == "refresh"){
             let time = new Date();
+            console.log(e);
             changed = e[0].material;
             e[0].material = Math.round (e[0].material + ((time.getTime() - e[0].last_online)/3600000 * resourcelist[e[0].mine].output));
             e[0].electronics = Math.round (e[0].electronics + ((time.getTime() - e[0].last_online)/3600000*resourcelist[e[0].factory +26].output));

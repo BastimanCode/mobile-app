@@ -109,9 +109,9 @@ public class RecyclerViewAdapterResources extends RecyclerView.Adapter<RecyclerV
             super(itemView);
             headline = itemView.findViewById(R.id.name);
             description = itemView.findViewById(R.id.description);
-            level = itemView.findViewById(R.id.level);
+            level = itemView.findViewById(R.id.amount);
             build = itemView.findViewById(R.id.build);
-            resourceImage = itemView.findViewById(R.id.resourceImage);
+            resourceImage = itemView.findViewById(R.id.UnitImage);
             parentlayout = itemView.findViewById(R.id.listitemresources);
             resource1cost = itemView.findViewById(R.id.resource1cost);
             resource2cost = itemView.findViewById(R.id.resource2cost);

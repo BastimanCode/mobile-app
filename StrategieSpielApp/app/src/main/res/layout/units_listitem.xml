@@ -6,7 +6,7 @@
     android:layout_marginRight="20dp"
     android:layout_marginLeft="20dp"
     android:layout_marginBottom="20dp"
-    android:id="@+id/listitemresources"
+    android:id="@+id/listitemunits"
     android:layout_marginEnd="20dp"
     android:layout_marginStart="20dp"
     android:background="@drawable/listitemborder">
@@ -21,7 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ic_launcher"
-        android:contentDescription="@string/resourcesImage"
+        android:contentDescription="@string/UnitImage"
         android:layout_marginStart="4dp" />
 
     <TextView
@@ -38,7 +38,7 @@
         android:id="@+id/amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/level"
+        android:text="@string/amount"
         android:textSize="20sp"
         android:layout_marginRight="4dp"
         android:layout_alignParentEnd="true"
@@ -64,6 +64,7 @@
         android:text="@string/description"
         android:textSize="12sp"
         android:layout_marginLeft="4dp"
+        android:layout_marginEnd="10dp"
         android:layout_toRightOf="@+id/UnitImage"
         android:layout_toEndOf="@+id/UnitImage"
         android:layout_below="@+id/name"
@@ -142,4 +143,16 @@
         android:layout_below="@+id/UnitImage"
         android:layout_toRightOf="@+id/resource3image"
         android:layout_toEndOf="@+id/resource3image" />
+
+    <EditText
+        android:id="@+id/amountToBuild"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_toStartOf="@+id/build"
+        android:layout_alignBottom="@+id/build"
+        android:textSize="10sp"
+        android:ems="4"
+        android:gravity="center_horizontal"
+        android:inputType="textPersonName"
+        android:hint="@string/amount"/>
 </RelativeLayout>

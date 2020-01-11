@@ -63,9 +63,9 @@ public class PopupMenuFragment extends Fragment implements PopupMenu.OnMenuItemC
                 Intent unitsIntent = new Intent(getActivity(), UnitsActivity.class);
                 startActivity(unitsIntent);
                 return true;
-            case R.id.fleets:
-                Intent fleetsIntent = new Intent(getActivity(), FleetsActivity.class);
-                startActivity(fleetsIntent);
+            case R.id.defense:
+                Intent defenseIntent = new Intent(getActivity(), DefenseActivity.class);
+                startActivity(defenseIntent);
                 return true;
             case R.id.galaxy:
                 Intent galaxyIntent = new Intent(getActivity(), GalaxyActivity.class);

@@ -1,17 +1,18 @@
 package com.example.strategiespielapp;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 
-public class UnitsActivity extends AppCompatActivity {
+
+public class DefenseActivity extends AppCompatActivity {
 
     private ArrayList<String> mHeadlines = new ArrayList<>();
     private ArrayList<Integer> mAmounts = new ArrayList<>();
@@ -21,37 +22,17 @@ public class UnitsActivity extends AppCompatActivity {
     private ArrayList<Integer> mfuel = new ArrayList<>();
     private ArrayList<Integer> mImageURLs = new ArrayList<>();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_units);
+        setContentView(R.layout.activity_defense);
 
-        HttpGetRequest ships = new HttpGetRequest();
-        ships.setUpdateListener(new HttpGetRequest.OnUpdateListener() {
+        HttpGetRequest researchdata = new HttpGetRequest();
+        researchdata.setUpdateListener(new HttpGetRequest.OnUpdateListener() {
             @Override
             public void onUpdate(String result) {
                 Gson gson = new GsonBuilder().create();
-                AccountPlanet[] accountPlanets = gson.fromJson(result,AccountPlanet[].class);
-
-                mAmounts.add(accountPlanets[0].scout);
-                mAmounts.add(accountPlanets[0].hunter);
-                mAmounts.add(accountPlanets[0].cruiser);
-                mAmounts.add(accountPlanets[0].battleship);
-                mAmounts.add(accountPlanets[0].destroyer);
-                mAmounts.add(accountPlanets[0].bomber);
-                mAmounts.add(accountPlanets[0].mothership);
-                mAmounts.add(accountPlanets[0].colonisationship);
-            }
-        });
-        ships.execute("http://192.168.0.80:8000/?type=refresh&playerid=1&planetid=1");
-
-        HttpGetRequest get = new HttpGetRequest();
-        get.setUpdateListener(new HttpGetRequest.OnUpdateListener() {
-            @Override
-            public void onUpdate(String result) {
-                Gson gson = new GsonBuilder().create();
-                ShipData[] shipdata = gson.fromJson(result, ShipData[].class);
+                ShipData[] shipdata= gson.fromJson(result, ShipData[].class);
                 for (int i = 0; i < 8; i++) {
                     mHeadlines.add(shipdata[i].name);
                     mmaterial.add(shipdata[i].material);
@@ -62,8 +43,7 @@ public class UnitsActivity extends AppCompatActivity {
                 initImageBitmaps();
             }
         });
-        get.execute("http://192.168.0.80:8000/?type=shipdata");
-        initImageBitmaps();
+        researchdata.execute("http://192.168.0.80:8000/?type=defense");
     }
 
     private void initImageBitmaps() {

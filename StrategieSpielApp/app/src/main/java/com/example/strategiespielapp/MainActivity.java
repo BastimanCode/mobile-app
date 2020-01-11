@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 AccountPlanet account = gson.fromJson(content, AccountPlanet.class);
                 playerID = account.accountId;
                 planetID = account.planetId;
-                test.setText(content);
+                test.setText(playerID + ", " + planetID);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 user.setText(player.username);
             }
         });
-        get.execute("http://192.168.0.80:8000/?type=refresh&playerid=" + playerID + "&planetid=" + planetID);
+        get.execute("http://192.168.0.80:8000/?type=refresh&playerid=" + "1" + "&planetid=" + "1");
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

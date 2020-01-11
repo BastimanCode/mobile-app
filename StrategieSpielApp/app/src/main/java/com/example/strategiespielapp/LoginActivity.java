@@ -141,7 +141,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
                                     new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
-                                            Intent mainIntent = new Intent(c, GalaxyActivity.class);
+                                            Intent mainIntent = new Intent(c, MainActivity.class);
                                             startActivity(mainIntent);
                                             dialog.dismiss();
                                         }

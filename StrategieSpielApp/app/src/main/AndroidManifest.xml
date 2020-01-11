@@ -15,7 +15,6 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".RegisterActivity" />
         <activity android:name=".GalaxyActivity" />
-        <activity android:name=".FleetsActivity" />
         <activity android:name=".UnitsActivity" />
         <activity android:name=".ResearchActivity" />
         <activity android:name=".ResourcesActivity" />
