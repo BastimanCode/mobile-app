@@ -5,7 +5,7 @@ const queries = require('./query');
 
 let server = null;
 
-const hostname = '192.168.0.80';
+const hostname = '192.168.178.25';
 const port = 8000;
 
 var resourcelist;
@@ -164,8 +164,7 @@ function SetupServer(connection) {
               coordinates = planet;            
             }
             queries.databasePost(connection, queryObject, body, coordinates)
-            .then(e => {
-              
+            .then(e => {              
               //console.log(e);
               if(e[0] == null) {
                 response.writeHead(400);

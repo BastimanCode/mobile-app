@@ -1,7 +1,6 @@
 package com.example.strategiespielapp;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -14,17 +13,15 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends BaseActivity implements View.OnClickListener {
     TextView email;
     TextView password;
     String json;
+    String content;
+
     Context c = this;
 
     @Override
@@ -37,7 +34,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         Button login = findViewById(R.id.buttonLogin);
         Button register = findViewById(R.id.buttonRegister);
 
-        String fileName = "accountData.json";
+        /*String fileName = "accountData.json";
         try {
             FileInputStream fis = openFileInput(fileName);
             InputStreamReader inputStreamReader = new InputStreamReader(fis, StandardCharsets.UTF_8);
@@ -52,6 +49,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 e.printStackTrace();
             } finally {
                 String content = stringBuilder.toString();
+                Gson gson = new GsonBuilder().create();
+                Account account = gson.fromJson(content, Account.class);
+                playerID = account.id;
+                planetID = account.planet_id;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
                 HttpPostRequest post = new HttpPostRequest();
                 post.setUpdateListener(new HttpPostRequest.OnUpdateListener() {
@@ -62,7 +67,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         if(result.equals("ERROR")) {
                             alertDialog.setTitle("Login");
                             alertDialog.setMessage("Login fehlgeschlagen!");
-                            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
                                     new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
                                             dialog.dismiss();
@@ -70,6 +75,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     });
                             alertDialog.show();
                         } else {
+                            int start = result.lastIndexOf('[');
+                            int end = result.indexOf(']') + 1;
+                            result = result.substring(start, end);
+
+                            Gson gson = new GsonBuilder().create();
+                            Account[] accounts = gson.fromJson(result, Account[].class);
+                            Account account = accounts[0];
+
+                            String fileName = "accountData.json";
+                            String fileContent = gson.toJson(account);
+                            try {
+                                FileOutputStream fos = openFileOutput(fileName, Context.MODE_PRIVATE);
+                                fos.write(fileContent.getBytes());
+                                fos.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
                             alertDialog.setTitle("Login");
                             alertDialog.setMessage("Login Erfolgreich!");
                             alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
@@ -84,11 +107,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         }
                     }
                 });
-                post.execute("http://192.168.0.80:8000/?type=login", content);
+                post.execute("http://" + ip + ":8000/?type=login", content);
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     @Override
@@ -109,7 +132,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         if(result.equals("ERROR")) {
                             alertDialog.setTitle("Login");
                             alertDialog.setMessage("Login fehlgeschlagen!");
-                            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
                                     new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
                                             dialog.dismiss();
@@ -127,7 +150,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                             //bessere Alternative: createTempfile("accountData", "json", context.getCacheDir()) ?
                             String fileName = "accountData.json";
-                            String fileContent = gson.toJson(account);
+                            c.deleteFile(fileName);
+                            String fileContent = gson.toJson(account, Account.class);
                             try {
                                 FileOutputStream fos = openFileOutput(fileName, Context.MODE_PRIVATE);
                                 fos.write(fileContent.getBytes());
@@ -141,7 +165,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
                                     new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
-                                            Intent mainIntent = new Intent(c, GalaxyActivity.class);
+                                            Intent mainIntent = new Intent(c, MainActivity.class);
                                             startActivity(mainIntent);
                                             dialog.dismiss();
                                         }
@@ -150,7 +174,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         }
                     }
                 });
-                post.execute("http://192.168.0.80:8000/?type=login", json);
+                post.execute("http://" + ip + ":8000/?type=login", json);
 
 
                 break;

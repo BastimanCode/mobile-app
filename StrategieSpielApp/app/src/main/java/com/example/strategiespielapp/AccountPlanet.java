@@ -41,9 +41,8 @@ public class AccountPlanet {
     int cyborgfactory;
     int researchfacility;
     int powerplant;
-    int account_Id;
 
-    public AccountPlanet(int accountId, String email, String username, String password, long last_online, int planetId, String name, int size, int temperature, int x, int y, int material, int electronics, int fuel, int rocketlauncher, int lasergun, int iongun, int shockwavecannon, int plasmacannon, int antimatterradiator, int spacemines, int planetshield, int scout, int hunter, int cruiser, int battleship, int destroyer, int bomber, int mothership, int colonisationship, int mine, int factory, int oilrig, int fueltank, int materialstorage, int electronicstorage, int spaceshipyard, int cyborgfactory, int researchfacility, int powerplant, int account_Id) {
+    public AccountPlanet(int accountId, String email, String username, String password, long last_online, int planetId, String name, int size, int temperature, int x, int y, int material, int electronics, int fuel, int rocketlauncher, int lasergun, int iongun, int shockwavecannon, int plasmacannon, int antimatterradiator, int spacemines, int planetshield, int scout, int hunter, int cruiser, int battleship, int destroyer, int bomber, int mothership, int colonisationship, int mine, int factory, int oilrig, int fueltank, int materialstorage, int electronicstorage, int spaceshipyard, int cyborgfactory, int researchfacility, int powerplant) {
         this.accountId = accountId;
         this.email = email;
         this.username = username;
@@ -84,6 +83,5 @@ public class AccountPlanet {
         this.cyborgfactory = cyborgfactory;
         this.researchfacility = researchfacility;
         this.powerplant = powerplant;
-        this.account_Id = account_Id;
     }
 }

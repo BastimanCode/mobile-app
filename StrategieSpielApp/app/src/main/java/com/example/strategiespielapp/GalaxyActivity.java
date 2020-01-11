@@ -1,6 +1,5 @@
 package com.example.strategiespielapp;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,7 +10,7 @@ import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 
-public class GalaxyActivity extends AppCompatActivity {
+public class GalaxyActivity extends BaseActivity {
 
     private ArrayList<String> mnames = new ArrayList<>();
     private ArrayList<Integer> msize = new ArrayList<>();
@@ -48,7 +47,7 @@ public class GalaxyActivity extends AppCompatActivity {
                 }
             }
         });
-        get.execute("http://192.168.0.80:8000/?type=planets");
+        get.execute("http://" + ip + ":8000/?type=planets");
     }
 
     private void initRecyclerView() {
