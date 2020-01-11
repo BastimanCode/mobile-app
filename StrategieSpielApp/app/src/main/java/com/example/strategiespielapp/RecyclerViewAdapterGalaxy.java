@@ -111,7 +111,7 @@ public class RecyclerViewAdapterGalaxy extends RecyclerView.Adapter<RecyclerView
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                get.execute("http://192.168.178.25:8000/?type=attack&playerid=" + playerID + "&planetid=" + planetID + "&defenderid=" + maccount.get(position));
+                get.execute("http://" + new BaseActivity().ip + ":8000/?type=attack&playerid=" + playerID + "&planetid=" + planetID + "&defenderid=" + maccount.get(position));
                 // Dialog öffnen mit entweder win oder lose
             }
         });

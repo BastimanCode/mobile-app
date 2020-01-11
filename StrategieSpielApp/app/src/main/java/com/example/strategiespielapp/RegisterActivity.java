@@ -1,7 +1,6 @@
 package com.example.strategiespielapp;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -14,11 +13,10 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
+public class RegisterActivity extends BaseActivity implements View.OnClickListener {
     TextView email;
     TextView username;
     TextView password;
@@ -95,7 +93,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         }
                     }
                 });
-                post.execute("http://192.168.0.80:8000/?type=register", json);
+                post.execute("http://" + ip + ":8000/?type=register", json);
                 break;
             case R.id.buttonBack:
                 Intent loginIntent = new Intent(this, LoginActivity.class);

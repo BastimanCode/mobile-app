@@ -14,7 +14,7 @@ import java.net.URL;
 public class HttpGetRequest extends AsyncTask<String, Void, String> {
     public static final String REQUEST_METHOD = "GET";
     public static final int READ_TIMEOUT = 15000;
-    public static final int CONNECTION_TIMEOUT = 15000;
+    public static final int CONNECTION_TIMEOUT = 5000;
 
     @Override
     protected String doInBackground(String... params){

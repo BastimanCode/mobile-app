@@ -1,6 +1,5 @@
 package com.example.strategiespielapp;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -9,9 +8,17 @@ import android.os.Bundle;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
-public class ResearchActivity extends AppCompatActivity {
+public class ResearchActivity extends BaseActivity {
+
+    int playerID;
+    int planetID;
 
     private ArrayList<String> mHeadlines = new ArrayList<>();
     private ArrayList<Integer> mLevels = new ArrayList<>();
@@ -26,6 +33,29 @@ public class ResearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_research);
 
+        String fileName = "accountData.json";
+        try {
+            FileInputStream fis = openFileInput(fileName);
+            InputStreamReader inputStreamReader = new InputStreamReader(fis, StandardCharsets.UTF_8);
+            StringBuilder stringBuilder = new StringBuilder();
+            try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
+                String line = reader.readLine();
+                while (line != null) {
+                    stringBuilder.append(line).append('\n');
+                    line = reader.readLine();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                String content = stringBuilder.toString();
+                Gson gson = new GsonBuilder().create();
+                Account account = gson.fromJson(content, Account.class);
+                playerID = account.id;
+                planetID = account.planet_id;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         HttpGetRequest get = new HttpGetRequest();
         get.setUpdateListener(new HttpGetRequest.OnUpdateListener() {
@@ -44,7 +74,7 @@ public class ResearchActivity extends AppCompatActivity {
                 mLevels.add(research.armor);
             }
         });
-        get.execute("http://192.168.0.80:8000/?type=research&playerid=1");
+        get.execute("http://" + ip + ":8000/?type=research&playerid=" + playerID);
 
         HttpGetRequest researchdata = new HttpGetRequest();
         researchdata.setUpdateListener(new HttpGetRequest.OnUpdateListener() {
@@ -65,7 +95,7 @@ public class ResearchActivity extends AppCompatActivity {
 
             }
         });
-        researchdata.execute("http://192.168.0.80:8000/?type=researches");
+        researchdata.execute("http://" + ip + ":8000/?type=researches");
 
     }
 

@@ -37,13 +37,14 @@ function databasePost(connection, queries, data, planet){
     var time = new Date();
     switch(queryobject.type){
         case "login":
-            string = "SELECT * FROM account where email = '" + data.email + "' and password = '" + data.password + "'";
+            string = "UPDATE account SET last_online = " + time.getTime() + " WHERE email = '" + data.email + "';" +
+            " SELECT account.id, account.email, account.username, account.password, account.last_online, planet.id AS planet_id FROM account JOIN planet ON account.id = planet.Account_id WHERE account.email = '" + data.email + "'";
             break;
         case "register":
             string = "INSERT INTO account (email, username, password, last_online) VALUES ('" + data.email + "', '" + data.username + "', '" + data.password + "', '" + time.getTime() + "');" +
-            " SELECT * FROM account where email = '" + data.email + "' and password = '" + data.password + "';" + 
             " INSERT INTO planet (name, size, temperature, x, y, material, electronics, fuel, account_id) VALUES ('placeholder', " + (100 + (Math.random() * 551)) + ", " + ((Math.random() * -50) + (Math.random() *  80)) + ", " + planet.x + ", " + planet.y + ", 500, 500, 300, (SELECT id FROM account WHERE username = '" + data.username + "'));" + 
-            " INSERT INTO research (account_id) VALUES ((SELECT id FROM account WHERE username = '" + data.username + "'))";
+            " INSERT INTO research (account_id) VALUES ((SELECT id FROM account WHERE username = '" + data.username + "'));" + 
+            " SELECT * FROM account where email = '" + data.email + "' and password = '" + data.password + "';";
             break;
     }
     return connection.query(string);

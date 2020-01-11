@@ -5,13 +5,15 @@ public class Account {
     String email;
     String username;
     String password;
-    int lastOnline;
+    long last_online;
+    int planet_id;
 
-    public Account(int id, String email, String username, String password, int lastOnline) {
+    public Account(int id, String email, String username, String password, long last_online, int planet_id) {
         this.id = id;
         this.email = email;
         this.username = username;
         this.password = password;
-        this.lastOnline = lastOnline;
+        this.last_online = last_online;
+        this.planet_id = planet_id;
     }
 }
