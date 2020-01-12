@@ -1,7 +1,7 @@
-id,name
-1,Mine
-2,Fabrik
-3,Bohrinsel
-4,Baustofflager
-5,Elektroniklager
-6,Treibstofftank
+id,name,description
+1,Mine,null
+2,Fabrik,null
+3,Bohrinsel,null
+4,Baustofflager,null
+5,Elektroniklager,null
+6,Treibstofftank,null

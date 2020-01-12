@@ -9,7 +9,9 @@
     android:id="@+id/listitemunits"
     android:layout_marginEnd="20dp"
     android:layout_marginStart="20dp"
-    android:background="@drawable/listitemborder">
+    android:background="@drawable/listitemborder"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true">
 
     <ImageView
         android:id="@+id/UnitImage"
@@ -47,15 +49,33 @@
 
     <Button
         android:id="@+id/build"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="32dp"
         android:layout_marginTop="80dp"
         android:layout_marginRight="2dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:text="@string/build"
+        android:text="@string/build10"
         android:textSize="10sp"
         android:layout_marginEnd="2dp" />
+
+    <Button
+        android:id="@+id/build2"
+        android:layout_width="50dp"
+        android:layout_height="32dp"
+        android:layout_alignTop="@+id/build"
+        android:layout_toStartOf="@+id/build"
+        android:text="@string/build5"
+        android:textSize="10sp" />
+
+    <Button
+        android:id="@+id/build3"
+        android:layout_width="50dp"
+        android:layout_height="32dp"
+        android:layout_alignTop="@+id/build2"
+        android:layout_toStartOf="@+id/build2"
+        android:text="@string/build1"
+        android:textSize="10sp" />
 
     <TextView
         android:id="@+id/description"
@@ -144,15 +164,4 @@
         android:layout_toRightOf="@+id/resource3image"
         android:layout_toEndOf="@+id/resource3image" />
 
-    <EditText
-        android:id="@+id/amountToBuild"
-        android:layout_width="wrap_content"
-        android:layout_height="32dp"
-        android:layout_toStartOf="@+id/build"
-        android:layout_alignBottom="@+id/build"
-        android:textSize="10sp"
-        android:ems="4"
-        android:gravity="center_horizontal"
-        android:inputType="textPersonName"
-        android:hint="@string/amount"/>
 </RelativeLayout>

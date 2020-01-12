@@ -1,8 +1,8 @@
-id,name
-1,Industrie
-2,Laserforschung
-3,Logistik
-4,Antriebsforschung
-5,Waffentechnik
-6,Schildtechnik
-7,Panzerung
+id,name,description
+1,Industrie,null
+2,Laserforschung,null
+3,Logistik,null
+4,Antriebsforschung,null
+5,Waffentechnik,null
+6,Schildtechnik,null
+7,Panzerung,null

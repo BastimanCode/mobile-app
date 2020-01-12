@@ -86,7 +86,6 @@ public class RecyclerViewAdapterResources extends RecyclerView.Adapter<RecyclerV
                         Intent buildingsIntent = new Intent(mContext, ResourcesActivity.class);
                         mContext.startActivity(buildingsIntent);
                     }
-
                 });
                 String fileName = "accountData.json";
                 try {
@@ -111,8 +110,7 @@ public class RecyclerViewAdapterResources extends RecyclerView.Adapter<RecyclerV
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                get.execute("http://" + new BaseActivity().ip + ":8000/?type=build&playerid=" + playerID + "&planetid=" + planetID + "&level=" + mLevels.get(position) + "&buildid=" + (position));
-
+                get.execute("http://" + new BaseActivity().ip + ":8000/?type=buildproduction&playerid=" + playerID + "&planetid=" + planetID + "&level=" + mLevels.get(position) + "&buildid=" + (position));
             }
         });
     }

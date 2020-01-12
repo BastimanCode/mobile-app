@@ -57,4 +57,7 @@
     <string name="amount">Anzahl</string>
     <string name="defenses">Verteidigung</string>
     <string name="UnitImage">Einheitenbild</string>
+    <string name="build1">1</string>
+    <string name="build10">10</string>
+    <string name="build5">5</string>
 </resources>

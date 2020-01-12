@@ -40,16 +40,10 @@ public class MainActivity extends BaseActivity {
             } finally {
                 String content = stringBuilder.toString();
                 Gson gson = new GsonBuilder().create();
-<<<<<<< HEAD
-                AccountPlanet account = gson.fromJson(content, AccountPlanet.class);
-                playerID = account.accountId;
-                planetID = account.planetId;
-                test.setText(playerID + ", " + planetID);
-=======
+
                 Account account = gson.fromJson(content, Account.class);
                 playerID = account.id;
                 planetID = account.planet_id;
->>>>>>> d7b71c16a0b61fc3cf125d64b213df46db7679d5
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -79,12 +73,8 @@ public class MainActivity extends BaseActivity {
                 user.setText(player.username);
             }
         });
-<<<<<<< HEAD
-        get.execute("http://192.168.0.80:8000/?type=refresh&playerid=" + "1" + "&planetid=" + "1");
-=======
-        get.execute("http://" + ip + ":8000/?type=refresh&playerid=" + playerID + "&planetid=" + planetID);
->>>>>>> d7b71c16a0b61fc3cf125d64b213df46db7679d5
 
+        get.execute("http://" + ip + ":8000/?type=refresh&playerid=" + playerID + "&planetid=" + planetID);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }

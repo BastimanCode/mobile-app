@@ -2,7 +2,6 @@ package com.example.strategiespielapp;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,7 +11,7 @@ import com.google.gson.GsonBuilder;
 import java.util.ArrayList;
 
 
-public class DefenseActivity extends AppCompatActivity {
+public class DefenseActivity extends BaseActivity {
 
     private ArrayList<String> mHeadlines = new ArrayList<>();
     private ArrayList<Integer> mAmounts = new ArrayList<>();
@@ -43,7 +42,7 @@ public class DefenseActivity extends AppCompatActivity {
                 initImageBitmaps();
             }
         });
-        researchdata.execute("http://192.168.0.80:8000/?type=defense");
+        researchdata.execute("http://" + ip + ":8000/?type=defense");
     }
 
     private void initImageBitmaps() {

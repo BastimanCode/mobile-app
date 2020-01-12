@@ -1,18 +1,32 @@
 package com.example.strategiespielapp;
 
 import android.content.Context;
-        import android.view.LayoutInflater;
-        import android.view.View;
-        import android.view.ViewGroup;
-        import android.widget.Button;
-        import android.widget.ImageView;
-        import android.widget.RelativeLayout;
-        import android.widget.TextView;
-        import androidx.annotation.NonNull;
-        import androidx.recyclerview.widget.RecyclerView;
-        import java.util.ArrayList;
+import android.content.Intent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
-public class RecyclerViewAdapterBuildings extends RecyclerView.Adapter<RecyclerViewAdapterBuildings.ViewHolder>{
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+
+public class RecyclerViewAdapterBuildings extends RecyclerView.Adapter<RecyclerViewAdapterBuildings.ViewHolder> {
+
+    int playerID;
+    int planetID;
 
     private static final String TAG = "RecyclerViewAdapterBuildings";
 
@@ -39,13 +53,13 @@ public class RecyclerViewAdapterBuildings extends RecyclerView.Adapter<RecyclerV
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.buildings_listitem,parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.buildings_listitem, parent, false);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.buildingImage.setImageResource(mImages.get(position));
 
         holder.headline.setText(mHeadlines.get(position));
@@ -62,9 +76,41 @@ public class RecyclerViewAdapterBuildings extends RecyclerView.Adapter<RecyclerV
 
         holder.build.setText("Bauen");
         holder.build.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                //HTTP-Request an Server zum Erforschen
+                HttpGetRequest get = new HttpGetRequest();
+                get.setUpdateListener(new HttpGetRequest.OnUpdateListener() {
+                    @Override
+                    public void onUpdate(String result) {
+                        Intent buildingsIntent = new Intent(mContext, BuildingsActivity.class);
+                        mContext.startActivity(buildingsIntent);
+                    }
+                });
+                String fileName = "accountData.json";
+                try {
+                    FileInputStream fis = mContext.openFileInput(fileName);
+                    InputStreamReader inputStreamReader = new InputStreamReader(fis, StandardCharsets.UTF_8);
+                    StringBuilder stringBuilder = new StringBuilder();
+                    try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
+                        String line = reader.readLine();
+                        while (line != null) {
+                            stringBuilder.append(line).append('\n');
+                            line = reader.readLine();
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } finally {
+                        String content = stringBuilder.toString();
+                        Gson gson = new GsonBuilder().create();
+                        Account account = gson.fromJson(content, Account.class);
+                        playerID = account.id;
+                        planetID = account.planet_id;
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                get.execute("http://" + new BaseActivity().ip + ":8000/?type=build&playerid=" + playerID + "&planetid=" + planetID + "&level=" + mLevels.get(position) + "&buildid=" + (position));
             }
         });
     }
@@ -74,7 +120,7 @@ public class RecyclerViewAdapterBuildings extends RecyclerView.Adapter<RecyclerV
         return mHeadlines.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView headline;
         TextView description;

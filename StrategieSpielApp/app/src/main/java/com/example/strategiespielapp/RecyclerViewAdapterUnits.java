@@ -2,6 +2,8 @@ package com.example.strategiespielapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +16,21 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
+
 public class RecyclerViewAdapterUnits extends RecyclerView.Adapter<RecyclerViewAdapterUnits.ViewHolder>{
+
+    int playerID;
+    int planetID;
 
     private static final String TAG = "RecyclerViewAdapterUnits";
 
@@ -25,19 +39,23 @@ public class RecyclerViewAdapterUnits extends RecyclerView.Adapter<RecyclerViewA
     private ArrayList<String> mHeadlines = new ArrayList<>();
     private ArrayList<String> mDescriptions = new ArrayList<>();
     private ArrayList<Integer> mAmounts = new ArrayList<>();
-    private ArrayList<Integer> mmaterial = new ArrayList<>();
-    private ArrayList<Integer> melectronics = new ArrayList<>();
-    private ArrayList<Integer> mfuel = new ArrayList<>();
+    private ArrayList<Integer> mMaterial = new ArrayList<>();
+    private ArrayList<Integer> mElectronics = new ArrayList<>();
+    private ArrayList<Integer> mFuel = new ArrayList<>();
 
-    public RecyclerViewAdapterUnits(Context mContext, ArrayList<Integer> mImages, ArrayList<String> mHeadlines, ArrayList<String> mDescriptions, ArrayList<Integer> mAmounts, ArrayList<Integer> mmaterial, ArrayList<Integer> melectronics, ArrayList<Integer> mfuel) {
+    String[]mAmountToBuild;
+
+    public RecyclerViewAdapterUnits(Context mContext, ArrayList<Integer> mImages, ArrayList<String> mHeadlines, ArrayList<String> mDescriptions, ArrayList<Integer> mAmounts, ArrayList<Integer> mMaterial, ArrayList<Integer> mElectronics, ArrayList<Integer> mFuel) {
         this.mContext = mContext;
         this.mImages = mImages;
         this.mHeadlines = mHeadlines;
         this.mDescriptions = mDescriptions;
         this.mAmounts = mAmounts;
-        this.mmaterial = mmaterial;
-        this.melectronics = melectronics;
-        this.mfuel = mfuel;
+        this.mMaterial = mMaterial;
+        this.mElectronics = mElectronics;
+        this.mFuel = mFuel;
+
+        mAmountToBuild = new String[mHeadlines.size()];
     }
 
     @NonNull
@@ -56,29 +74,32 @@ public class RecyclerViewAdapterUnits extends RecyclerView.Adapter<RecyclerViewA
         holder.description.setText(mDescriptions.get(position));
         holder.amount.setText(String.valueOf(mAmounts.get(position)));
 
-        holder.resource1cost.setText(String.valueOf(mmaterial.get(position)));
-        holder.resource2cost.setText(String.valueOf(melectronics.get(position)));
-        holder.resource3cost.setText(String.valueOf(mfuel.get(position)));
+        holder.resource1cost.setText(String.valueOf(mMaterial.get(position)));
+        holder.resource2cost.setText(String.valueOf(mElectronics.get(position)));
+        holder.resource3cost.setText(String.valueOf(mFuel.get(position)));
 
         holder.resourceImage1.setImageResource(R.drawable.brick1980_1920);
         holder.resourceImage2.setImageResource(R.drawable.processor2217771_1920);
         holder.resourceImage3.setImageResource(R.drawable.oil696579_1920);
 
-        holder.build.setText("Bauen");
-        holder.build.setOnClickListener(new View.OnClickListener() {
+
+
+        holder.buildTen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HttpGetRequest get = new HttpGetRequest();
-                get.setUpdateListener(new HttpGetRequest.OnUpdateListener() {
-                    @Override
-                    public void onUpdate(String result) {
-                        Intent buildingsIntent = new Intent(mContext, UnitsActivity.class);
-                        mContext.startActivity(buildingsIntent);
-                    }
-
-                });
-                get.execute("http://192.168.0.80:8000/?type=build&playerid=1&planetid=1&level=" + mAmounts.get(position) + "&buildid=" + (position));
-
+                build(10,position);
+            }
+        });
+        holder.buildFive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                build(5,position);
+            }
+        });
+        holder.buildOne.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                build(1,position);
             }
         });
     }
@@ -88,13 +109,18 @@ public class RecyclerViewAdapterUnits extends RecyclerView.Adapter<RecyclerViewA
         return mHeadlines.size();
     }
 
+    public String[] getmAmountToBuild(){
+        return mAmountToBuild;
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView headline;
         TextView description;
         TextView amount;
-        Button build;
-        EditText amountToBuild;
+        Button buildTen;
+        Button buildFive;
+        Button buildOne;
         ImageView unitsimage;
         RelativeLayout parentlayout;
 
@@ -111,8 +137,10 @@ public class RecyclerViewAdapterUnits extends RecyclerView.Adapter<RecyclerViewA
             headline = itemView.findViewById(R.id.name);
             description = itemView.findViewById(R.id.description);
             amount = itemView.findViewById(R.id.amount);
-            build = itemView.findViewById(R.id.build);
-            amountToBuild = itemView.findViewById(R.id.amountToBuild);
+            buildTen = itemView.findViewById(R.id.build);
+            buildFive = itemView.findViewById(R.id.build2);
+            buildOne = itemView.findViewById(R.id.build3);
+
             unitsimage = itemView.findViewById(R.id.UnitImage);
             parentlayout = itemView.findViewById(R.id.listitemunits);
             resource1cost = itemView.findViewById(R.id.resource1cost);
@@ -123,6 +151,45 @@ public class RecyclerViewAdapterUnits extends RecyclerView.Adapter<RecyclerViewA
             resourceImage3 = itemView.findViewById(R.id.resource3image);
         }
     }
+
+    public void build(int number, final int position){
+        HttpGetRequest get = new HttpGetRequest();
+        get.setUpdateListener(new HttpGetRequest.OnUpdateListener() {
+            @Override
+            public void onUpdate(String result) {
+                Intent unitsIntent = new Intent(mContext, UnitsActivity.class);
+                mContext.startActivity(unitsIntent);
+
+            }
+
+        });
+        String fileName = "accountData.json";
+        try {
+            FileInputStream fis = mContext.openFileInput(fileName);
+            InputStreamReader inputStreamReader = new InputStreamReader(fis, StandardCharsets.UTF_8);
+            StringBuilder stringBuilder = new StringBuilder();
+            try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
+                String line = reader.readLine();
+                while (line != null) {
+                    stringBuilder.append(line).append('\n');
+                    line = reader.readLine();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                String content = stringBuilder.toString();
+                Gson gson = new GsonBuilder().create();
+                Account account = gson.fromJson(content, Account.class);
+                playerID = account.id;
+                planetID = account.planet_id;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        get.execute("http://" + new BaseActivity().ip + ":8000/?type=shipbuild&playerid=" + playerID + "&planetid=" + planetID + "&amount=" + mAmounts.get(position) + "&buildid=" + (position) + "&amounttobuild=" + number);
+
+    }
+
 }
 
 

@@ -1,5 +1,5 @@
-id,name
-1,Schiffswerft
-2,Forschungslabor
-3,Cyborgfabrik
-4,Kraftwerk
+id,name,description
+1,Schiffswerft,null
+2,Forschungslabor,null
+3,Cyborgfabrik,null
+4,Kraftwerk,null

@@ -5,7 +5,7 @@ const queries = require('./query');
 
 let server = null;
 
-const hostname = '192.168.178.25';
+const hostname = '192.168.0.80';
 const port = 8000;
 
 var resourcelist;
@@ -15,7 +15,7 @@ var shipdata;
 var defensedata;
 var defenderwon;
 
-function buildings(number){
+function productionbuildings(number){
   switch(number){
     case "0":
       return "mine";
@@ -29,6 +29,80 @@ function buildings(number){
       return "electronicstorage";
     case "5":
       return "fueltank";
+  }
+}
+
+function buildings(number){
+  switch(number){
+    case "0":
+      return "spaceshipyard";
+    case "1":
+      return "researchfacility";
+    case "2":
+      return "cyborgfactory";
+    case "3":
+      return "powerplant";
+  }
+}
+
+function defense(number){
+  switch(number){
+    case "0":
+      return "rocketlauncher";
+    case "1":
+      return "lasergun";
+    case "2":
+      return "iongun";
+    case "3":
+      return "shockwavecannon";
+    case "4":
+      return "plasmacannon";
+    case "5":
+      return "antimatterradiator";
+    case "6":
+      return "spacemines";
+    case "7":
+      return "planetshield";
+  }
+}
+
+function ships(number){
+  switch(number){
+    case "0":
+      return "scout";
+    case "1":
+      return "hunter";
+    case "2":
+      return "cruiser";
+    case "3":
+      return "battleship";
+    case "4":
+      return "destroyer";
+    case "5":
+      return "bomber";
+    case "6":
+      return "mothership";
+    case "7":
+      return "colonisationship";
+  }
+}
+
+function researches(number){
+  switch(number){
+    case "0":
+      return "industry";
+    case "1":
+      return "laser";
+    case "2":
+      return "logistics";
+    case "3":
+      return "engine";
+    case "4":
+      return "weapon";
+    case "5":
+      return "shield";
+    case "6":
+      return "armor";
   }
 }
 
@@ -46,7 +120,7 @@ mysql.createConnection({
 .then( con => {
   SetupServer(con);
 
-  con.query("SELECT production.name, productiondata.level, productiondata.output, productiondata.material, productiondata.electronics, productiondata.fuel FROM production JOIN productiondata ON production.id = productiondata.Production_id")
+  con.query("SELECT production.name, production.description, productiondata.level, productiondata.output, productiondata.material, productiondata.electronics, productiondata.fuel FROM production JOIN productiondata ON production.id = productiondata.Production_id")
   .then(array => {
     resourcelist = array;
   })
@@ -57,6 +131,22 @@ mysql.createConnection({
   con.query("SELECT * FROM shipdata")
   .then(array => {
     shipdata = array;
+  })
+  .error(e =>{
+    console.log(e);
+  });
+
+  con.query("SELECT * FROM researchdata")
+  .then(array => {
+    researchlist = array;
+  })
+  .error(e =>{
+    console.log(e);
+  });
+
+  con.query("SELECT buildings.name, buildings.description, buildingsdata.level, buildingsdata.material, buildingsdata.electronics, buildingsdata.fuel FROM buildingsdata JOIN buildings ON buildings.id = buildingsdata.buildings_id")
+  .then(array => {
+    buildingslist = array;
   })
   .error(e =>{
     console.log(e);
@@ -95,7 +185,6 @@ function SetupServer(connection) {
         .then(e => {
           if(queryObject.type == "refresh"){
             let time = new Date();
-            console.log(e);
             changed = e[0].material;
             e[0].material = Math.round (e[0].material + ((time.getTime() - e[0].last_online)/3600000 * resourcelist[e[0].mine].output));
             e[0].electronics = Math.round (e[0].electronics + ((time.getTime() - e[0].last_online)/3600000*resourcelist[e[0].factory +26].output));
@@ -105,6 +194,17 @@ function SetupServer(connection) {
               connection.query("UPDATE account set last_online = " + time.getTime() + " WHERE id = 1");
             }
           } else if(queryObject.type == "build"){
+            costm = buildingslist[parseInt((queryObject.buildid * 11)) + parseInt(queryObject.level)].material;
+            coste = buildingslist[parseInt((queryObject.buildid * 11)) + parseInt(queryObject.level)].electronics;
+            costf = buildingslist[parseInt((queryObject.buildid * 11)) + parseInt(queryObject.level)].fuel;
+            if(costm > e[0].material || coste > e[0].electronics || costf > e[0].fuel){
+              response.writeHead(400);
+              response.end();
+            } else{        
+              connection.query("UPDATE planet SET material = " + (e[0].material - costm) + ", electronics = " + (e[0].electronics - coste) + ", fuel = " + (e[0].fuel - costf) + " WHERE id = " + queryObject.planetid + " AND Account_id = " + queryObject.playerid);
+              connection.query("UPDATE planet SET " + buildings(queryObject.buildid) + " = " + (parseInt(queryObject.level) + 1) + " WHERE id = " + queryObject.planetid + " AND Account_id = " + queryObject.playerid);
+            }
+          } else if(queryObject.type == "buildproduction"){
             costm = resourcelist[parseInt((queryObject.buildid * 26)) + parseInt(queryObject.level)].material;
             coste = resourcelist[parseInt((queryObject.buildid * 26)) + parseInt(queryObject.level)].electronics;
             costf = resourcelist[parseInt((queryObject.buildid * 26)) + parseInt(queryObject.level)].fuel;
@@ -113,9 +213,43 @@ function SetupServer(connection) {
               response.end();
             } else{        
               connection.query("UPDATE planet SET material = " + (e[0].material - costm) + ", electronics = " + (e[0].electronics - coste) + ", fuel = " + (e[0].fuel - costf) + " WHERE id = " + queryObject.planetid + " AND Account_id = " + queryObject.playerid);
-              connection.query("UPDATE planet SET " + buildings(queryObject.buildid) + " = " + (parseInt(queryObject.level) + 1) + " WHERE id = " + queryObject.planetid + " AND Account_id = " + queryObject.playerid);
+              connection.query("UPDATE planet SET " + productionbuildings(queryObject.buildid) + " = " + (parseInt(queryObject.level) + 1) + " WHERE id = " + queryObject.planetid + " AND Account_id = " + queryObject.playerid);
             }
-            
+          } else if(queryObject.type == "researching"){
+            costm = researchlist[parseInt((queryObject.buildid * 11)) + parseInt(queryObject.level)].material;
+            coste = researchlist[parseInt((queryObject.buildid * 11)) + parseInt(queryObject.level)].electronics;
+            costf = researchlist[parseInt((queryObject.buildid * 11)) + parseInt(queryObject.level)].fuel;
+            if(costm > e[0].material || coste > e[0].electronics || costf > e[0].fuel){
+              response.writeHead(400);
+              response.end();
+            } else{        
+              connection.query("UPDATE planet SET material = " + (e[0].material - costm) + ", electronics = " + (e[0].electronics - coste) + ", fuel = " + (e[0].fuel - costf) + " WHERE id = " + queryObject.planetid + " AND Account_id = " + queryObject.playerid);
+              console.log("UPDATE research SET " + researches(queryObject.buildid) + " = " + (parseInt(queryObject.level) + 1) + " WHERE account_id = " + queryObject.playerid);
+              connection.query("UPDATE research SET " + researches(queryObject.buildid) + " = " + (parseInt(queryObject.level) + 1) + " WHERE account_id = " + queryObject.playerid);
+            }
+          } else if(queryObject.type == "defensebuild"){
+            costm = defensepricelist[parseInt(queryObject.buildid)].material * parseInt(queryObject.amounttobuild);
+            coste = defensepricelist[parseInt(queryObject.buildid)].electronics * parseInt(queryObject.amounttobuild);
+            costf = defensepricelist[parseInt(queryObject.buildid)].fuel * parseInt(queryObject.amounttobuild);
+            if(costm > e[0].material || coste > e[0].electronics || costf > e[0].fuel){
+              response.writeHead(400);
+              response.end();
+            } else{        
+              connection.query("UPDATE planet SET material = " + (e[0].material - costm) + ", electronics = " + (e[0].electronics - coste) + ", fuel = " + (e[0].fuel - costf) + " WHERE id = " + queryObject.planetid + " AND Account_id = " + queryObject.playerid);
+              connection.query("UPDATE planet SET " + defense(queryObject.buildid) + " = " + (parseInt(queryObject.amount) + parseInt(queryObject.amounttobuild)) + " WHERE id = " + queryObject.planetid + " AND Account_id = " + queryObject.playerid);
+            }
+          } else if(queryObject.type == "shipbuild"){
+            console.log(queryObject);
+            costm = shipdata[parseInt(queryObject.buildid)].material * parseInt(queryObject.amounttobuild);
+            coste = shipdata[parseInt(queryObject.buildid)].electronics * parseInt(queryObject.amounttobuild);
+            costf = shipdata[parseInt(queryObject.buildid)].fuel * parseInt(queryObject.amounttobuild);
+            if(costm > e[0].material || coste > e[0].electronics || costf > e[0].fuel){
+              response.writeHead(400);
+              response.end();
+            } else{        
+              connection.query("UPDATE planet SET material = " + (e[0].material - costm) + ", electronics = " + (e[0].electronics - coste) + ", fuel = " + (e[0].fuel - costf) + " WHERE id = " + queryObject.planetid + " AND Account_id = " + queryObject.playerid);
+              connection.query("UPDATE planet SET " + ships(queryObject.buildid) + " = " + (parseInt(queryObject.amount) + parseInt(queryObject.amounttobuild)) + " WHERE id = " + queryObject.planetid + " AND Account_id = " + queryObject.playerid);
+            }
           } else if(queryObject.type == "attack"){
             connection.query("SELECT scout, hunter, cruiser, battleship, destroyer, bomber, mothership, colonisationship FROM planet WHERE id = " + queryObject.planetid)
             .then(result => {
@@ -141,6 +275,7 @@ function SetupServer(connection) {
               })
             })            
           }
+          //console.log(JSON.stringify(e));
           response.writeHead(200, {'Content-Type': 'application/json'})
           response.end(JSON.stringify(e));
         });
@@ -153,7 +288,6 @@ function SetupServer(connection) {
         }).on('end', () => {
           body = Buffer.concat(body).toString();
           body = JSON.parse(body);
-          //console.log(body);
           for(let i = 0; i < givennames.length; i++){
             if(givennames[i].username == body.username){
               nameerror = true;
@@ -166,7 +300,6 @@ function SetupServer(connection) {
             }
             queries.databasePost(connection, queryObject, body, coordinates)
             .then(e => {              
-              //console.log(e);
               if(e[0] == null) {
                 response.writeHead(400);
                 response.end();

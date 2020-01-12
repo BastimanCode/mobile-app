@@ -83,11 +83,12 @@ public class ResearchActivity extends BaseActivity {
                 Gson gson = new GsonBuilder().create();
                 ResearchData[] researchData = gson.fromJson(result, ResearchData[].class);
                 for (int i = 0;i < 7; i++){
+
                     mHeadlines.add(researchData[i * 11 + 1].name);
                     mmaterial.add(researchData[i * 11 + mLevels.get(i)].material);
                     melectronics.add(researchData[i * 11 + mLevels.get(i)].electronics);
                     mfuel.add(researchData[i * 11 + mLevels.get(i)].fuel);
-                    mDescriptions.add("hi" + i);
+                    mDescriptions.add(researchData[i * 11 + mLevels.get(i)].description);
 
                     initImageBitmaps();
 
