@@ -1,7 +1,10 @@
 package com.example.strategiespielapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -23,6 +26,9 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Übersicht");
 
         String fileName = "accountData.json";
         try {
@@ -73,9 +79,27 @@ public class MainActivity extends BaseActivity {
             }
         });
         get.execute("http://" + ip + ":8000/?type=refresh&playerid=" + playerID + "&planetid=" + planetID);
+    }
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+    @Override
+    public void onBackPressed() {
+        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+        alertDialog.setTitle("Beenden");
+        alertDialog.setMessage("Soll das Spiel beendet werden?");
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "JA",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        finishAffinity();
+                    }
+                });
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "NEIN",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+            }
+        });
+        alertDialog.show();
     }
 }
 

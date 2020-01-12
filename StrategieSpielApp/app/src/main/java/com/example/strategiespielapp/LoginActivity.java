@@ -121,7 +121,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 String emailS = email.getText().toString();
                 String passwordS = password.getText().toString();
                 json = "{ \"email\": \"" + emailS + "\", \"password\": \"" + passwordS + "\" }";
-                //JsonObject jsonObject = new JsonParser().parse(json).getAsJsonObject();
 
                 HttpPostRequest post = new HttpPostRequest();
                 post.setUpdateListener(new HttpPostRequest.OnUpdateListener() {
@@ -144,33 +143,44 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                             int end = result.indexOf(']') + 1;
                             result = result.substring(start, end);
 
-                            Gson gson = new GsonBuilder().create();
-                            Account[] accounts = gson.fromJson(result, Account[].class);
-                            Account account = accounts[0];
+                            if (result.equals("[]")) {
+                                alertDialog.setTitle("Login");
+                                alertDialog.setMessage("Login fehlgeschlagen!");
+                                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                dialog.dismiss();
+                                            }
+                                        });
+                                alertDialog.show();
+                            } else {
+                                Gson gson = new GsonBuilder().create();
+                                Account[] accounts = gson.fromJson(result, Account[].class);
+                                Account account = accounts[0];
 
-                            //bessere Alternative: createTempfile("accountData", "json", context.getCacheDir()) ?
-                            String fileName = "accountData.json";
-                            c.deleteFile(fileName);
-                            String fileContent = gson.toJson(account, Account.class);
-                            try {
-                                FileOutputStream fos = openFileOutput(fileName, Context.MODE_PRIVATE);
-                                fos.write(fileContent.getBytes());
-                                fos.close();
-                            } catch (IOException e) {
-                                e.printStackTrace();
+                                String fileName = "accountData.json";
+                                c.deleteFile(fileName);
+                                String fileContent = gson.toJson(account, Account.class);
+                                try {
+                                    FileOutputStream fos = openFileOutput(fileName, Context.MODE_PRIVATE);
+                                    fos.write(fileContent.getBytes());
+                                    fos.close();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+
+                                alertDialog.setTitle("Login");
+                                alertDialog.setMessage("Login Erfolgreich!");
+                                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                Intent mainIntent = new Intent(c, MainActivity.class);
+                                                startActivity(mainIntent);
+                                                dialog.dismiss();
+                                            }
+                                        });
+                                alertDialog.show();
                             }
-
-                            alertDialog.setTitle("Login");
-                            alertDialog.setMessage("Login Erfolgreich!");
-                            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
-                                    new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            Intent mainIntent = new Intent(c, MainActivity.class);
-                                            startActivity(mainIntent);
-                                            dialog.dismiss();
-                                        }
-                                    });
-                            alertDialog.show();
                         }
                     }
                 });
@@ -185,6 +195,26 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             default:
                 break;
         }
+    }
+    @Override
+    public void onBackPressed() {
+        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+        alertDialog.setTitle("Beenden");
+        alertDialog.setMessage("Soll das Spiel beendet werden?");
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "JA",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        finishAffinity();
+                    }
+                });
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "NEIN",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog.show();
     }
 
 }

@@ -1,8 +1,10 @@
 package com.example.strategiespielapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -81,9 +83,25 @@ public class PopupMenuFragment extends Fragment implements PopupMenu.OnMenuItemC
                 startActivity(galaxyIntent);
                 return true;
             case R.id.logout:
-                getContext().deleteFile("accountData.json");
-                Intent loginIntent = new Intent(getActivity(), LoginActivity.class);
-                startActivity(loginIntent);
+                AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
+                alertDialog.setTitle("Ausloggen");
+                alertDialog.setMessage("Wirklich ausloggen?");
+                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "JA",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                getContext().deleteFile("accountData.json");
+                                Intent loginIntent = new Intent(getActivity(), LoginActivity.class);
+                                startActivity(loginIntent);
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "NEIN",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.show();
             default:
                 return false;
         }

@@ -1,8 +1,10 @@
 package com.example.strategiespielapp;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.gson.Gson;
@@ -32,6 +34,9 @@ public class BuildingsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buildings);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Gebäude");
 
         String fileName = "accountData.json";
         try {
@@ -107,5 +112,10 @@ public class BuildingsActivity extends BaseActivity {
         RecyclerViewAdapterBuildings adapter = new RecyclerViewAdapterBuildings(this,mImageURLs, mHeadlines, mDescriptions, mLevels, mmaterial, melectronics, mfuel);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+    @Override
+    public void onBackPressed() {
+        Intent overviewIntent = new Intent(this, MainActivity.class);
+        startActivity(overviewIntent);
     }
 }
