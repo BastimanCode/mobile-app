@@ -1,7 +1,7 @@
 id,name,description
-1,Mine,null
-2,Fabrik,null
-3,Bohrinsel,null
-4,Baustofflager,null
-5,Elektroniklager,null
-6,Treibstofftank,null
+1,Mine,Hier werden Baustoffe abgebaut. Verbesserung erhöht die Abbaurate.
+2,Fabrik,In der Fabrik wird Elektronik hergestellt. Durch Aufwerten kann die Produktionsrate verbessert werden.
+3,Bohrinsel,Auf der Bohrinsel wird Treibstoff gefördert. Die Förderrate wird durch Verbesserung erhöht.
+4,Baustofflager,In diesem Lager werden Baustoffe aufbewahrt. Durch Verbesserung erhöht sich die Kapazität.
+5,Elektroniklager,Hier wird Elektronik gelagert. Die Kapazität wird durch Verbesserung erhöht.
+6,Treibstofftank,Dient zur Lagerung von Treibstoff. Durch Aufwertung wird die Kapazität vergrößert.

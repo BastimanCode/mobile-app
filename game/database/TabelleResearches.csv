@@ -1,8 +1,8 @@
 id,name,description
-1,Industrie,null
-2,Laserforschung,null
-3,Logistik,null
-4,Antriebsforschung,null
-5,Waffentechnik,null
-6,Schildtechnik,null
-7,Panzerung,null
+1,Industrie,Innovationen in der Erforschung von Industrie erhöhen die Geschwindigkeit mit der Ressourcen produzierende Gebäude aufgewertet werden.
+2,Laserforschung,Durch Fortschritte in der Lasertechnik können neue Raumschiffe mit besseren Waffensystemen gebaut werden.
+3,Logistik,Automatisierung der Lager verbessert deren Effizienz. Vergrößert die maximale Kapazität aller Lager.
+4,Antriebsforschung,Die Erforschung der Effizienten Nutzung von Treibstoff ermöglicht die Herstellung neuer Raumschiffe.
+5,Waffentechnik,Der Waffenschaden aller Raumschiffe wird durch die Erforschung neuer Waffentechnologien erhöht.
+6,Schildtechnik,Verbessert die Schilde aller Raumschiffe durch effizientere Nutzung von Energie.
+7,Panzerung,Die maximalen Trefferpunkte aller Raumschiffe werden durch die Optimierung der Baupläne vergrößert.

@@ -1,5 +1,5 @@
 id,name,description
-1,Schiffswerft,null
-2,Forschungslabor,null
-3,Cyborgfabrik,null
-4,Kraftwerk,null
+1,Schiffswerft,In der Schiffswerft werden Raumschiffe gebaut. Verbesserung führt zu kürzeren Bauzeiten.
+2,Forschungslabor,Investition in das Forschungslabor erhöht die Geschwindigkeit in der Forschungen abgeschlossen werden.
+3,Cyborgfabrik,Durch die Verbesserung von Arbeitskräften mit Implantaten wird die Baurate von Gebäuden erhöht.
+4,Kraftwerk,Durch Verbesserung der Energieversorgung erhöht sich die Produktionsrate der Mine Fabrik und Bohrinsel.
