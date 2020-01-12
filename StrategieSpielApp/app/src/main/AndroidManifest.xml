@@ -20,6 +20,7 @@
         <activity android:name=".ResearchActivity" />
         <activity android:name=".ResourcesActivity" />
         <activity android:name=".BuildingsActivity" />
+        <activity android:name=".DefenseActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

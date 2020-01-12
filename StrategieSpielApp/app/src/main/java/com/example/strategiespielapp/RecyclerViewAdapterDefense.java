@@ -24,12 +24,12 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 
-public class RecyclerViewAdapterUnits extends RecyclerView.Adapter<RecyclerViewAdapterUnits.ViewHolder>{
+public class RecyclerViewAdapterDefense extends RecyclerView.Adapter<RecyclerViewAdapterDefense.ViewHolder>{
 
     int playerID;
     int planetID;
 
-    private static final String TAG = "RecyclerViewAdapterUnits";
+    private static final String TAG = "RecyclerViewAdapterDefense";
 
     private Context mContext;
     private ArrayList<Integer> mImages = new ArrayList<>();
@@ -40,7 +40,7 @@ public class RecyclerViewAdapterUnits extends RecyclerView.Adapter<RecyclerViewA
     private ArrayList<Integer> mElectronics = new ArrayList<>();
     private ArrayList<Integer> mFuel = new ArrayList<>();
 
-    public RecyclerViewAdapterUnits(Context mContext, ArrayList<Integer> mImages, ArrayList<String> mHeadlines, ArrayList<String> mDescriptions, ArrayList<Integer> mAmounts, ArrayList<Integer> mMaterial, ArrayList<Integer> mElectronics, ArrayList<Integer> mFuel) {
+    public RecyclerViewAdapterDefense(Context mContext, ArrayList<Integer> mImages, ArrayList<String> mHeadlines, ArrayList<String> mDescriptions, ArrayList<Integer> mAmounts, ArrayList<Integer> mMaterial, ArrayList<Integer> mElectronics, ArrayList<Integer> mFuel) {
         this.mContext = mContext;
         this.mImages = mImages;
         this.mHeadlines = mHeadlines;
@@ -147,8 +147,8 @@ public class RecyclerViewAdapterUnits extends RecyclerView.Adapter<RecyclerViewA
         get.setUpdateListener(new HttpGetRequest.OnUpdateListener() {
             @Override
             public void onUpdate(String result) {
-                Intent unitsIntent = new Intent(mContext, UnitsActivity.class);
-                mContext.startActivity(unitsIntent);
+                Intent defenseIntent = new Intent(mContext, DefenseActivity.class);
+                mContext.startActivity(defenseIntent);
 
             }
 
@@ -176,7 +176,7 @@ public class RecyclerViewAdapterUnits extends RecyclerView.Adapter<RecyclerViewA
         } catch (IOException e) {
             e.printStackTrace();
         }
-        get.execute("http://" + new BaseActivity().ip + ":8000/?type=shipbuild&playerid=" + playerID + "&planetid=" + planetID + "&amount=" + mAmounts.get(position) + "&buildid=" + (position) + "&amounttobuild=" + number);
+        get.execute("http://" + new BaseActivity().ip + ":8000/?type=defensebuild&playerid=" + playerID + "&planetid=" + planetID + "&amount=" + mAmounts.get(position) + "&buildid=" + (position) + "&amounttobuild=" + number);
 
     }
 

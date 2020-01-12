@@ -78,11 +78,8 @@ public class MainActivity extends BaseActivity {
                 user.setText(player.username);
             }
         });
-
         get.execute("http://" + ip + ":8000/?type=refresh&playerid=" + playerID + "&planetid=" + planetID);
         setSupportActionBar(toolbar);
-
-        get.execute("http://" + ip + ":8000/?type=refresh&playerid=" + playerID + "&planetid=" + planetID);
     }
 
     @Override

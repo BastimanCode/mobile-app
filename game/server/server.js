@@ -12,6 +12,7 @@ var resourcelist;
 var freeplanets;
 var givennames;
 var shipdata;
+var defensepricelist;
 var defensedata;
 var defenderwon;
 
@@ -131,6 +132,14 @@ mysql.createConnection({
   con.query("SELECT * FROM shipdata")
   .then(array => {
     shipdata = array;
+  })
+  .error(e =>{
+    console.log(e);
+  });
+
+  con.query("SELECT * FROM defense")
+  .then(array => {
+    defensepricelist = array;
   })
   .error(e =>{
     console.log(e);
@@ -275,7 +284,7 @@ function SetupServer(connection) {
               })
             })            
           }
-          //console.log(JSON.stringify(e));
+          console.log(JSON.stringify(e));
           response.writeHead(200, {'Content-Type': 'application/json'})
           response.end(JSON.stringify(e));
         });

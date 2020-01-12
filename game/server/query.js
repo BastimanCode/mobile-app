@@ -37,8 +37,13 @@ function database(connection, queries){
                 break;          
             case "planets":
                 string = "SELECT * FROM planet JOIN account ON planet.Account_id = account.id"
+                break;
             case "shipdata":
-                string = "SELECT * FROM shipdata"
+                string = "SELECT * FROM shipdata";
+                break;
+            case "defensedata":
+                string = "SELECT * FROM defense";
+                break;
     }
     return connection.query(string);    
 }
