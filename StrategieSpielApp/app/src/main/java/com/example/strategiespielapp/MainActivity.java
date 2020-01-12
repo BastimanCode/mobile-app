@@ -74,12 +74,14 @@ public class MainActivity extends BaseActivity {
                 temperature.setText(player.temperature + "°C");
 
                 position.setText(player.x + ", " + player.y);
-                points.setText("0");
+                int pointsCalc = ((player.material + player.electronics + player.fuel) / 1000) +
+                        ((player.rocketlauncher + player.lasergun + player.iongun + player.shockwavecannon + player.plasmacannon + player.antimatterradiator + player.spacemines + player.planetshield +
+                        player.scout + player.hunter + player.cruiser + player.destroyer + player.battleship + player.bomber + player.mothership + player.colonisationship) / 100);
+                points.setText(String.valueOf(pointsCalc));
                 user.setText(player.username);
             }
         });
         get.execute("http://" + ip + ":8000/?type=refresh&playerid=" + playerID + "&planetid=" + planetID);
-        setSupportActionBar(toolbar);
     }
 
     @Override
