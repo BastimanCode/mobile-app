@@ -3,7 +3,9 @@ package com.example.strategiespielapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.gson.Gson;
@@ -83,5 +85,13 @@ public class UnitsActivity extends AppCompatActivity {
         RecyclerViewAdapterUnits adapter = new RecyclerViewAdapterUnits(this, mImageURLs, mHeadlines, mDescriptions, mAmounts, mmaterial, melectronics, mfuel);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Einheiten");
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent overviewIntent = new Intent(this, MainActivity.class);
+        startActivity(overviewIntent);
     }
 }

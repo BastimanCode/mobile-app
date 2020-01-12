@@ -1,8 +1,10 @@
 package com.example.strategiespielapp;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.gson.Gson;
@@ -25,6 +27,9 @@ public class GalaxyActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_galaxy);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Galaxie");
 
         HttpGetRequest get = new HttpGetRequest();
         get.setUpdateListener(new HttpGetRequest.OnUpdateListener() {
@@ -55,5 +60,11 @@ public class GalaxyActivity extends BaseActivity {
         RecyclerViewAdapterGalaxy adapter = new RecyclerViewAdapterGalaxy(this, mnames, msize, mtemp, mcoords, maccount, mmaterial, melectronics, mfuel);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent overviewIntent = new Intent(this, MainActivity.class);
+        startActivity(overviewIntent);
     }
 }

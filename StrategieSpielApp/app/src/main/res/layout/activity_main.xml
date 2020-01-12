@@ -8,7 +8,8 @@
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar"/>
+        layout="@layout/toolbar" />
+
 
     <fragment
         android:id="@+id/popup_menu_fragment"
@@ -23,9 +24,9 @@
         android:id="@+id/planetname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
         android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
         android:text="@string/planetenname"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/popup_menu_fragment" />
@@ -35,8 +36,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
         android:background="@drawable/listitemborder"
         android:stretchColumns="*"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,18 +51,18 @@
                 android:id="@+id/size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
                 android:paddingTop="5dp"
-                android:text="@string/ov_size"/>
+                android:text="@string/ov_size" />
 
             <TextView
                 android:id="@+id/a_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingRight="5dp"
+                android:layout_gravity="end"
                 android:paddingTop="5dp"
-                android:layout_gravity="end" />
+                android:paddingRight="5dp" />
         </TableRow>
 
         <TableRow
@@ -72,16 +73,16 @@
                 android:id="@+id/temperature"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:layout_marginStart="5dp"
-                android:text="@string/ov_temperature"/>
+                android:layout_marginLeft="5dp"
+                android:text="@string/ov_temperature" />
 
             <TextView
                 android:id="@+id/a_temperature"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingRight="5dp"
-                android:layout_gravity="end" />
+                android:layout_gravity="end"
+                android:paddingRight="5dp" />
         </TableRow>
 
         <TableRow
@@ -92,16 +93,16 @@
                 android:id="@+id/position"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:layout_marginStart="5dp"
-                android:text="@string/ov_position"/>
+                android:layout_marginLeft="5dp"
+                android:text="@string/ov_position" />
 
             <TextView
                 android:id="@+id/a_position"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingRight="5dp"
-                android:layout_gravity="end" />
+                android:layout_gravity="end"
+                android:paddingRight="5dp" />
         </TableRow>
 
         <TableRow
@@ -112,16 +113,16 @@
                 android:id="@+id/points"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:layout_marginStart="5dp"
-                android:text="@string/ov_points"/>
+                android:layout_marginLeft="5dp"
+                android:text="@string/ov_points" />
 
             <TextView
                 android:id="@+id/a_points"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingRight="5dp"
-                android:layout_gravity="end" />
+                android:layout_gravity="end"
+                android:paddingRight="5dp" />
         </TableRow>
 
         <TableRow
@@ -132,17 +133,17 @@
                 android:id="@+id/user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginBottom="5dp"
-                android:layout_marginStart="5dp"
-                android:text="@string/ov_user"/>
+                android:text="@string/ov_user" />
 
             <TextView
                 android:id="@+id/a_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingRight="5dp"
-                android:layout_gravity="end" />
+                android:layout_gravity="end"
+                android:paddingRight="5dp" />
         </TableRow>
     </TableLayout>
 
@@ -150,10 +151,10 @@
         android:id="@+id/under_construction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/under_construction"
-        android:layout_marginLeft="20dp"
         android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
+        android:text="@string/under_construction"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/planet_overview" />
 
@@ -163,9 +164,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginEnd="20dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
         android:background="@drawable/listitemborder"
         android:paddingBottom="5dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -244,10 +245,10 @@
         android:id="@+id/incoming_fleets"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/incoming_fleets"
-        android:layout_marginLeft="20dp"
         android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
+        android:text="@string/incoming_fleets"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
@@ -256,8 +257,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
         android:background="@drawable/listitemborder"
         android:stretchColumns="*"
         app:layout_constraintStart_toStartOf="parent"
@@ -271,9 +272,9 @@
                 android:id="@+id/a1_player"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/no_incoming_attacks"
                 android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp" />
+                android:layout_marginLeft="5dp"
+                android:text="@string/no_incoming_attacks" />
 
             <TextView
                 android:id="@+id/a1_time"

@@ -50,7 +50,7 @@ function databasePost(connection, queries, data, planet){
     switch(queryobject.type){
         case "login":
             string = "UPDATE account SET last_online = " + time.getTime() + " WHERE email = '" + data.email + "';" +
-            " SELECT account.id, account.email, account.username, account.password, account.last_online, planet.id AS planet_id FROM account JOIN planet ON account.id = planet.Account_id WHERE account.email = '" + data.email + "'";
+            " SELECT account.id, account.email, account.username, account.password, account.last_online, planet.id AS planet_id FROM account JOIN planet ON account.id = planet.Account_id WHERE account.email = '" + data.email + "' and password = '" + data.password + "';";
             break;
         case "register":
             string = "INSERT INTO account (email, username, password, last_online) VALUES ('" + data.email + "', '" + data.username + "', '" + data.password + "', '" + time.getTime() + "');" +

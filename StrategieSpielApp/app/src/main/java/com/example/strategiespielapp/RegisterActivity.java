@@ -54,7 +54,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                         if (result.equals("ERROR")) {
                             alertDialog.setTitle("Registrieren");
                             alertDialog.setMessage("Registrieren fehlgeschlagen!");
-                            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
                                     new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
                                             dialog.dismiss();
@@ -66,30 +66,44 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                             int end = result.indexOf(']') + 1;
                             result = result.substring(start, end);
 
-                            Gson gson = new GsonBuilder().create();
-                            Account[] accounts = gson.fromJson(result, Account[].class);
-                            Account account = accounts[0];
+                            if (result.equals("[]")) {
+                                alertDialog.setTitle("Login");
+                                alertDialog.setMessage("Login fehlgeschlagen!");
+                                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                dialog.dismiss();
+                                            }
+                                        });
+                                alertDialog.show();
+                            } else {
 
-                            String fileName = "accountData.json";
-                            String fileContent = gson.toJson(account);
-                            try {
-                                FileOutputStream fos = openFileOutput(fileName, Context.MODE_PRIVATE);
-                                fos.write(fileContent.getBytes());
-                                fos.close();
-                            } catch (IOException e) {
-                                e.printStackTrace();
+
+                                Gson gson = new GsonBuilder().create();
+                                Account[] accounts = gson.fromJson(result, Account[].class);
+                                Account account = accounts[0];
+
+                                String fileName = "accountData.json";
+                                String fileContent = gson.toJson(account);
+                                try {
+                                    FileOutputStream fos = openFileOutput(fileName, Context.MODE_PRIVATE);
+                                    fos.write(fileContent.getBytes());
+                                    fos.close();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                alertDialog.setTitle("Regisrieren");
+                                alertDialog.setMessage("Registrieren Erfolgreich!");
+                                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                Intent mainIntent = new Intent(c, MainActivity.class);
+                                                startActivity(mainIntent);
+                                                dialog.dismiss();
+                                            }
+                                        });
+                                alertDialog.show();
                             }
-                            alertDialog.setTitle("Regisrieren");
-                            alertDialog.setMessage("Registrieren Erfolgreich!");
-                            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                                    new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            Intent mainIntent = new Intent(c, MainActivity.class);
-                                            startActivity(mainIntent);
-                                            dialog.dismiss();
-                                        }
-                                    });
-                            alertDialog.show();
                         }
                     }
                 });
@@ -100,5 +114,25 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 startActivity(loginIntent);
                 break;
         }
+    }
+    @Override
+    public void onBackPressed() {
+        AlertDialog alertDialog = new AlertDialog.Builder(RegisterActivity.this).create();
+        alertDialog.setTitle("Beenden");
+        alertDialog.setMessage("Soll das Spiel beendet werden?");
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "JA",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        finishAffinity();
+                    }
+                });
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "NEIN",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog.show();
     }
 }
