@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class BaseActivity extends AppCompatActivity {
-    String ip = "192.168.0.80";
+    String ip = "192.168.178.25";
 
     public BaseActivity() {}
 

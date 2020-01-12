@@ -5,7 +5,7 @@ const queries = require('./query');
 
 let server = null;
 
-const hostname = '192.168.0.80';
+const hostname = '192.168.178.25';
 const port = 8000;
 
 var resourcelist;

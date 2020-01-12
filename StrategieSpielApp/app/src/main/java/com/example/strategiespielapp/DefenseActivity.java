@@ -46,14 +46,14 @@ public class DefenseActivity extends BaseActivity {
     }
 
     private void initImageBitmaps() {
-        mImageURLs.add(R.drawable.abstract1963838_1920);
-        mImageURLs.add(R.drawable.abstract1963838_1920);
-        mImageURLs.add(R.drawable.abstract1963838_1920);
-        mImageURLs.add(R.drawable.abstract1963838_1920);
-        mImageURLs.add(R.drawable.abstract1963838_1920);
-        mImageURLs.add(R.drawable.abstract1963838_1920);
-        mImageURLs.add(R.drawable.abstract1963838_1920);
-        mImageURLs.add(R.drawable.abstract1963838_1920);
+        mImageURLs.add(R.drawable.rocket);
+        mImageURLs.add(R.drawable.laser);
+        mImageURLs.add(R.drawable.ionen);
+        mImageURLs.add(R.drawable.shockwave);
+        mImageURLs.add(R.drawable.plasma);
+        mImageURLs.add(R.drawable.antimatter);
+        mImageURLs.add(R.drawable.spacemine);
+        mImageURLs.add(R.drawable.shield);
         initRecyclerView();
     }
 
