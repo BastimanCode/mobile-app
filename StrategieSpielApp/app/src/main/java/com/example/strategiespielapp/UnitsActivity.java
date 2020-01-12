@@ -11,9 +11,17 @@ import android.os.Bundle;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class UnitsActivity extends AppCompatActivity {
+
+    int playerID;
+    int planetID;
 
     private ArrayList<String> mHeadlines = new ArrayList<>();
     private ArrayList<Integer> mAmounts = new ArrayList<>();
@@ -28,6 +36,33 @@ public class UnitsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_units);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Einheiten");
+
+        String fileName = "accountData.json";
+        try {
+            FileInputStream fis = openFileInput(fileName);
+            InputStreamReader inputStreamReader = new InputStreamReader(fis, StandardCharsets.UTF_8);
+            StringBuilder stringBuilder = new StringBuilder();
+            try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
+                String line = reader.readLine();
+                while (line != null) {
+                    stringBuilder.append(line).append('\n');
+                    line = reader.readLine();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                String content = stringBuilder.toString();
+                Gson gson = new GsonBuilder().create();
+                Account account = gson.fromJson(content, Account.class);
+                playerID = account.id;
+                planetID = account.planet_id;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         HttpGetRequest ships = new HttpGetRequest();
         ships.setUpdateListener(new HttpGetRequest.OnUpdateListener() {
@@ -46,7 +81,7 @@ public class UnitsActivity extends AppCompatActivity {
                 mAmounts.add(accountPlanets[0].colonisationship);
             }
         });
-        ships.execute("http://192.168.0.80:8000/?type=refresh&playerid=1&planetid=1");
+        ships.execute("http://192.168.0.80:8000/?type=refresh&planetid=" + planetID + "&playerid=" + playerID);
 
         HttpGetRequest get = new HttpGetRequest();
         get.setUpdateListener(new HttpGetRequest.OnUpdateListener() {
@@ -65,7 +100,6 @@ public class UnitsActivity extends AppCompatActivity {
             }
         });
         get.execute("http://192.168.0.80:8000/?type=shipdata");
-        initImageBitmaps();
     }
 
     private void initImageBitmaps() {
