@@ -1,6 +1,7 @@
 package com.example.strategiespielapp;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
@@ -39,6 +41,8 @@ public class RecyclerViewAdapterGalaxy extends RecyclerView.Adapter<RecyclerView
     private ArrayList<Integer> mmaterial = new ArrayList<>();
     private ArrayList<Integer> melectronics = new ArrayList<>();
     private ArrayList<Integer> mfuel = new ArrayList<>();
+
+
 
     public RecyclerViewAdapterGalaxy(Context mContext, ArrayList<String> mnames, ArrayList<Integer> msize, ArrayList<Integer> mtemp, ArrayList<String> mcoords, ArrayList<String> maccount, ArrayList<Integer> mmaterial, ArrayList<Integer> melectronics, ArrayList<Integer> mfuel) {
         this.mContext = mContext;
@@ -77,6 +81,8 @@ public class RecyclerViewAdapterGalaxy extends RecyclerView.Adapter<RecyclerView
         holder.resourceImage3.setImageResource(R.drawable.oil696579_1920);
 
         holder.attack.setText(R.string.attack);
+
+
         holder.attack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,8 +90,6 @@ public class RecyclerViewAdapterGalaxy extends RecyclerView.Adapter<RecyclerView
                 get.setUpdateListener(new HttpGetRequest.OnUpdateListener() {
                     @Override
                     public void onUpdate(String result) {
-                        Intent galaxyIntent = new Intent(mContext, GalaxyActivity.class);
-                        mContext.startActivity(galaxyIntent);
                     }
                 });
                 String fileName = "accountData.json";
@@ -104,9 +108,9 @@ public class RecyclerViewAdapterGalaxy extends RecyclerView.Adapter<RecyclerView
                     } finally {
                         String content = stringBuilder.toString();
                         Gson gson = new GsonBuilder().create();
-                        AccountPlanet account = gson.fromJson(content, AccountPlanet.class);
-                        playerID = account.accountId;
-                        planetID = account.planetId;
+                        Account account = gson.fromJson(content, Account.class);
+                        playerID = account.id;
+                        planetID = account.planet_id;
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

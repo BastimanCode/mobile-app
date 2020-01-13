@@ -75,6 +75,9 @@ public class RecyclerViewAdapterResources extends RecyclerView.Adapter<RecyclerV
         holder.resourceImage2.setImageResource(R.drawable.processor2217771_1920);
         holder.resourceImage3.setImageResource(R.drawable.oil696579_1920);
 
+        if (mLevels.get(position) >= 25) {
+            holder.build.setText("Max Level");
+        }
         holder.build.setText("Bauen");
         holder.build.setOnClickListener(new View.OnClickListener() {
             @Override

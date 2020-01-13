@@ -76,44 +76,48 @@ public class RecyclerViewAdapterResearch extends RecyclerView.Adapter<RecyclerVi
         holder.resourceImage2.setImageResource(R.drawable.processor2217771_1920);
         holder.resourceImage3.setImageResource(R.drawable.oil696579_1920);
 
-        holder.research.setText("Erforschen");
-        holder.research.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                HttpGetRequest get = new HttpGetRequest();
-                get.setUpdateListener(new HttpGetRequest.OnUpdateListener() {
-                    @Override
-                    public void onUpdate(String result) {
-                        Intent buildingsIntent = new Intent(mContext, ResearchActivity.class);
-                        mContext.startActivity(buildingsIntent);
-                    }
-                });
-                String fileName = "accountData.json";
-                try {
-                    FileInputStream fis = mContext.openFileInput(fileName);
-                    InputStreamReader inputStreamReader = new InputStreamReader(fis, StandardCharsets.UTF_8);
-                    StringBuilder stringBuilder = new StringBuilder();
-                    try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
-                        String line = reader.readLine();
-                        while (line != null) {
-                            stringBuilder.append(line).append('\n');
-                            line = reader.readLine();
+        if (mLevels.get(position) >= 10) {
+            holder.research.setText("Max Level");
+        } else {
+            holder.research.setText("Erforschen");
+            holder.research.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    HttpGetRequest get = new HttpGetRequest();
+                    get.setUpdateListener(new HttpGetRequest.OnUpdateListener() {
+                        @Override
+                        public void onUpdate(String result) {
+                            Intent buildingsIntent = new Intent(mContext, ResearchActivity.class);
+                            mContext.startActivity(buildingsIntent);
+                        }
+                    });
+                    String fileName = "accountData.json";
+                    try {
+                        FileInputStream fis = mContext.openFileInput(fileName);
+                        InputStreamReader inputStreamReader = new InputStreamReader(fis, StandardCharsets.UTF_8);
+                        StringBuilder stringBuilder = new StringBuilder();
+                        try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
+                            String line = reader.readLine();
+                            while (line != null) {
+                                stringBuilder.append(line).append('\n');
+                                line = reader.readLine();
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        } finally {
+                            String content = stringBuilder.toString();
+                            Gson gson = new GsonBuilder().create();
+                            Account account = gson.fromJson(content, Account.class);
+                            playerID = account.id;
+                            planetID = account.planet_id;
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
-                    } finally {
-                        String content = stringBuilder.toString();
-                        Gson gson = new GsonBuilder().create();
-                        Account account = gson.fromJson(content, Account.class);
-                        playerID = account.id;
-                        planetID = account.planet_id;
                     }
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    get.execute("http://" + new BaseActivity().ip + ":8000/?type=researching&playerid=" + playerID + "&planetid=" + planetID + "&level=" + mLevels.get(position) + "&buildid=" + (position));
                 }
-                get.execute("http://" + new BaseActivity().ip + ":8000/?type=researching&playerid=" + playerID + "&planetid=" + planetID + "&level=" + mLevels.get(position) + "&buildid=" + (position));
-            }
-        });
+            });
+        }
     }
 
     @Override

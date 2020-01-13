@@ -61,4 +61,7 @@
     <string name="build10">10</string>
     <string name="build5">5</string>
     <string name="username_reg">Benutzername:</string>
+    <string name="usernamePlanet">Planetenname</string>
+    <string name="planetname_reg">Planetenname</string>
+    <string name="planetname_reg_d">Planetenname:</string>
 </resources>

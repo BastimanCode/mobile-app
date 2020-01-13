@@ -20,6 +20,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     TextView email;
     TextView username;
     TextView password;
+    TextView planetname;
     String json;
     Context c = this;
 
@@ -31,6 +32,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         email = findViewById(R.id.enterEmail);
         username = findViewById(R.id.enterUsername);
         password = findViewById(R.id.enterPassword);
+        planetname = findViewById(R.id.enterPlanetname);
 
         Button b = findViewById(R.id.buttonRegister);
         b.setOnClickListener(this);
@@ -43,7 +45,8 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 String emailInput = email.getText().toString();
                 String usernameInput = username.getText().toString();
                 String passwordInput = password.getText().toString();
-                json = "{ \"email\": \"" + emailInput + "\", \"username\": \"" + usernameInput + "\", \"password\": \"" + passwordInput + "\" }";
+                String planetnameInput = planetname.getText().toString();
+                json = "{ \"email\": \"" + emailInput + "\", \"username\": \"" + usernameInput + "\", \"planetname\": \"" + planetnameInput + "\", \"password\": \"" + passwordInput + "\" }";
 
                 HttpPostRequest post = new HttpPostRequest();
                 post.setUpdateListener(new HttpPostRequest.OnUpdateListener() {

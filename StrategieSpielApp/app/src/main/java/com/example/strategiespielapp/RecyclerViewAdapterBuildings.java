@@ -74,45 +74,51 @@ public class RecyclerViewAdapterBuildings extends RecyclerView.Adapter<RecyclerV
         holder.resourceImage2.setImageResource(R.drawable.processor2217771_1920);
         holder.resourceImage3.setImageResource(R.drawable.oil696579_1920);
 
-        holder.build.setText("Bauen");
-        holder.build.setOnClickListener(new View.OnClickListener() {
+        if (mLevels.get(position) >= 10) {
+            holder.build.setText("Max Level");
+        } else {
+            holder.build.setText("Bauen");
 
-            @Override
-            public void onClick(View v) {
-                HttpGetRequest get = new HttpGetRequest();
-                get.setUpdateListener(new HttpGetRequest.OnUpdateListener() {
-                    @Override
-                    public void onUpdate(String result) {
-                        Intent buildingsIntent = new Intent(mContext, BuildingsActivity.class);
-                        mContext.startActivity(buildingsIntent);
-                    }
-                });
-                String fileName = "accountData.json";
-                try {
-                    FileInputStream fis = mContext.openFileInput(fileName);
-                    InputStreamReader inputStreamReader = new InputStreamReader(fis, StandardCharsets.UTF_8);
-                    StringBuilder stringBuilder = new StringBuilder();
-                    try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
-                        String line = reader.readLine();
-                        while (line != null) {
-                            stringBuilder.append(line).append('\n');
-                            line = reader.readLine();
+            holder.build.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    HttpGetRequest get = new HttpGetRequest();
+                    get.setUpdateListener(new HttpGetRequest.OnUpdateListener() {
+                        @Override
+                        public void onUpdate(String result) {
+                            Intent buildingsIntent = new Intent(mContext, BuildingsActivity.class);
+                            mContext.startActivity(buildingsIntent);
+                        }
+                    });
+                    String fileName = "accountData.json";
+                    try {
+                        FileInputStream fis = mContext.openFileInput(fileName);
+                        InputStreamReader inputStreamReader = new InputStreamReader(fis, StandardCharsets.UTF_8);
+                        StringBuilder stringBuilder = new StringBuilder();
+                        try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
+                            String line = reader.readLine();
+                            while (line != null) {
+                                stringBuilder.append(line).append('\n');
+                                line = reader.readLine();
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        } finally {
+                            String content = stringBuilder.toString();
+                            Gson gson = new GsonBuilder().create();
+                            Account account = gson.fromJson(content, Account.class);
+                            playerID = account.id;
+                            planetID = account.planet_id;
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
-                    } finally {
-                        String content = stringBuilder.toString();
-                        Gson gson = new GsonBuilder().create();
-                        Account account = gson.fromJson(content, Account.class);
-                        playerID = account.id;
-                        planetID = account.planet_id;
                     }
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    get.execute("http://" + new BaseActivity().ip + ":8000/?type=build&playerid=" + playerID + "&planetid=" + planetID + "&level=" + mLevels.get(position) + "&buildid=" + (position));
                 }
-                get.execute("http://" + new BaseActivity().ip + ":8000/?type=build&playerid=" + playerID + "&planetid=" + planetID + "&level=" + mLevels.get(position) + "&buildid=" + (position));
-            }
-        });
+            });
+        }
+
     }
 
     @Override

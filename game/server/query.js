@@ -60,7 +60,7 @@ function databasePost(connection, queries, data, planet){
             break;
         case "register":
             string = "INSERT INTO account (email, username, password, last_online) VALUES ('" + data.email + "', '" + data.username + "', '" + data.password + "', '" + time.getTime() + "');" +
-            " INSERT INTO planet (name, size, temperature, x, y, material, electronics, fuel, account_id) VALUES ('placeholder', " + (100 + (Math.random() * 551)) + ", " + ((Math.random() * -50) + (Math.random() *  80)) + ", " + planet.x + ", " + planet.y + ", 500, 500, 300, (SELECT id FROM account WHERE username = '" + data.username + "'));" + 
+            " INSERT INTO planet (name, size, temperature, x, y, material, electronics, fuel, account_id) VALUES ('" + data.planetname + "', " + (100 + (Math.random() * 551)) + ", " + ((Math.random() * -50) + (Math.random() *  80)) + ", " + planet.x + ", " + planet.y + ", 500, 500, 300, (SELECT id FROM account WHERE username = '" + data.username + "'));" + 
             " INSERT INTO research (account_id) VALUES ((SELECT id FROM account WHERE username = '" + data.username + "'));" + 
             " SELECT account.id, account.email, account.username, account.password, account.last_online, planet.id AS planet_id FROM account JOIN planet ON account.id = planet.Account_id WHERE account.email = '" + data.email + "' and password = '" + data.password + "';";            break;
     }
