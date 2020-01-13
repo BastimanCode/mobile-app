@@ -14,37 +14,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RegisterActivity">
-            android:screenOrientation="portrait"
-        </activity>
-        <activity android:name=".GalaxyActivity">
-            android:screenOrientation="portrait"
-        </activity>
-        <activity android:name=".UnitsActivity">
-            android:screenOrientation="portrait"
-        </activity>
-        <activity android:name=".ResearchActivity">
-            android:screenOrientation="portrait"
-        </activity>
-        <activity android:name=".ResourcesActivity">
-            android:screenOrientation="portrait"
-        </activity>
-        <activity android:name=".BuildingsActivity">
-            android:screenOrientation="portrait"
-        </activity>
-        <activity android:name=".DefenseActivity">
-            android:screenOrientation="portrait"
-        </activity>
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".GalaxyActivity" />
+        <activity android:name=".UnitsActivity" />
+        <activity android:name=".ResearchActivity" />
+        <activity android:name=".ResourcesActivity" />
+        <activity android:name=".BuildingsActivity" />
+        <activity android:name=".DefenseActivity" />
         <activity android:name=".LoginActivity">
-            android:screenOrientation="portrait"
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-            android:screenOrientation="portrait"
-        </activity>
+        <activity android:name=".MainActivity"/>
         <activity android:name=".BaseActivity" />
     </application>
 
