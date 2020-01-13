@@ -83,7 +83,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                             Account[] accounts = gson.fromJson(result, Account[].class);
                             Account account = accounts[0];
 
-                            String fileName = "accountData.json";
                             String fileContent = gson.toJson(account);
                             try {
                                 FileOutputStream fos = openFileOutput(fileName, Context.MODE_PRIVATE);

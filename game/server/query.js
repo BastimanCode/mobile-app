@@ -30,7 +30,9 @@ function database(connection, queries){
                 string = "SELECT * FROM account JOIN planet ON account.id = planet.Account_id WHERE account.id = " + queryobject.playerid + " AND planet.id = " + queryobject.planetid;
                 break;
             case "researching":
-                string = "SELECT research.industry, research.laser, research.logistics, research.engine, research.weapon, research.shield, research.armor, account.id, planet.material, planet.electronics, planet.fuel from research join account on account.id = research.account_id join planet on account.id = planet.account_id";
+                string = "SELECT research.industry, research.laser, research.logistics, research.engine, research.weapon, research.shield, research.armor, account.id, planet.material," + 
+                "planet.electronics, planet.fuel from research join account on account.id = research.account_id join planet on account.id = planet.account_id WHERE account.id = "
+                 + queryobject.playerid;
                 break;
             case "attack":
                 string = "SELECT * from planet";
@@ -54,15 +56,13 @@ function databasePost(connection, queries, data, planet){
     var time = new Date();
     switch(queryobject.type){
         case "login":
-            string = "UPDATE account SET last_online = " + time.getTime() + " WHERE email = '" + data.email + "';" +
-            " SELECT account.id, account.email, account.username, account.password, account.last_online, planet.id AS planet_id FROM account JOIN planet ON account.id = planet.Account_id WHERE account.email = '" + data.email + "' and password = '" + data.password + "';";
+            string = " SELECT account.id, account.email, account.username, account.password, account.last_online, planet.id AS planet_id FROM account JOIN planet ON account.id = planet.Account_id WHERE account.email = '" + data.email + "' and password = '" + data.password + "';";
             break;
         case "register":
             string = "INSERT INTO account (email, username, password, last_online) VALUES ('" + data.email + "', '" + data.username + "', '" + data.password + "', '" + time.getTime() + "');" +
             " INSERT INTO planet (name, size, temperature, x, y, material, electronics, fuel, account_id) VALUES ('placeholder', " + (100 + (Math.random() * 551)) + ", " + ((Math.random() * -50) + (Math.random() *  80)) + ", " + planet.x + ", " + planet.y + ", 500, 500, 300, (SELECT id FROM account WHERE username = '" + data.username + "'));" + 
             " INSERT INTO research (account_id) VALUES ((SELECT id FROM account WHERE username = '" + data.username + "'));" + 
-            " SELECT * FROM account where email = '" + data.email + "' and password = '" + data.password + "';";
-            break;
+            " SELECT account.id, account.email, account.username, account.password, account.last_online, planet.id AS planet_id FROM account JOIN planet ON account.id = planet.Account_id WHERE account.email = '" + data.email + "' and password = '" + data.password + "';";            break;
     }
     return connection.query(string);
 }

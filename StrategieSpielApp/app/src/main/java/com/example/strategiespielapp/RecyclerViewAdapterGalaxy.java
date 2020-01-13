@@ -64,7 +64,7 @@ public class RecyclerViewAdapterGalaxy extends RecyclerView.Adapter<RecyclerView
     public void onBindViewHolder(@NonNull RecyclerViewAdapterGalaxy.ViewHolder holder, final int position) {
         holder.name.setText(mnames.get(position));
         holder.account.setText(maccount.get(position));
-        holder.size.setText("Größe: " + msize.get(position) + " km²");
+        holder.size.setText("Größe: " + msize.get(position) + " Mio km²");
         holder.temp.setText("Temperatur: " + mtemp.get(position) + "°C");
         holder.coords.setText("Position: " + mcoords.get(position));
 
@@ -111,8 +111,7 @@ public class RecyclerViewAdapterGalaxy extends RecyclerView.Adapter<RecyclerView
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                get.execute("http://" + new BaseActivity().ip + ":8000/?type=attack&playerid=" + playerID + "&planetid=" + planetID + "&defenderid=" + maccount.get(position));
-                // Dialog öffnen mit entweder win oder lose
+                get.execute("http://" + new BaseActivity().ip + ":8000/?type=attack&playerid=" + playerID + "&planetid=" + planetID + "&defendername=" + mnames.get(position));
             }
         });
     }

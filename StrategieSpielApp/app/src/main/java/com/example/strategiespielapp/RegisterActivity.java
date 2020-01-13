@@ -67,8 +67,8 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                             result = result.substring(start, end);
 
                             if (result.equals("[]")) {
-                                alertDialog.setTitle("Login");
-                                alertDialog.setMessage("Login fehlgeschlagen!");
+                                alertDialog.setTitle("Register");
+                                alertDialog.setMessage("Register fehlgeschlagen!");
                                 alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
                                         new DialogInterface.OnClickListener() {
                                             public void onClick(DialogInterface dialog, int which) {

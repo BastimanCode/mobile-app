@@ -5,7 +5,7 @@ const queries = require('./query');
 
 let server = null;
 
-const hostname = '192.168.178.25';
+const hostname = '192.168.0.80';
 const port = 8000;
 
 var resourcelist;
@@ -13,7 +13,6 @@ var freeplanets;
 var givennames;
 var shipdata;
 var defensepricelist;
-var defensedata;
 var defenderwon;
 
 function productionbuildings(number){
@@ -233,7 +232,6 @@ function SetupServer(connection) {
               response.end();
             } else{        
               connection.query("UPDATE planet SET material = " + (e[0].material - costm) + ", electronics = " + (e[0].electronics - coste) + ", fuel = " + (e[0].fuel - costf) + " WHERE id = " + queryObject.planetid + " AND Account_id = " + queryObject.playerid);
-              console.log("UPDATE research SET " + researches(queryObject.buildid) + " = " + (parseInt(queryObject.level) + 1) + " WHERE account_id = " + queryObject.playerid);
               connection.query("UPDATE research SET " + researches(queryObject.buildid) + " = " + (parseInt(queryObject.level) + 1) + " WHERE account_id = " + queryObject.playerid);
             }
           } else if(queryObject.type == "defensebuild"){
@@ -259,11 +257,16 @@ function SetupServer(connection) {
               connection.query("UPDATE planet SET material = " + (e[0].material - costm) + ", electronics = " + (e[0].electronics - coste) + ", fuel = " + (e[0].fuel - costf) + " WHERE id = " + queryObject.planetid + " AND Account_id = " + queryObject.playerid);
               connection.query("UPDATE planet SET " + ships(queryObject.buildid) + " = " + (parseInt(queryObject.amount) + parseInt(queryObject.amounttobuild)) + " WHERE id = " + queryObject.planetid + " AND Account_id = " + queryObject.playerid);
             }
-          } else if(queryObject.type == "attack"){
+          } else if(queryObject.type == "attack"){            
             connection.query("SELECT scout, hunter, cruiser, battleship, destroyer, bomber, mothership, colonisationship FROM planet WHERE id = " + queryObject.planetid)
-            .then(result => {
-              connection.query("UPDATE planet SET scout = " + (result[0].scout - queryObject.scout) + ", hunter = " + (result[0].hunter - queryObject.hunter) + ", cruiser = " + (result[0].cruiser - queryObject.cruiser) + ", battleship = " + (result[0].battleship  - queryObject.battleship) + ", destroyer = " + (result[0].destroyer - queryObject.destroyer) + ", bomber = " + (result[0].bomber - queryObject.bomber) + ", mothership = " + (result[0].mothership - queryObject.mothership) + ", colonisationship = " + (result[0].colonisationship  - queryObject.colonisationship) + " WHERE id = " + queryObject.planetid);
+            .then(attacker => {
+              connection.query("SELECT scout, hunter, cruiser, battleship, destroyer, bomber, mothership, colonisationship, FROM planet JOIN account ON planet._account_id = account.id WHERE username = " + queryObject.defendername)
+              .then(defender => {
+                defenderwon = simulateFight(attacker, defender);
+                console.log(defenderwon);
+              })
             })
+            /*connection.query("UPDATE planet SET scout = " + (result[0].scout - queryObject.scout) + ", hunter = " + (result[0].hunter - queryObject.hunter) + ", cruiser = " + (result[0].cruiser - queryObject.cruiser) + ", battleship = " + (result[0].battleship  - queryObject.battleship) + ", destroyer = " + (result[0].destroyer - queryObject.destroyer) + ", bomber = " + (result[0].bomber - queryObject.bomber) + ", mothership = " + (result[0].mothership - queryObject.mothership) + ", colonisationship = " + (result[0].colonisationship  - queryObject.colonisationship) + " WHERE id = " + queryObject.planetid);
             connection.query("INSERT INTO fleets (scout, hunter, cruiser, battleship, destroyer, bomber, mothership, colonisationship, destinationplanet, startplanet) VALUES (" + queryObject.scout + ", " + queryObject.hunter + ", " +  queryObject.cruiser + ", " +  queryObject.battleship + ", " +  queryObject.destroyer + ", " +  queryObject.bomber + ", " +  queryObject.mothership + ", " +  queryObject.colonisationship  + ", " + queryObject.destination  + ", " + queryObject.planetid + " )");
             connection.query("SELECT scout, hunter, cruiser, battleship, destroyer, bomber, mothership, colonisationship FROM fleets WHERE startplanet = " + queryObject.planetid)
             .then(attacker => {
@@ -282,9 +285,8 @@ function SetupServer(connection) {
                 }
                 connection.query("DELETE FROM fleets where startplanet = " + queryObject.planetid);                                
               })
-            })            
+            })*/            
           }
-          console.log(JSON.stringify(e));
           response.writeHead(200, {'Content-Type': 'application/json'})
           response.end(JSON.stringify(e));
         });
@@ -355,14 +357,23 @@ function simulateFight(attacker, defender){
     new Spaceship(defender[0].destroyer),
     new Spaceship(defender[0].bomber),
     new Spaceship(defender[0].mothership),
-    new Spaceship(defender[0].colonisationship)
+    new Spaceship(defender[0].colonisationship),
+    new Spaceship(defender[0].rocketlauncher),
+    new Spaceship(defender[0].lasergun),
+    new Spaceship(defender[0].iongun),
+    new Spaceship(defender[0].shockwavecannon),
+    new Spaceship(defender[0].plasmacannon),
+    new Spaceship(defender[0].antimatterradiator),
+    new Spaceship(defender[0].spacemine),
+    new Spaceship(defender[0].planetshield)
   ];
 
   let attackerweapon = getAttack(shipdata, spaceshipsattacker);
   let attackerhitpoints = getHitpoints(shipdata, spaceshipsattacker);
   let attackershield = getShield(shipdata, spaceshipsattacker);
 
-  let defenderweapon = getAttack(shipdata, spaceshipsdefender);
+  console.log(ahipdata + defensepricelist)
+  let defenderweapon = getAttack(shipdata + defensepricelist, spaceshipsdefender);
   let defenderhitpoints = getHitpoints(shipdata, spaceshipsdefender);
   let defendershield = getShield(shipdata, spaceshipsdefender);
 
